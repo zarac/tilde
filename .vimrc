@@ -16,7 +16,7 @@
 "" pathogen / bundle {{{
     " This needs to load first, so all modules are loaded before i use them in .vimrc.
     source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
-    let g:pathogen_disabled=["pastie", "snipmate"]
+    let g:pathogen_disabled=["pastie", "snipmate", "pyrepl"]
     call pathogen#runtime_append_all_bundles()
     call pathogen#helptags()
 "" }}}
@@ -768,6 +768,9 @@
         nmap <silent> ,t/ :set invshellslash<CR>:set shellslash?<CR>
 
         nmap <silent> ,tS :call ZToggleStatusline()<CR>
+
+        "" toggle splitright
+        nmap <silent> ,tz :set splitright!<CR>:set splitright?<CR>
     "" }}}
 
     ""
@@ -1184,7 +1187,7 @@
     "" }}}
 
     if hostname() == "STAN"
-        call HostnameTowelie()
+        call HostnameStan()
     endif
 
     if hostname() == "TOWELIE"
