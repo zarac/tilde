@@ -45,22 +45,23 @@ hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=233 guibg=#101510 cterm=none g
 hi ColorColumn  ctermbg=16 guibg=#000000
 hi CursorColumn                           ctermbg=238 guibg=#444444
 hi Cursor                                 ctermbg=214 guibg=#ffaf00
-hi CursorLine                             ctermbg=237 guibg=#1a2f1a
+hi CursorLine               cterm=none    ctermbg=none guibg=#1a2f1a
+"hi CursorLine                             ctermbg=237 guibg=#1a2f1a
 hi FoldColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=bg  guibg=bg
 "hi Folded       ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
 hi Folded       ctermfg=208 guifg=#ff8700 ctermbg=232  guibg=#080808
 "hi Folded        guibg=#001336 guifg=#003DAD gui=none cterm=none
 hi IncSearch    ctermfg=0   guifg=#000000 ctermbg=223 guibg=#ffdfaf cterm=none gui=none
 hi NonText      ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000  cterm=bold gui=bold
-hi Pmenu        ctermfg=173   guifg=#df875f ctermbg=22 guibg=#1a2f1a
+hi Pmenu        ctermfg=10   guifg=#df875f ctermbg=0 guibg=#1a2f1a
 hi PmenuSbar                              ctermbg=243 guibg=#767676
-hi PmenuSel     ctermfg=191   guifg=#dfff5f ctermbg=234 guibg=#1c1c1c
+hi PmenuSel     ctermfg=12   guifg=#dfff5f ctermbg=0 guibg=#1c1c1c
 hi PmenuThumb                             ctermbg=252 guibg=#d0d0d0
-hi Search       ctermfg=0   guifg=#000000 ctermbg=149 guibg=#afdf5f
+hi Search       ctermfg=none guifg=#000000 ctermbg=12 guibg=#afdf5f
 hi SignColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000
 hi SpecialKey   ctermfg=77  guifg=#5fdf5f
-hi StatusLine   ctermfg=154 guifg=#afff00 ctermbg=22 guibg=#1a2f1a cterm=bold gui=bold
-hi StatusLineNC ctermfg=166 guifg=#df5f00 ctermbg=22 guibg=#1a2f1a cterm=none gui=none
+hi StatusLine   ctermfg=0 guifg=#afff00 ctermbg=11 guibg=#1a2f1a cterm=bold gui=bold
+hi StatusLineNC ctermfg=11 guifg=#df5f00 ctermbg=238 guibg=#1a2f1a cterm=none gui=none
 hi TabLine      ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
 hi TabLineFill  ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
 hi VertSplit    ctermfg=237 guifg=#3a3a3a ctermbg=bg guibg=bg cterm=none gui=none
