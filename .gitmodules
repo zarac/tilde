@@ -73,3 +73,6 @@
 [submodule "vimfiles/bundle/visual_studio"]
 	path = vimfiles/bundle/visual_studio
 	url = https://github.com/vim-scripts/visual_studio.vim.git
+[submodule "vimfiles/bundle/gist"]
+	path = vimfiles/bundle/gist
+	url = https://github.com/vim-scripts/Gist.vim.git
