@@ -98,8 +98,8 @@ PS1="\n  "
 PS1+="$TEAL\u"
 PS1+="$CLEAR@"
 PS1+="$GREEN\h"
-PS1+="$PURPLE"'$(git_branch)'
-PS1+='$(git_changes)'
+#PS1+="$PURPLE"'$(git_branch)'
+#PS1+='$(git_changes)'
 PS1+=" $TEAL\w"
 PS1+="$CLEAR"
 PS1+="\n  "
@@ -145,6 +145,7 @@ alias gl='git log'
 alias glnr='git log --branches --not --remotes=origin'
 alias glnb='git log --remotes=origin --not --branches'
 alias gls='git ls-files'
+#alias glv="git log -p -40 | vim - -R -c 'set foldmethod=syntax'"
 alias ga='git add'
 alias gmv='git mv'
 alias grm='git rm'
