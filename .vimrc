@@ -67,7 +67,7 @@
 
     "" Configuring Vim {{{
 
-        "" ecchomsg will echo messages visible with :messages
+        "" echomsg will echo messages visible with :messages
         "echomsg hostname()
     "" }}}
 
@@ -214,7 +214,6 @@
         " set expandtab...
         " set showfulltag "" Test this... MS IntelliSense like?
         " :h ins-completion
-        " :NERDtreeToggle "" A file explorer plugin.
         " Use "[I" to find the word under teh cursor in included files, or [<Tab> to jump
         " there.
         " Write clean c ommands in a function:
@@ -543,19 +542,28 @@
         "set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
         "set statusline+=%{fugitive#statusline()}
         function! ZToggleStatusline()
-            set statusline=
             if (g:statusMode == 1)
-                set statusline+=%{expand('%:p:h')}
-                let g:statusMode = 0
+                call ZStatuslineShort()
             else
-                let g:statusMode = 1
+                call ZStatuslineLong()
             endif
+        endfunction
+        function! ZStatuslineShort()
+            let g:statusMode = 0
+            set statusline=\ %t\ %M\ %l(%L)\ %c\ %R
+            set statusline+=%{fugitive#statusline()}
+        endfunction
+        function! ZStatuslineLong()
+            call ZStatuslineShort()
+            let g:statusMode = 1
+            set statusline=%{expand('%:p:h')}
             set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
             set statusline+=%{fugitive#statusline()}
         endfunction
         if firstRun == 1
-            let g:statusMode = 0
-            call ZToggleStatusline()
+            "let g:statusMode = 0
+            "call ZToggleStatusline()
+            call ZStatuslineShort()
         endif
         "set statusline+=VB%{VimBuddy()}
         "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
@@ -651,7 +659,7 @@
     """ Windows {{{
         " resize horizontal splits
         nmap + <C-W>+
-        nmap - <C-W>-
+        nmap <A-=> <C-W>-
 
         " resize vertical splits
         " ToDo: Why doesn't this work!?
@@ -767,6 +775,7 @@
         "" shellslash
         nmap <silent> ,t/ :set invshellslash<CR>:set shellslash?<CR>
 
+        "" toggle long / short statusline
         nmap <silent> ,tS :call ZToggleStatusline()<CR>
 
         "" toggle splitright
@@ -803,9 +812,9 @@
 
     " cd to the directory containing the file in the buffer
     " all
-    nmap <silent> ,cD :cd %:h<CR>
+    nmap <silent> ,cd :cd %:h<CR>
     " local
-    nmap <silent> ,cd :lcd %:h<CR>
+    nmap <silent> ,cl :lcd %:h<CR>
 
     " Make the directory that contains the file in the current buffer.  This is
     " useful when you edit a file in a directory that doesn't (yet) exist
@@ -871,6 +880,9 @@
 
     "" easier home
     nmap <silent> \h :cd ~<CR>
+
+    "" easier opening of files at my mah-website
+    nmap <silent> ,em :e ftp://m10p2661@ftphome.mah.se/public_html/
 
 "" }}}
 
@@ -1056,6 +1068,10 @@
     "" Surround {{{
         " VS<div> " surround line
     "" }}}
+
+    "" NerdTree {{{
+        nmap <silent> ,N :NERDTreeToggle<CR>
+    "" }}}
 "" }}}
 
 "" filetype {{{
@@ -1063,6 +1079,7 @@
     """ CSharp / C# / cs.vim {{{
         " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
         " http://www.vim.org/scripts/script.php?script_id=1895
+        " http://kevin-berridge.blogspot.com/2008/09/vim-c-compiling.html
     """ }}}
 
     """ Python {{{
@@ -1072,6 +1089,7 @@
 
     """ Java {{{
         au FileType java set foldmethod=syntax
+        au FileType java set textwidth=80
     """ }}}
 "" }}}
 
@@ -1083,6 +1101,10 @@
     "command! ReadMarcFile %s/\%x2e\%x1e\%x1d//g | %s/\%x20\%x20\%x1f\%x61//g
     "command! UnReadMarcFile %s/\n\n/\%x2e\%x1e\%x1d/g | %s/\n/\%x20\%x20\%x1f\%x61/g
     "command! UnReadMarcFile %s//\%x20\%x20\%x1f\%x61//g
+
+    " Create a directory (or many if needed)
+    " Example usage: ":MD some/path"
+    command! -nargs=1 -complete=dir MD call mkdir("<args>", "p")
 "" }}}
 
 "" GVim {{{
@@ -1121,13 +1143,13 @@
         function! HostnameTowelie()
             "cd z:\me
             cd ~
-            nmap <silent> ,~ :cd z:\me<CR>
-            nmap <silent> ,en :e z:\me\documents\notes\random.ztx<CR>
+            nmap <silent> ,~ :cd d:\me<CR>
+            nmap <silent> ,en :e d:\me\documents\notes\random.ztx<CR>
             if has("gui_running")
                 set columns=100
                 set lines=40
             endif
-            set guifont=Consolas:h14:cANSI
+            set guifont=Consolas:h10:cANSI
             "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
             "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
             "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
@@ -1172,7 +1194,7 @@
             endif
         endfunction
 
-        cd z:\me
+        cd d:\me
         set columns=82
     endfunction
     "" }}}
