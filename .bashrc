@@ -24,6 +24,9 @@ alias ll='ls -lh --color=auto'
 alias cgrep='grep --color=auto'
 alias grepc='grep -a5 -b5 --color=auto'
 
+# find
+alias fr='find . -regex'
+
 # git
 alias gs='git status'
 alias gl='git log'
@@ -32,6 +35,7 @@ alias ga='git add'
 alias gmv='git mv'
 alias grm='git rm'
 alias gc='git commit -m'
+alias gcm='git commit'
 alias gp='git push'
 alias gpgm='git push github master'
 alias gb='git branch -v'
