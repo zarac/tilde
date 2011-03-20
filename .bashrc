@@ -29,11 +29,17 @@ if test "$TERM" = "xterm" -o \
         "$TERM" = "xterm-xfree86"; then
 
     # -stan
-    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(git branch | awk '\''// { print $2 }'\'') \[\033[0;36m\]\w\[\033[0m\]\n '
-    #[HL-2010-08-27 22:53] Color prompt...  http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+    #http://asemanfar.com/Current-Git-Branch-in-Bash-Prompt
+    #http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+    parse_git_branch()
+    {
+        #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' 
+        git branch 2>/dev/null|cut -f2 -d\* -s
+        #git branch 2>/dev/null | tr -d \*\
+        #git branch | awk '\''// { print $2 }'\'' 2>/dev/null
+    }
+    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n '
     #PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
-    #PS1='\[\e[0;32m\][\u@\h:\w]\[\e[0m\] '
-    #PS1='[\u@\h \W]\$ '
     PS2='> '
     PS3='> '
     PS4='+ '
@@ -43,6 +49,7 @@ if test "$TERM" = "xterm" -o \
     export PROMPT_COMMAND
 
 else
+    echo 'else'
     #PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(git branch | awk '\''// { print $2 }'\'') \[\033[0;36m\]\w\[\033[0m\]\n '
     PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h $(__git_ps1 "\[\e[1;35m\]%s") \[\033[0;36m\]\w\[\033[0m\]\n '
 fi
