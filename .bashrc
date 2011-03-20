@@ -1,8 +1,11 @@
 ###
 #
 #  This .bashrc belonging to Hannes Landstedt.
-
+#
 #  http://github.com/zarac/dotfiles
+#
+# TODO
+#   o lsc, ls-files with colors of ps1
 #
 ###
 #
@@ -21,58 +24,75 @@
 
 
 # Prompt
-if test "$TERM" = "xterm" -o \
-        "$TERM" = "xterm-color" -o \
-        "$TERM" = "xterm-256color" -o \
-        "$TERM" = "rxvt" -o \
-        "$TERM" = "rxvt-unicode" -o \
-        "$TERM" = "xterm-xfree86"; then
+#if test "$TERM" = "xterm" -o \
+        #"$TERM" = "xterm-color" -o \
+        #"$TERM" = "xterm-256color" -o \
+        #"$TERM" = "rxvt" -o \
+        #"$TERM" = "rxvt-unicode" -o \
+        #"$TERM" = "xterm-xfree86"; then
 
-    # -stan
-    #http://asemanfar.com/Current-Git-Branch-in-Bash-Prompt
-    #http://wiki.archlinux.org/index.php/Color_Bash_Prompt
-    parse_git_branch()
-    {
-        #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' 
-        #git branch 2>/dev/null|cut -f2 -d\* -s
-        #git branch 2>/dev/null | tr -d \*\
-        #git branch | awk '\''// { print $2 }'\'' 2>/dev/null
-        # looks like 'branch clean m1 d3'
-        git status | awk 'BEGIN{OFS=" "; ORC=" "} \
-            /n branch/{printf " "$4} \
-            /clean/{c++} \
-            /deleted/{d++} \
-            /modified/{m++} \
-            END{if(c>0)print""; \
-            if(m>0)printf" m"m; \
-            if(d>0)printf" d"d; }'
-        # why don't colors work ? : \\[\\033[0;32m\\]
-        #git status | awk 'BEGIN{ORC=" "} /clean/{c++} s/n branch (.*)/asdf/{print"poop"} END{if(c>0)print"OK"; if(c<1)print"UH OH"}'
+#http://asemanfar.com/Current-Git-Branch-in-Bash-Prompt
+#http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+git_branch()
+{
+    #git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' 
+    #git branch 2>/dev/null|cut -f2 -d\* -s
+    #git branch 2>/dev/null | tr -d \*\
+    #git branch | awk '\''// { print $2 }'\'' 2>/dev/null
+    git status | awk '/n branch/{printf" "$4}'
+    # : awk 'BEGIN {a = "abc def"; b = gensub(/(.+) (.+)/, "\\2 \\1", "g", a); print b }'
+}
 
-        #BEGIN {
-             #a = "abc def"
-             #b = gensub(/(.+) (.+)/, "\\2 \\1", "g", a)
-             #print b
-        #}'
-    }
+git_status_new()
+{
+    #A*
+    git status -s | awk 'BEGIN{OFS=" "; ORC=" "} \
+        /A./{n++} \
+        END{if(n>0)printf" +"n};'
+}
 
-    # looks like 'user@host gitinfo cur dir'
-    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h\[\033[1;35m\]$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n '
-    #PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
-    PS2='> '
-    PS3='> '
-    PS4='+ '
-    export PS1 PS2 PS3 PS4
+git_status_modified()
+{
+    #*M
+    git status -s | awk 'BEGIN{OFS=" "; ORC=" "} \
+        /.M/{n++} \
+        END{if(n>0)printf" ^"n};'
+}
 
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-    export PROMPT_COMMAND
+git_status_deleted()
+{
+    #*D
+    git status -s | awk 'BEGIN{OFS=" "; ORC=" "} \
+        /.D/{n++} \
+        END{if(n>0)printf" -"n};'
+}
 
-else
-    echo 'else'
-    #PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(git branch | awk '\''// { print $2 }'\'') \[\033[0;36m\]\w\[\033[0m\]\n '
-    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h $(__git_ps1 "\[\e[1;35m\]%s") \[\033[0;36m\]\w\[\033[0m\]\n '
-fi
+git_status_untracked()
+{
+    #??
+    git status -s | awk 'BEGIN{OFS=" "; ORC=" "} \
+        /'\\?\\?'/{n++} \
+        END{if(n>0)printf" ?"n};'
+}
 
+colortest()
+{
+    # ??? set colors in a good way
+    echo '\e[32;40m\] hi'
+}
+
+# 'user@host [git, branch N M D ??] pwd'
+# see: git status -s
+PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h\[\033[0;33m\]$(git_branch)\[\033[1;31m\]$(git_status_deleted)\[\033[1;33m\]$(git_status_modified)\[\033[1;32m\]$(git_status_new)\[\033[0;37m\]$(git_status_untracked) \[\033[0;36m\]\w\[\033[0m\]\n    '
+#PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
+PS2='> '
+PS3='> '
+PS4='+ '
+export PS1 PS2 PS3 PS4
+
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+export PROMPT_COMMAND
+# fi
 
 # Aliases
 # ls
