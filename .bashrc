@@ -37,13 +37,14 @@ if test "$TERM" = "xterm" -o \
         #git branch 2>/dev/null|cut -f2 -d\* -s
         #git branch 2>/dev/null | tr -d \*\
         #git branch | awk '\''// { print $2 }'\'' 2>/dev/null
-        git status | awk 'BEGIN{printf"GIT:"; OFS=" "; ORC=" "} \
+        git status | awk 'BEGIN{OFS=" "; ORC=" "} \
+            /n branch/{printf " "$4} \
             /clean/{c++} \
             /deleted/{d++} \
             /modified/{m++} \
-            END{if(c>0)print"ok"; \
-            if(m>0)printf "M"m; \
-            if(d>0)printf "D"d; }'
+            END{if(c>0)print" ok"; \
+            if(m>0)printf" m"m; \
+            if(d>0)printf" d"d; }'
         #git status | awk 'BEGIN{ORC=" "} /clean/{c++} s/n branch (.*)/asdf/{print"poop"} END{if(c>0)print"OK"; if(c<1)print"UH OH"}'
 
         #BEGIN {
@@ -53,7 +54,7 @@ if test "$TERM" = "xterm" -o \
         #}'
     }
 
-    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n '
+    PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h\[\033[1;35m\]$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n '
     #PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
     PS2='> '
     PS3='> '
