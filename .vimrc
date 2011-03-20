@@ -785,6 +785,9 @@
         " nmap <silent> ,io 
     "" }}}
 
+    "" easier home
+    nmap <silent> \h :cd ~<CR>
+
 "" }}}
 
 "" Abbriviations {{{
@@ -877,6 +880,7 @@
     """"""""""
     function! HostnameTowelie()
         "cd z:\me
+        cd ~
         nmap <silent> ,~ :cd z:\me<CR>
         nmap <silent> ,en :e z:\me\documents\notes\random.ztx<CR>
         if has("gui_running")
