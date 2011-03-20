@@ -793,7 +793,7 @@
     iab Ltime <C-R>=strftime("%H:%M")<CR>
     iab Ldt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
     iab Lstamp <C-R>=strftime("%Y%m%d%H%M%")<CR>
-    iab Lsign [HL-<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
+    iab Lsign [HL-<C-R>=strftime("%Y%m%d %H%M")<CR>]
     "iab Lsign <SPACE>[HL-<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
 "" }}}
 
@@ -844,8 +844,6 @@
     """ }}}
 "" }}}
 
-
-    " TODO : merge -towelie
 """ File Specifics {{{
 
     """ Python {{{
@@ -1054,7 +1052,7 @@
 
 
 "" [HL-2010-10-05 13:54] TODO ^.
-    " o note funktion
+    " o note function
     "   o ? read pdf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
