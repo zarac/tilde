@@ -16,6 +16,8 @@ PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h $(__git_ps1 "\[\e[1;35m\]%
 # ls
 alias lc='ls --color=auto'
 alias la='ls -lah --color=auto'
+alias lar='ls -lahR --color=auto' # all recursively
+alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 
 # grep
