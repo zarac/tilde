@@ -42,10 +42,6 @@ if test "$TERM" = "xterm" -o \
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
     export PROMPT_COMMAND
 
-    # perhaps this should be at bottom
-    # -stan
-    [ -r /etc/bash_completion   ] && . /etc/bash_completion
-    [ -r /etc/bash.bashrc.local ] && . /etc/bash.bashrc.local
 else
     #PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h \[\033[1;35m\]$(git branch | awk '\''// { print $2 }'\'') \[\033[0;36m\]\w\[\033[0m\]\n '
     PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h $(__git_ps1 "\[\e[1;35m\]%s") \[\033[0;36m\]\w\[\033[0m\]\n '
@@ -62,10 +58,13 @@ alias ll='ls -lh --color=auto'
 alias lal='ls -lAhL --color=auto'
 
 # grep
-alias cgrep='grep --color=auto'
-alias grepc='grep -a5 -b5 --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# windows grep doesn't have colors?
+if [ -x /usr/bin/dircolors ]; then
+    alias cgrep='grep --color=auto'
+    alias grepc='grep -a5 -b5 --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # find
 alias fr='find . -regex'
@@ -83,10 +82,11 @@ alias ga='git add'
 alias gmv='git mv'
 alias grm='git rm'
 alias gc='git commit -m'
+alias gac='git commit -a -m'
 alias gcm='git commit'
 alias gp='git push'
 alias gpom='git push origin master'
-alias gpgm='git push github master'
+alias guom='git pull origin master'
 alias gb='git branch -v'
 alias gr='git remote -v'
 alias gd='git diff'
@@ -96,3 +96,8 @@ alias gdc='git diff --cached'
 # Other
 # nice 'motd'
 echo -e '\n\n';lc;echo -e '\n\n';git status
+
+# perhaps this should be at bottom
+# -stan
+[ -r /etc/bash_completion   ] && . /etc/bash_completion
+[ -r /etc/bash.bashrc.local ] && . /etc/bash.bashrc.local
