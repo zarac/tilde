@@ -17,6 +17,8 @@
     "colo vylight
     "colo slate
     "colo herald
+    " tchaba (dark)
+    " liquidcarbon (dark)
 
     " Light Background
     "colo summerfruit256
@@ -26,6 +28,12 @@
 "" }}}
 
 "" Tips and Tricks! {{{
+
+    "" Wanted! {{{
+        " emacs like cycling through register
+        " emacs like "xmp filter(?)" " => will run line through shell and get
+        " input
+    "" }}}
 
     " CTRL+R= is great for doing quick calculations or inserting the result of a function into the text.
     " source > http://www.reddit.com/r/vim/comments/e4rbt/did_you_know_about_ctrlr_in_insert_mode/c15a3kq
@@ -558,6 +566,21 @@
     " Show the keys as they are pressed.
     set showcmd
 
+    """ Windows {{{
+        " resize horizontal splits
+        nmap + <C-W>+
+        nmap - <C-W>-
+
+        " resize vertical splits
+        " ToDo: Why doesn't this work!?
+        " 260-261 http://github.com/mitechie/pyvim/blob/master/.vimrc
+        nmap <M-,> <C-W>>
+        nmap <M-.> <C-W><
+        "nmap ,, <C-W>>
+        "nmap ,. <C-W><
+        "nmap <C-0> <C-W>>
+        "nmap <C-9> <C-W><
+    """ }}}
 
 
     """ Setters ,s {{{
