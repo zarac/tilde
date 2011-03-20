@@ -8,18 +8,21 @@
 ###
 
 
-# PROMPT
+# Prompt
 PS1="\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h $(__git_ps1 "\[\e[0;35m\][%s]") \[\033[0;36m\]\w\[\033[0m\]\n "
 
 
 # Aliases
+# ls
 alias lc='ls --color=auto'
 alias la='ls -lah --color=auto'
 alias ll='ls -lh --color=auto'
 
+# grep
 alias cgrep='grep --color=auto'
 alias grepc='grep -a5 -b5 --color=auto'
 
+# git
 alias gs='git status'
 alias gl='git log'
 alias gls='git ls-files'
@@ -27,9 +30,11 @@ alias ga='git add'
 alias gmv='git mv'
 alias grm='git rm'
 alias gc='git commit -m'
+alias gp='git push'
 alias gb='git branch -v'
 alias gr='git remote -v'
 alias gd='git diff'
+alias gdc='git diff --cached'
 
 
 # Nice 'motd'
