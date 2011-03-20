@@ -33,7 +33,7 @@
 
 # 'user@host [git, branch N M D ??] pwd'
 # see: git status -s
-PS1='\n  \[\e[0;32m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0;35m\]$(git_branch)\[\e[1;31m\]$(git_status_deleted)\[\e[1;33m\]$(git_status_modified)\[\e[1;32m\]$(git_status_new)\[\e[0;37m\]$(git_status_untracked) \[\e[0;36m\]\w\[\e[0m\]\n    '
+PS1='\n  \[\e[0;32m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0;35m\]$(git_branch)\[\e[1;31m\]$(git_status_deleted)\[\e[1;33m\]$(git_status_modified)\[\e[1;32m\]$(git_status_new)\[\e[0;37m\]$(git_status_untracked) \[\e[0;36m\]\w\[\e[0m\]\n  '
 #PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h\[\033[0;33m\]$(git_branch)\[\033[1;31m\]$(git_status_deleted)\[\033[1;33m\]$(git_status_modified)\[\033[1;32m\]$(git_status_new)\[\033[0;37m\]$(git_status_untracked) \[\033[0;36m\]\w\[\033[0m\]\n    '
 #PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
 PS2='> '
@@ -121,6 +121,7 @@ alias gc='git commit -m'
 alias gac='git commit -a -m'
 alias gcm='git commit'
 alias gp='git push'
+alias gu='git pull'
 alias gpom='git push origin master'
 alias guom='git pull origin master'
 alias gb='git branch -v'
@@ -131,7 +132,7 @@ alias gdc='git diff --cached'
 
 # Other
 # nice 'motd'
-echo -e '\n\n';lc;echo -e '\n\n';git status
+echo -e '\n\n';l;echo -e '\n\n';git status
 
 # perhaps this should be at bottom
 # -stan
