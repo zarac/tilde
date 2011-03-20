@@ -90,7 +90,8 @@ export PROMPT_COMMAND
 # Aliases
 # ls
 alias lc='ls --color=auto'
-alias la='ls -lah --color=auto'
+alias la='ls -a --color=auto'
+alias L='ls -lah --color=auto'
 alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
