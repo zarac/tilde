@@ -31,8 +31,7 @@
         #"$TERM" = "rxvt-unicode" -o \
         #"$TERM" = "xterm-xfree86"; then
 
-# 'user@host [git, branch N M D ??] pwd'
-# see: git status -s
+# COLORS
 CLEAR="\[\e[0m\]"
 WHITE_BOLD="\[\e[0;37m\]"
 RED="\[\033[0;31m\]"
@@ -45,25 +44,6 @@ PURPLE="\[\e[0;35m\]"
 TEAL="\[\e[0;36m\]" # or whatever it's called
 TEAL_BOLD="\[\e[1;36m\]"
 
-PS1="\n  "
-PS1+="$TEAL\u"
-PS1+="$CLEAR@"
-PS1+="$GREEN\h"
-PS1+="$PURPLE$(git_branch)"
-PS1+="$RED_BOLD$(git_status_deleted)"
-PS1+="$YELLOW_BOLD$(git_status_modified)"
-PS1+="$GREEN_BOLD$(git_status_new)"
-PS1+="$WHITE_BOLD$(git_status_untracked)"
-PS1+=" $TEAL\w"
-PS1+="$CLEAR"
-PS1+="\n  "
-PS2='> '
-PS3='> '
-PS4='+ '
-export PS1 PS2 PS3 PS4
-
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-export PROMPT_COMMAND
 git_branch()
 {
     #http://asemanfar.com/Current-Git-Branch-in-Bash-Prompt
@@ -102,6 +82,30 @@ colortest()
     # ??? set colors in a good way
     echo '\e[32;40m\] hi'
 }
+
+# Prompt format (see: git status --help for branch notation) '
+#
+#   user@host [git, branch +N ^M -D ??] cwd
+#   '
+PS1="\n  "
+PS1+="$TEAL\u"
+PS1+="$CLEAR@"
+PS1+="$GREEN\h"
+PS1+="$PURPLE$(git_branch)"
+PS1+="$RED_BOLD$(git_status_deleted)"
+PS1+="$YELLOW_BOLD$(git_status_modified)"
+PS1+="$GREEN_BOLD$(git_status_new)"
+PS1+="$WHITE_BOLD$(git_status_untracked)"
+PS1+=" $TEAL\w"
+PS1+="$CLEAR"
+PS1+="\n  "
+PS2='> '
+PS3='> '
+PS4='+ '
+export PS1 PS2 PS3 PS4
+
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+export PROMPT_COMMAND
 # fi
 
 # Aliases
