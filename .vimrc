@@ -7,6 +7,10 @@
 " If found, please return!
 ""
 
+"" PATHOGEN {{{
+    source vimfiles/bundle/pathogen/autoload/pathogen.vim
+"" }}}
+
 "" Favorite colorschemes (and new ones i'm testing out). {{{
 
     "" test colors..
@@ -834,6 +838,7 @@
 
     "" pathogen / bundle {{{
         call pathogen#runtime_append_all_bundles()
+        call pathogen#helptags()
     "" }}}
 
     "" javacomplete {{{
