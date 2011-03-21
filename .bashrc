@@ -112,6 +112,7 @@ alias jaom='screen -S jao'
 
 # git
 alias gs='git status'
+alias gss='git status -s'
 alias gl='git log'
 alias gls='git ls-files'
 alias ga='git add'
