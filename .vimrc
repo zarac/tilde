@@ -8,7 +8,7 @@
 ""
 
 "" PATHOGEN {{{
-    source vimfiles/bundle/pathogen/autoload/pathogen.vim
+    source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
 "" }}}
 
 "" Favorite colorschemes (and new ones i'm testing out). {{{
@@ -215,13 +215,8 @@
 
     "" plugins {{{
         
-        "" Surround
-        " VS<div> " surround line
-
-        " TODO: merge -towelie
-        "" vimPdb "" {{{
-           " Not working so well with cli vim.
-           "let g:loaded_vimPdb = 1
+        "" Surround {{{
+            " VS<div> " surround line
         "" }}}
     "" }}}
 "" }}}
@@ -534,9 +529,11 @@
     """                \ exec oldwinnr . " wincmd w"
     """endif
     "
-    set statusline=\ %M\ %f\ %t\ %l(%L)\ %c\ %R\
+    "" TODO : fix statusline
+    set statusline=%{getcwd()}
+    set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
     set statusline+=%{fugitive#statusline()}
-    set statusline+=%{VimBuddy()}
+    "set statusline+=VB%{VimBuddy()}
     "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
     "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
     set laststatus=2
@@ -882,10 +879,18 @@
 
 "" Plugin Settings {{{
 
+    "" gundo {{{
+        nnoremap <F5> :GundoToggle<CR>
+    "" }}}
+
+    " TODO: merge -towelie
+    "" vimPdb {{{
+        " Not working so well with cli vim.
+        "let g:loaded_vimPdb = 1
+    "" }}}
+
     "" eclim {{{
-
-    "" Don't use automatic logging import (and whatever else it does).
-
+        "" Don't use automatic logging import (and whatever else it does).
         let g:EclimLoggingDisabled = 1
     "" }}}
 

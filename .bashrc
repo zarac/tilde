@@ -128,6 +128,7 @@ alias gb='git branch -v'
 alias gr='git remote -v'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gds='git stash show --patience' # might be a better way it does the job)
 
 
 # Other
