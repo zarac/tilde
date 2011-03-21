@@ -33,9 +33,30 @@
 
 # 'user@host [git, branch N M D ??] pwd'
 # see: git status -s
-PS1='\n  \[\e[0;32m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0;35m\]$(git_branch)\[\e[1;31m\]$(git_status_deleted)\[\e[1;33m\]$(git_status_modified)\[\e[1;32m\]$(git_status_new)\[\e[0;37m\]$(git_status_untracked) \[\e[0;36m\]\w\[\e[0m\]\n  '
-#PS1='\n  \[\033[0;32m\]\u\[\033[0m\]@\[\033[0;32m\]\h\[\033[0;33m\]$(git_branch)\[\033[1;31m\]$(git_status_deleted)\[\033[1;33m\]$(git_status_modified)\[\033[1;32m\]$(git_status_new)\[\033[0;37m\]$(git_status_untracked) \[\033[0;36m\]\w\[\033[0m\]\n    '
-#PS1='\[\e[0;32m\][\u\[\e[0;34m\]@\[\e[0;32m\]\h\[\e[0;34m\]:\[\e[0;32m\]\w]\[\e[0m\] '
+#USER="\[\033[0;31m\]"
+CLEAR="\[\e[0m\]"
+WHITE_BOLD="\[\e[0;37m\]"
+RED="\[\033[0;31m\]"
+RED="\[\033[1;31m\]"
+YELLOW="\[\033[0;33m\]"
+YELLOW_BOLD="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+GREEN_BOLD="\[\e[1;32m\]"
+PURPLE="\[\e[0;35m\]"
+TEAL="\[\e[0;36m\]" # or whatever it's called
+
+PS1="\n  "
+PS1+="$GREEN\u"
+PS1+="$CLEAR@"
+PS1+="$GREEN\h"
+PS1+="$PURPLE$(git_branch)"
+PS1+="$RED_BOLD$(git_status_deleted)"
+PS1+="$YELLOW_BOLD$(git_status_modified)"
+PS1+="$GREEN_BOLD$(git_status_new)"
+PS1+="$WHITE_BOLD$(git_status_untracked)"
+PS1+=" $TEAL\w"
+PS1+="$CLEAR"
+PS1+="\n  "
 PS2='> '
 PS3='> '
 PS4='+ '
