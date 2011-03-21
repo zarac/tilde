@@ -33,20 +33,20 @@
 
 # 'user@host [git, branch N M D ??] pwd'
 # see: git status -s
-#USER="\[\033[0;31m\]"
 CLEAR="\[\e[0m\]"
 WHITE_BOLD="\[\e[0;37m\]"
 RED="\[\033[0;31m\]"
-RED="\[\033[1;31m\]"
+RED_BOLD="\[\033[1;31m\]"
 YELLOW="\[\033[0;33m\]"
-YELLOW_BOLD="\[\033[0;33m\]"
+YELLOW_BOLD="\[\033[1;33m\]"
 GREEN="\[\033[0;32m\]"
 GREEN_BOLD="\[\e[1;32m\]"
 PURPLE="\[\e[0;35m\]"
 TEAL="\[\e[0;36m\]" # or whatever it's called
+TEAL_BOLD="\[\e[1;36m\]"
 
 PS1="\n  "
-PS1+="$GREEN\u"
+PS1+="$TEAL\u"
 PS1+="$CLEAR@"
 PS1+="$GREEN\h"
 PS1+="$PURPLE$(git_branch)"
