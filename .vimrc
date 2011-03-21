@@ -479,9 +479,62 @@
     "" t=tail f=fileAsTyped F=full
     "set stl=\ %M\ %R\ %F\ %l(%L)\ %c\ [%b\ 0x%B]
     "set statusline=\ %l(%L)\ %c\ %M\ %R\ %t\ [%b\ 0x%B]
-    ""  [HL-2010-09-25 21:09] pre fugative
-    set statusline=\ %M\ %f\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
-    "set statusline=\ %M\ %F\ %l(%L)\ %c\ %R
+    " IAMHERE
+    " http://www.csie.ntu.edu.tw/~r95005/vimrc.html
+    " %1* -> User1's highlight, %2*->User2's highlight
+    " =   -> Separation point between left and right aligned items.
+    " <   -> Where to truncate line if too long.  Default is at the start.
+    "set statusline=%4*%<\ %1*[%F]
+    "set statusline+=%4*\ %5*[%{&encoding}, " encoding
+    "set statusline+=%{&fileformat}]%m " file format
+    "set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+    "
+    "
+    """""http://dev.gentoo.org/~bass/configs/vimrc.html
+    """" Nice statusbar
+    """set laststatus=2
+    """set statusline=
+    """set statusline+=%2*%-3.3n%0*\                " buffer number
+    """set statusline+=%f\                          " file name
+    """set statusline+=%h%1*%m%r%w%0*               " flags
+    """set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
+    """set statusline+=%{&encoding},                " encoding
+    """set statusline+=%{&fileformat}]              " file format
+    """if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
+    """    set statusline+=\ %{VimBuddy()}          " vim buddy
+    """endif
+    """set statusline+=%=                           " right align
+    """set statusline+=%2*0x%-8B\                   " current char
+    """set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+    """
+    """" special statusbar for special windows
+    """if has("autocmd")
+    """    au FileType qf
+    """                \ if &buftype == "quickfix" |
+    """                \     setlocal statusline=%2*%-3.3n%0* |
+    """                \     setlocal statusline+=\ \[Compiler\ Messages\] |
+    """                \     setlocal statusline+=%=%2*\ %<%P |
+    """                \ endif
+    """
+    """    fun! <SID>FixMiniBufExplorerTitle()
+    """        if "-MiniBufExplorer-" == bufname("%")
+    """            setlocal statusline=%2*%-3.3n%0*
+    """            setlocal statusline+=\[Buffers\]
+    """            setlocal statusline+=%=%2*\ %<%P
+    """        endif
+    """    endfun
+    """
+    """    au BufWinEnter *
+    """                \ let oldwinnr=winnr() |
+    """                \ windo call <SID>FixMiniBufExplorerTitle() |
+    """                \ exec oldwinnr . " wincmd w"
+    """endif
+    "
+    set statusline=\ %M\ %f\ %t\ %l(%L)\ %c\ %R\
+    set statusline+=%{fugitive#statusline()}
+    set statusline+=%{VimBuddy()}
+    "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
+    "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
     set laststatus=2
 
     set scrolloff=3
