@@ -32,17 +32,17 @@
         #"$TERM" = "xterm-xfree86"; then
 
 # COLORS
-CLEAR="\[\e[0m\]"
-WHITE_BOLD="\[\e[0;37m\]"
-RED="\[\033[0;31m\]"
-RED_BOLD="\[\033[1;31m\]"
-YELLOW="\[\033[0;33m\]"
-YELLOW_BOLD="\[\033[1;33m\]"
-GREEN="\[\033[0;32m\]"
-GREEN_BOLD="\[\e[1;32m\]"
-PURPLE="\[\e[0;35m\]"
-TEAL="\[\e[0;36m\]" # or whatever it's called
-TEAL_BOLD="\[\e[1;36m\]"
+CLEAR="\033[0m"
+WHITE_BOLD="\033[0;37m"
+RED="\033[0;31m"
+RED_BOLD="\033[1;31m"
+YELLOW="\033[0;33m"
+YELLOW_BOLD="\033[1;33m"
+GREEN="\033[0;32m"
+GREEN_BOLD="\033[1;32m"
+PURPLE="\033[0;35m"
+TEAL="\033[0;36m" # or whatever it's called
+TEAL_BOLD="\033[1;36m"
 
 git_branch()
 {
@@ -56,31 +56,20 @@ git_branch()
     git status 2>/dev/null | awk '/n branch/{printf" "$4}'
     # : awk 'BEGIN {a = "abc def"; b = gensub(/(.+) (.+)/, "\\2 \\1", "g", a); print b }'
 }
-git_status_new()
+git_changes()
 {
-    #TODO : find these codes so i don't have to guess..
-    #A*
-    git status -s 2>/dev/null | awk 'BEGIN{OFS=" "; ORC=" "} /^.?A.?/{n++} END{if(n>0)printf" +"n};'
-}
-git_status_modified()
-{
-    #*M
-    git status -s 2>/dev/null | awk 'BEGIN{OFS=" "; ORC=" "} /^.?M.?/{n++} END{if(n>0)printf" ^"n};'
-}
-git_status_deleted()
-{
-    #*D
-    git status -s 2>/dev/null | awk 'BEGIN{OFS=" "; ORC=" "} /^.?D.?/{n++} END{if(n>0)printf" -"n};'
-}
-git_status_untracked()
-{
-    #??
-    git status -s 2>/dev/null | awk 'BEGIN{OFS=" "; ORC=" "} /'\\?\\?'/{n++} END{if(n>0)printf" ?"n};'
-}
-colortest()
-{
-    # ??? set colors in a good way
-    echo '\e[32;40m\] hi'
+    git status -s 2>/dev/null | awk '
+    BEGIN{OFS=" "; ORC=" "}
+    /^.?A.?/{n++}
+    /^.?M.?/{m++}
+    /^.?D.?/{d++}
+    /'\\?\\?'/{u++}
+    END{
+    if(n>0)printf"'$GREEN_BOLD' +"n;
+    if(m>0)printf"'$YELLOW_BOLD' ^"m;
+    if(d>0)printf"'$RED_BOLD' -"d;
+    if(u>0)printf"'$WHITE_BOLD' u"u;
+    printf"'$CLEAR'"}'
 }
 
 # Prompt format (see: git status --help for branch notation) '
@@ -92,10 +81,7 @@ PS1+="$TEAL\u"
 PS1+="$CLEAR@"
 PS1+="$GREEN\h"
 PS1+="$PURPLE$(git_branch)"
-PS1+="$RED_BOLD$(git_status_deleted)"
-PS1+="$YELLOW_BOLD$(git_status_modified)"
-PS1+="$GREEN_BOLD$(git_status_new)"
-PS1+="$WHITE_BOLD$(git_status_untracked)"
+PS1+="$(git_changes)"
 PS1+=" $TEAL\w"
 PS1+="$CLEAR"
 PS1+="\n  "
@@ -136,8 +122,7 @@ alias jaoo='screen -d -r jao'
 alias jaom='screen -S jao'
 
 # git
-alias gs='git status'
-alias gss='git status -s'
+alias gs='git status -s'
 alias gl='git log'
 alias gls='git ls-files'
 alias ga='git add'
@@ -158,10 +143,6 @@ alias gds='git stash show --patience' # might be a better way it does the job)
 
 
 # Other
-# nice 'motd'
-echo -e '\n\n';l;echo -e '\n\n';git status
-
-# perhaps this should be at bottom
 # -stan
 [ -r /etc/bash_completion   ] && . /etc/bash_completion
 [ -r /etc/bash.bashrc.local ] && . /etc/bash.bashrc.local
