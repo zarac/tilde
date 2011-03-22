@@ -831,8 +831,11 @@
     
 
     "" Fuzzy Finder {{{
-        nmap ,fb :set nopaste<CR>:FufBuffer<CR>
-        nmap ,fB :set nopaste<CR>:FufBookmark<CR>
+        nmap ,fn :set nopaste<CR>:FufBuffer<CR>
+        nmap ,f' :set nopaste<CR>:FufBookmarkFile<CR>
+        nmap ,f" :set nopaste<CR>:FufBookmarkDir<CR>
+        nmap ,fmd :set nopaste<CR>:FufBookmarkDirAdd<CR>
+        nmap ,fmf :set nopaste<CR>:FufBookmarkFileAdd<CR>
         nmap ,ff :set nopaste<CR>:FufFile<CR>
         nmap ,fF :set nopaste<CR>:FufFileWithCurrentBufferDir<CR>
         "nmap ,ff :set nopaste<CR>:FufFile<CR>
