@@ -3,4 +3,4 @@ My, '~', '$home', '/home/foo', 'C:/Users/foo' etc. file.
 Git
 ===
 
-* I do 'git config --global core.excludesfile=~/_gitignore' to not get conflicting .gitconfig.
+* I do 'git config --global core.excludesfile=~/_gitignore' to not get conflicting .gitignore.
