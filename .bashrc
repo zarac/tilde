@@ -60,32 +60,46 @@ git_branch()
 git_changes()
 {
     git status -s 2>/dev/null | awk '
-    BEGIN{OFS=" ";ORC=" ";n=0;m=0;d=0;u=0;}
-    /^ [MD]?/{print "Not Updated"}
-    /^N.?/{n++}
-    /^M.?/{m++}
-    /^D.?/{d++}
-    /^R.?/{r++}
-    /'\\?\\?'/{u++}
+    BEGIN{OFS=" ";ORC=" "}
+    /^ D/{deleted++}
+    /^ M/{modified++}
+    /^M[ MD]/{indexModified++}
+    /^A[ MD]/{indexAdded++}
+    /^D[ M]/{indexDeleted++}
+    /^R[ MD]/{indexRenamed++}
+    /^C[ MD]/{indexCopied++}
+    /^[MARC] /{matches++}
+    /^[ MARC]M/{workTreeChanged++}
+    /^[ MARC]D/{deletedInWorkTree++}
+    /'\\?\\?'/{indexUntracked++}
     END{
-    if(n>0)printf"'$GREEN_BOLD' +"n;
-    if(m>0)printf"'$YELLOW_BOLD' ^"m;
-    if(d>0)printf"'$RED_BOLD' -"d;
-    if(u>0)printf"'$WHITE_BOLD' u"u;
-    if(r>0)printf"'$WHITE' >"r;
+    if(indexAdded>0)printf"'$GREEN' "indexAdded;
+    if(indexModified>0)printf"'$YELLOW' "indexModified;
+    if(indexDeleted>0)printf"'$RED' "indexDeleted;
+    if(indexRenamed>0)printf"'$WHITE' mv"indexRenamed;
+    if(indexCopied>0)printf"'$TEAL' cp"indexCopied;
+    if(deleted>0)printf"'$RED_BOLD' "deleted;
+    if(modified>0)printf"'$YELLOW_BOLD' "modified;
+    if(deletedInWorkTree>0)printf"'$WHITE_BOLD' -cwd"deletedInWorkTree;
+    if(indexUntracked>0)printf"'$WHITE_BOLD' "indexUntracked;
     printf"'$CLEAR'"}'
+    # not used...
+    #if(matches>0)printf"'$WHITE' ="matches;
+    #if(workTreeChanged>0)printf"'$WHITE_BOLD' !="workTreeChanged;
 }
 
 # Prompt format (see: git status --help for branch notation) '
 #
 #   user@host [git, branch +N ^M -D ??] cwd
 #   '
+# TODO : How do i get PS1 to update on directory change?
+#      : seems that when using ' it executes every time, but then i cannot use colors the way i am.
 PS1="\n  "
 PS1+="$TEAL\u"
 PS1+="$CLEAR@"
 PS1+="$GREEN\h"
-PS1+="$PURPLE$(git_branch)"
-PS1+="$(git_changes)"
+PS1+="$PURPLE"'$(git_branch)'
+PS1+='$(git_changes)'
 PS1+=" $TEAL\w"
 PS1+="$CLEAR"
 PS1+="\n  "
