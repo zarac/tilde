@@ -33,6 +33,7 @@
 
 # COLORS
 CLEAR="\033[0m"
+WHITE="\033[0m" # TODO: is this white?
 WHITE_BOLD="\033[0;37m"
 RED="\033[0;31m"
 RED_BOLD="\033[1;31m"
@@ -59,16 +60,19 @@ git_branch()
 git_changes()
 {
     git status -s 2>/dev/null | awk '
-    BEGIN{OFS=" "; ORC=" "}
-    /^.?A.?/{n++}
-    /^.?M.?/{m++}
-    /^.?D.?/{d++}
+    BEGIN{OFS=" ";ORC=" ";n=0;m=0;d=0;u=0;}
+    /^ [MD]?/{print "Not Updated"}
+    /^N.?/{n++}
+    /^M.?/{m++}
+    /^D.?/{d++}
+    /^R.?/{r++}
     /'\\?\\?'/{u++}
     END{
     if(n>0)printf"'$GREEN_BOLD' +"n;
     if(m>0)printf"'$YELLOW_BOLD' ^"m;
     if(d>0)printf"'$RED_BOLD' -"d;
     if(u>0)printf"'$WHITE_BOLD' u"u;
+    if(r>0)printf"'$WHITE' >"r;
     printf"'$CLEAR'"}'
 }
 

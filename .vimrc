@@ -981,9 +981,14 @@
         "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
         "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
         "set shell=\"C:\\Program Files (x86)\\Git\\bin\\sh.exe -login -i\"
+        au BufRead *.java call SetTagsFileTowelie()
+        function! SetTagsFileTowelie()
+            "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
+            "setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
+            setlocal tags+=c:\Program\\\ Files\Java\jdk1.6.0_22\src\tags
+        endfunction
     endfunction
 
-    " TODO : merge -towelie
     """ Include AquaBrowser source files.
     "if !exists("tags[~/MediaLab/Source/tags]")
         "set tags+=~/MediaLab/Source/tags
