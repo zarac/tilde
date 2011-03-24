@@ -43,3 +43,6 @@
 [submodule "vimfiles/bundle/dirdiff"]
 	path = vimfiles/bundle/dirdiff
 	url = https://github.com/vim-scripts/DirDiff.vim.git
+[submodule "vimfiles/bundle/repeat"]
+	path = vimfiles/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
