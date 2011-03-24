@@ -37,3 +37,6 @@
 [submodule "vimfiles/bundle/largefile"]
 	path = vimfiles/bundle/largefile
 	url = https://github.com/vim-scripts/LargeFile.git
+[submodule "vimfiles/bundle/vimdebug"]
+	path = vimfiles/bundle/vimdebug
+	url = https://github.com/kablamo/VimDebug.git
