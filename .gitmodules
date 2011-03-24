@@ -22,3 +22,6 @@
 [submodule "vimfiles/bundle/l9"]
 	path = vimfiles/bundle/l9
     url = https://github.com/vim-scripts/L9.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
