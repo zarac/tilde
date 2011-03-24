@@ -31,3 +31,6 @@
 [submodule "vimfiles/bundle/surround"]
 	path = vimfiles/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vimfiles/bundle/xmledit"]
+	path = vimfiles/bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
