@@ -4,8 +4,7 @@
 #
 #  http://github.com/zarac/dotfiles
 #
-# TODO
-#   o lsc, ls-files with colors of ps1
+# TODO : lsc, ls-files with colors of ps1
 #
 ###
 #
@@ -88,12 +87,13 @@ git_changes()
     #if(workTreeChanged>0)printf"'$WHITE_BOLD' !="workTreeChanged;
 }
 
+# found this in vimfiles/colors/.bashrc (was only line).. haven't tested 'cause the prompt right now is awesome ; )
+# PS1="\n\[\e[30;1m\]\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[34;1m\]\j\[\e[30;1m\])-(\[\e[34;1m\]\@ \d\[\e[30;1m\])-(\[\[\e[32;1m\]\w\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed s: ::g) files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed s/total //)b\[\e[30;1m\])\n \[\e[0m\]"
+
 # Prompt format (see: git status --help for branch notation) '
 #
 #   user@host [git, branch +N ^M -D ??] cwd
 #   '
-# TODO : How do i get PS1 to update on directory change?
-#      : seems that when using ' it executes every time, but then i cannot use colors the way i am.
 PS1="\n  "
 PS1+="$TEAL\u"
 PS1+="$CLEAR@"

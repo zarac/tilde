@@ -5,6 +5,8 @@
 "   http://www.zarac.se
 "
 " If found, please return!
+"
+" TODO : organize this messy .vimrc
 ""
 
 "" PATHOGEN {{{
@@ -881,6 +883,56 @@
 "" }}}
 
 "" Plugin Settings {{{
+
+    "" removed while merging / started using git {{{
+        " plugin/align_regex.vim ? (backed up at towelie)
+        " indent/xml.vim ? (backed up at towelie)
+        " after/syntax/python.vim < i think that's mine (backed up at towelie)
+        "
+        " Color Sampler Pack : *NEW* [Jan 2010 Update] Top 100 Themes, GUI Menu
+        " http://www.vim.org/scripts/script.php?script_id=625
+        "
+        " python_fn
+        " http://www.vim.org/scripts/script.php?script_id=30
+        "
+        " ScrollColors : Colorsheme Scroller, Chooser, and Browser
+        " http://www.vim.org/scripts/script.php?script_id=1488
+        "
+        " VimPdb : Integrated Python debugging within Vim
+        " http://www.vim.org/scripts/script.php?script_id=2043
+        "
+        " LocateOpen : Open files without having to supply a path
+        " http://www.vim.org/scripts/script.php?script_id=858
+        "
+        " multvals.vim : Array library that uses patterns as separators
+        " http://www.vim.org/scripts/script.php?script_id=171
+        "
+        " browser.vim : a lightweight web browser opening in a split window for wikipedia etc.
+        " http://www.vim.org/scripts/script.php?script_id=2227
+        "
+        " Arduino syntax file : Syntax file for Arduino .PDE files
+        " http://www.vim.org/scripts/script.php?script_id=2654
+        "
+        " php.vim : PHP Syntax
+        " http://www.vim.org/scripts/script.php?script_id=1571
+        "
+        " vimsh.tar.gz : terminal/shell buffer script for python enabled [g]vim
+        " http://www.vim.org/scripts/script.php?script_id=165
+    "" }}}
+
+    "" to check out... {{{
+        " GoogleReader.vim : vimscript for googlereader
+        " http://www.vim.org/scripts/script.php?script_id=2678
+        "
+        " Txtfmt (The Vim Highlighter) : "Rich text" highlighting in Vim! (colors, underline, bold, italic, etc...)
+        " http://www.vim.org/scripts/script.php?script_id=2208
+        "
+        " python.vim : A set of menus/shortcuts to work with Python files
+        " http://www.vim.org/scripts/script.php?script_id=30
+        "
+        " GoogleSuggest Complete : complete function using google suggest API. perhaps, you should input japanese w 
+        " http://www.vim.org/scripts/script.php?script_id=2948
+    "" }}}
 
     "" gundo {{{
         nnoremap <F5> :GundoToggle<CR>
