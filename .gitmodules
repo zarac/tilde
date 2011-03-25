@@ -46,3 +46,6 @@
 [submodule "vimfiles/bundle/repeat"]
 	path = vimfiles/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "vimfiles/bundle/zencoding"]
+	path = vimfiles/bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim.git
