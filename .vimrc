@@ -215,12 +215,6 @@
         " :dig[raph]
     "" }}}
 
-    "" plugins {{{
-        
-        "" Surround {{{
-            " VS<div> " surround line
-        "" }}}
-    "" }}}
 "" }}}
 
 "" Functions {{{
@@ -882,12 +876,45 @@
     "iab Lsign <SPACE>[HL-<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
 "" }}}
 
-"" Plugin Settings {{{
+"" Plugins {{{
 
     "" removed while merging / started using git {{{
-        " plugin/align_regex.vim ? (backed up at towelie)
-        " indent/xml.vim ? (backed up at towelie)
-        " after/syntax/python.vim < i think that's mine (backed up at towelie)
+
+        " some are good, just not needed now.. and some i've barely used
+        "
+        " javacomplete : Omni Completion for JAVA
+        " http://www.vim.org/scripts/script.php?script_id=1785
+        "
+        " xmledit : A filetype plugin to help edit XML, HTML, and SGML documents
+        " http://www.vim.org/scripts/script.php?script_id=301
+        "
+        " xml.vim : helps editing xml (and [x]html, sgml, xslt) files
+        " http://www.vim.org/scripts/script.php?script_id=1397
+        "
+        " Align : Help folks to align text, eqns, declarations, tables, etc
+        " http://www.vim.org/scripts/script.php?script_id=294
+        "
+        " AutoComplPop : Automatically opens popup menu for completions
+        " http://www.vim.org/scripts/script.php?script_id=1879
+        "
+        " cecutil : Some utilities used by several of my scripts (window positioning, mark handling)
+        " http://www.vim.org/scripts/script.php?script_id=1066
+        "
+        " hexman.vim : Simpler Hex viewing and editing
+        " http://www.vim.org/scripts/script.php?script_id=666
+        "
+        " paster.vim : paster.vim - A configurable Vim plugin for posting text to a public pastebin
+        " http://www.vim.org/scripts/script.php?script_id=2602
+        "
+        " phpfolding.vim : Automatic folding of PHP functions, classes,.. (also folds related PhpDoc)
+        " http://www.vim.org/scripts/script.php?script_id=1623
+        "
+        " vimwiki : Personal Wiki for Vim
+        " http://www.vim.org/scripts/script.php?script_id=2226
+        "
+        " ? plugin/align_regex.vim ? (backed up at towelie)
+        " ? indent/xml.vim ? (backed up at towelie)
+        " ? after/syntax/python.vim < i think that's mine (backed up at towelie)
         "
         " Color Sampler Pack : *NEW* [Jan 2010 Update] Top 100 Themes, GUI Menu
         " http://www.vim.org/scripts/script.php?script_id=625
@@ -986,6 +1013,10 @@
     """ VimCalc {{{
         "nmap <silent> ,C :Calc<CR>
     """ }}}
+
+    "" Surround {{{
+        " VS<div> " surround line
+    "" }}}
 "" }}}
 
 """ File Specifics {{{
