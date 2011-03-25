@@ -52,3 +52,6 @@
 [submodule "vimfiles/bundle/vimbuddy"]
 	path = vimfiles/bundle/vimbuddy
 	url = https://github.com/vim-scripts/vimbuddy.vim.git
+[submodule "vimfiles/bundle/xterm-color-table"]
+	path = vimfiles/bundle/xterm-color-table
+	url = https://github.com/guns/xterm-color-table.vim.git
