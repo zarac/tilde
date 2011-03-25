@@ -49,3 +49,6 @@
 [submodule "vimfiles/bundle/zencoding"]
 	path = vimfiles/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule "vimfiles/bundle/vimbuddy"]
+	path = vimfiles/bundle/vimbuddy
+	url = https://github.com/vim-scripts/vimbuddy.vim.git
