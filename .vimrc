@@ -535,7 +535,7 @@
     set statusline=%{getcwd()}
     set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
     set statusline+=%{fugitive#statusline()}
-    "set statusline+=VB%{VimBuddy()}
+    set statusline+=VB%{VimBuddy()}
     "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
     "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
     set laststatus=2
