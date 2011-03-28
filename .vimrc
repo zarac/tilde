@@ -7,13 +7,20 @@
 " If found, please return!
 "
 " TODO : organize this messy .vimrc
+
+"" [HL-2010-10-05 13:54] TODO ^.
+" o note function
+"   o ? read pdf
 ""
 
-"" PATHOGEN {{{
+"" pathogen / bundle {{{
+    " This needs to load first, so all modules are loaded before i use them in .vimrc.
     source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
+    call pathogen#runtime_append_all_bundles()
+    call pathogen#helptags()
 "" }}}
 
-"" Favorite colorschemes (and new ones i'm testing out). {{{
+"" colorschemes {{{
 
     "" test colors..
     " :syntax syntax/colortest.vim
@@ -529,7 +536,7 @@
     set statusline=%{getcwd()}
     set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
     set statusline+=%{fugitive#statusline()}
-    set statusline+=VB%{VimBuddy()}
+    "set statusline+=VB%{VimBuddy()}
     "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
     "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
     set laststatus=2
@@ -550,9 +557,9 @@
     set wrapscan
     set incsearch
     set hlsearch
-
     "" Temporarly turn off hlsearch (it gets turned on when sourcing .vimrc).
-    noh
+    nohlsearch
+
 "" }}}
 
 "" Completion {{{
@@ -569,20 +576,20 @@
     set completeopt=menuone,preview
 "" }}}
 
-"" Movement {{{
+"" movement {{{
+
+    "" Allow backspace to delete previously entered characters.
+    set backspace=2
 
     "" Allow h and l to wrap to next and previous lines.
     set whichwrap+=h
     set whichwrap+=l
 "" }}}
 
-"" Editing {{{
+"" formatting {{{
 
     "" Default encoding.
     set encoding=utf-8
-
-    "" Allow backspace to delete previously entered characters.
-    set backspace=2
 
     set tabstop=4
     set shiftwidth=4
@@ -590,17 +597,20 @@
     set smartindent
 "" }}}
 
-"" Windows {{{
-
-    " Allow unsaved buffers to not be seen (not attached to any window).
-    set hidden
+"" window {{{
 
     " Select right and below windows when splitting.
     set splitright
     set splitbelow
 "" }}}
 
-"" Miscellaneous {{{
+"" buffer {{{
+
+    " Allow unsaved buffers to not be seen (not attached to any window).
+    set hidden
+"" }}}
+
+"" mouse {{{
 
     " Enable mouse support
     set mouse=a
@@ -793,36 +803,6 @@
             nmap <silent> ,.tl <C-W>v<C-]>
         "" }}}
 
-        "" eclim / JavaComplete plugin ,.j {{{
-            nmap <silent> ,.ji :JavaImport<CR> :echo ":JavaImport"<CR>
-            "nmap <silent> ,.jim :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
-            nmap <silent> ,.jI :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
-            nmap <silent> ,.jl :JavaImpl<CR> :echo ":JavaImpl"<CR>
-            nmap <silent> ,.jc :Javac<CR> :echo ":Javac"<CR>
-            nmap <silent> ,.js :Java %<CR> :echo ":Java %"<CR>
-            nmap <silent> ,.jS :Javac<CR> :Java<CR> :echo ":Javac \| :Java"<CR>
-            "nmap <silent> ,.jS :Javac<CR> :Java %<CR> :echo ":Javac \| :Java %"<CR>
-            nmap <silent> ,.jds :JavaDocSearch<CR> :echo ":JavaDocSearch"<CR>
-            nmap <silent> ,.jdc :JavaDocComment<CR> :echo ":JavaDocComment"<CR>
-            " Start eclimd
-            nmap <silent> ,.je :!eclimd.bat<CR>
-            " Stop eclimd
-            nmap <silent> ,.jE :ShutdownEclim<CR>
-            " Open all projects tree
-            nmap <silent> ,.jp :ProjectsTree<CR>
-        "" }}}
-
-        "" eclim / Project plugin ,p {{{
-
-            nmap <silent> ,pl :ProjectList<CR>
-            nmap <silent> ,po :ProjectOpen<SPACE>
-            "nmap <silent> ,po :ProjectOpen<SPACE><Tab>
-            nmap <silent> ,pt :ProjectsTree<CR>
-        "" }}}
-
-        "" RecoverPlugin {{{
-            nmap <silent> ,.r :RecoverPluginFinish<CR>
-        "" }}}
     "" }}}
     
 
@@ -965,20 +945,40 @@
         nnoremap <F5> :GundoToggle<CR>
     "" }}}
 
-    " TODO: merge -towelie
-    "" vimPdb {{{
-        " Not working so well with cli vim.
-        "let g:loaded_vimPdb = 1
+    "" eclim / JavaComplete plugin ,.j {{{
+        nmap <silent> ,.ji :JavaImport<CR> :echo ":JavaImport"<CR>
+        "nmap <silent> ,.jim :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
+        nmap <silent> ,.jI :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
+        nmap <silent> ,.jl :JavaImpl<CR> :echo ":JavaImpl"<CR>
+        nmap <silent> ,.jc :Javac<CR> :echo ":Javac"<CR>
+        nmap <silent> ,.js :Java %<CR> :echo ":Java %"<CR>
+        nmap <silent> ,.jS :Javac<CR> :Java<CR> :echo ":Javac \| :Java"<CR>
+        "nmap <silent> ,.jS :Javac<CR> :Java %<CR> :echo ":Javac \| :Java %"<CR>
+        nmap <silent> ,.jds :JavaDocSearch<CR> :echo ":JavaDocSearch"<CR>
+        nmap <silent> ,.jdc :JavaDocComment<CR> :echo ":JavaDocComment"<CR>
+        " Start eclimd
+        nmap <silent> ,.je :!eclimd.bat<CR>
+        " Stop eclimd
+        nmap <silent> ,.jE :ShutdownEclim<CR>
+        " Open all projects tree
+        nmap <silent> ,.jp :ProjectsTree<CR>
+    "" }}}
+
+    "" eclim / Project plugin ,p {{{
+
+        nmap <silent> ,pl :ProjectList<CR>
+        nmap <silent> ,po :ProjectOpen<SPACE>
+        "nmap <silent> ,po :ProjectOpen<SPACE><Tab>
+        nmap <silent> ,pt :ProjectsTree<CR>
+    "" }}}
+
+    "" RecoverPlugin {{{
+        nmap <silent> ,.r :RecoverPluginFinish<CR>
     "" }}}
 
     "" eclim {{{
         "" Don't use automatic logging import (and whatever else it does).
         let g:EclimLoggingDisabled = 1
-    "" }}}
-
-    "" pathogen / bundle {{{
-        call pathogen#runtime_append_all_bundles()
-        call pathogen#helptags()
     "" }}}
 
     "" javacomplete {{{
@@ -1009,31 +1009,21 @@
         "let g:DisableAutoPHPFolding = 1
     "" }}}
 
-    " TODO : merge -towelie
-    """ VimCalc {{{
+    "" VimCalc {{{
         "nmap <silent> ,C :Calc<CR>
-    """ }}}
+    "" }}}
 
     "" Surround {{{
         " VS<div> " surround line
     "" }}}
 "" }}}
 
-""" File Specifics {{{
+"" filetype {{{
 
     """ Python {{{
         "autocmd BufRead,BufNewFile *.py set ai
         "autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class 
     """ }}}
-""" }}}
-
-"" Environment / Paths {{{
-
-    "au BufEnter * call SetTagsFile()
-    "au BufNewFile,BufRead * call SetTagsFile()
-    "[HL-2010-09-05 05:33] Added.
-    "au FileType java call SetTagsFileJavaSource()
-    "au FileType java set tags+=/opt/java/share/.tags 
 "" }}}
 
 "" Commands {{{
@@ -1046,62 +1036,63 @@
     "command! UnReadMarcFile %s//\%x20\%x20\%x1f\%x61//g
 "" }}}
 
-"" System Specific {{{
+"" GVim {{{
 
-    "" TOWELIE
-    """"""""""
-    function! HostnameTowelie()
-        "cd z:\me
-        cd ~
-        nmap <silent> ,~ :cd z:\me<CR>
-        nmap <silent> ,en :e z:\me\documents\notes\random.ztx<CR>
-        if has("gui_running")
-            set columns=100
-            set lines=40
+    "" Fix font if running GVim doesn't work, wtf? (Moved outside for now).
+    if has("gui_running")
+        "set guifont=DejaVu\ Sans\ Mono\ 10
+        "set guifont=Monospace\ 11
+        set guioptions-=T
+        set guioptions-=m
+        set guioptions-=R
+        set guioptions-=r
+        set guioptions-=L
+        set guioptions-=l
+        "[HL-20100308 13:48] Might not work.. not properly tested.
+        if has("gui_gtk2")
+            set guifont=Luxi\ Mono\ 12
+        elseif has("x11")
+            " Also for GTK 1
+            set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+        elseif has("gui_win32")
+            "set guifont=Luxi_Mono:h12:cANSI
+            set guifont=Consolas:h11:cANSI
         endif
-        set guifont=Consolas:h14:cANSI
-        "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
-        "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
-        "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
-        "set shell=\"C:\\Program Files (x86)\\Git\\bin\\sh.exe -login -i\"
-        au BufRead *.java call SetTagsFileTowelie()
-        function! SetTagsFileTowelie()
-            "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
-            "setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
-            setlocal tags+=c:\Program\\\ Files\Java\jdk1.6.0_22\src\tags
+    endif
+"" }}}
+
+"" hostname {{{
+
+    "" *Stan* {{{
+        function! HostnameStan()
         endfunction
-    endfunction
-
-    """ Include AquaBrowser source files.
-    "if !exists("tags[~/MediaLab/Source/tags]")
-        "set tags+=~/MediaLab/Source/tags
-    "endif
-
-    "" GVim Specific Options {{{
-
-        "" Fix font if running GVim doesn't work, wtf? (Moved outside for now).
-        if has("gui_running")
-            "set guifont=DejaVu\ Sans\ Mono\ 10
-            "set guifont=Monospace\ 11
-            set guioptions-=T
-            set guioptions-=m
-            set guioptions-=R
-            set guioptions-=r
-            set guioptions-=L
-            set guioptions-=l
-            "[HL-20100308 13:48] Might not work.. not properly tested.
-            if has("gui_gtk2")
-                set guifont=Luxi\ Mono\ 12
-            elseif has("x11")
-                " Also for GTK 1
-                set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
-            elseif has("gui_win32")
-                "set guifont=Luxi_Mono:h12:cANSI
-                set guifont=Consolas:h11:cANSI
-            endif
-        endif
     "" }}}
 
+    "" *Towelie* {{{
+        function! HostnameTowelie()
+            "cd z:\me
+            cd ~
+            nmap <silent> ,~ :cd z:\me<CR>
+            nmap <silent> ,en :e z:\me\documents\notes\random.ztx<CR>
+            if has("gui_running")
+                set columns=100
+                set lines=40
+            endif
+            set guifont=Consolas:h14:cANSI
+            "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
+            "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
+            "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
+            "set shell=\"C:\\Program Files (x86)\\Git\\bin\\sh.exe -login -i\"
+            au BufRead *.java call SetTagsFileTowelie()
+            function! SetTagsFileTowelie()
+                "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
+                "setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
+                setlocal tags+=c:\Program\\\ Files\Java\jdk1.6.0_22\src\tags
+            endfunction
+        endfunction
+    "" }}}
+
+    "" *Tweek* {{{
     function! HostnameTweek()
         set shellslash
         " code
@@ -1136,24 +1127,20 @@
         cd z:\me
         set columns=82
     endfunction
+    "" }}}
 
     if hostname() == "STAN"
-        " code
-        "set path+=/
+        call HostnameTowelie()
     endif
 
     if hostname() == "TOWELIE"
         call HostnameTowelie()
     endif
 
-    if firstRun == 1
-        if hostname() == "TWEEK"
-            "au BufRead *.java :setlocal path+="C:\Program Files (x86)\java\"
-            "if !exists("tags[C:/Program\ Files/Java/jdk1.6.0_21/src/.tags]")
-            "endif
-            call HostnameTweek()
-        endif
+    if hostname() == "TWEEK"
+        call HostnameTweek()
     endif
+
     "au BufRead *.java set tags+="C:\Program Files\Java\jdk1.6.0_21\src\.tags"
     "au BufRead *.java set tags+=taggar
 
@@ -1166,7 +1153,7 @@
     "endif
 "" }}}
 
-"" Random Testing {{{
+"" testing {{{
 
     "" Automatic transformation of marc files.
     " Would be nice if it could be done on BufReadPre maybe?
@@ -1230,11 +1217,6 @@
     ""
     let g:acp_enableAtStartup = 0
 "" }}}
-
-
-"" [HL-2010-10-05 13:54] TODO ^.
-    " o note function
-    "   o ? read pdf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " vim: set fdt=SimpleFoldText() : "
