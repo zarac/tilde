@@ -1024,6 +1024,10 @@
         "autocmd BufRead,BufNewFile *.py set ai
         "autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class 
     """ }}}
+
+    """ Java {{{
+        au FileType java set foldmethod=syntax
+    """ }}}
 "" }}}
 
 "" Commands {{{
