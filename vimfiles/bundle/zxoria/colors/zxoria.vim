@@ -1,5 +1,13 @@
 " Vim color file
 "
+" Name:       zxoria256.vim
+" Version:    1.0
+" Maintainer: Hannes Landstedt <hannes.landstedt@gmail.com>
+"
+" Heavily inspired by xoria256.vim (see below).
+"
+"
+" ....
 " Name:       xoria256.vim
 " Version:    1.1
 " Maintainer: Dmitriy Y. Zotikov (xio) <xio@ungrund.org>
@@ -13,9 +21,6 @@
 " Color numbers (0-255) see:
 " http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 
-
-
-" Bla-bla ----------------------------------------------------------------------
 
 if &t_Co != 256 && ! has("gui_running")
   echomsg ""
@@ -32,39 +37,39 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "xoria256"
+let colors_name = "zxoria"
 
-
-
-" The real part ----------------------------------------------------------------
 
 "" General colors
-hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=234 guibg=#1c1c1c cterm=none gui=none
+hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=233 guibg=#101510 cterm=none gui=none
+hi ColorColumn  ctermbg=16 guibg=#000000
 hi CursorColumn                           ctermbg=238 guibg=#444444
 hi Cursor                                 ctermbg=214 guibg=#ffaf00
-hi CursorLine                             ctermbg=238 guibg=#444444
+hi CursorLine                             ctermbg=237 guibg=#1a2f1a
 hi FoldColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=bg  guibg=bg
-hi Folded       ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
+"hi Folded       ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
+hi Folded       ctermfg=208 guifg=#ff8700 ctermbg=232  guibg=#080808
+"hi Folded        guibg=#001336 guifg=#003DAD gui=none cterm=none
 hi IncSearch    ctermfg=0   guifg=#000000 ctermbg=223 guibg=#ffdfaf cterm=none gui=none
-hi NonText      ctermfg=248 guifg=#a8a8a8                           cterm=bold gui=bold
-hi Pmenu        ctermfg=0   guifg=#000000 ctermbg=246 guibg=#949494
+hi NonText      ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000  cterm=bold gui=bold
+hi Pmenu        ctermfg=173   guifg=#df875f ctermbg=22 guibg=#1a2f1a
 hi PmenuSbar                              ctermbg=243 guibg=#767676
-hi PmenuSel     ctermfg=0   guifg=#000000 ctermbg=243 guibg=#767676
+hi PmenuSel     ctermfg=191   guifg=#dfff5f ctermbg=234 guibg=#1c1c1c
 hi PmenuThumb                             ctermbg=252 guibg=#d0d0d0
 hi Search       ctermfg=0   guifg=#000000 ctermbg=149 guibg=#afdf5f
-hi SignColumn   ctermfg=248 guifg=#a8a8a8
+hi SignColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000
 hi SpecialKey   ctermfg=77  guifg=#5fdf5f
-hi StatusLine                             ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
-hi StatusLineNC                           ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+hi StatusLine   ctermfg=154 guifg=#afff00 ctermbg=22 guibg=#1a2f1a cterm=bold gui=bold
+hi StatusLineNC ctermfg=166 guifg=#df5f00 ctermbg=22 guibg=#1a2f1a cterm=none gui=none
 hi TabLine      ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
 hi TabLineFill  ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
-hi VertSplit    ctermfg=237 guifg=#3a3a3a ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+hi VertSplit    ctermfg=237 guifg=#3a3a3a ctermbg=bg guibg=bg cterm=none gui=none
 hi Visual       ctermfg=24  guifg=#005f87 ctermbg=153 guibg=#afdfff
-hi VIsualNOS    ctermfg=24  guifg=#005f87 ctermbg=153 guibg=#afdfff cterm=none gui=none
+hi VisualNOS    ctermfg=24  guifg=#005f87 ctermbg=153 guibg=#afdfff cterm=none gui=none
 hi WildMenu     ctermfg=0   guifg=#000000 ctermbg=184 guibg=#dfdf00 cterm=bold gui=bold
 
 "" Syntax highlighting
-hi Comment      ctermfg=244 guifg=#808080
+hi Comment      ctermfg=244 guifg=#5f875f
 hi Constant     ctermfg=229 guifg=#ffffaf
 hi Error        ctermfg=15  guifg=#ffffff ctermbg=1   guibg=#800000
 hi ErrorMsg     ctermfg=15  guifg=#ffffff ctermbg=1   guibg=#800000
@@ -90,5 +95,4 @@ hi diffAdd      ctermfg=bg  guifg=bg      ctermbg=151 guibg=#afdfaf
 hi diffDelete   ctermfg=bg  guifg=bg      ctermbg=246 guibg=#949494 cterm=none gui=none
 hi diffChange   ctermfg=bg  guifg=bg      ctermbg=181 guibg=#dfafaf
 hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none gui=none
-
 " vim: set expandtab tabstop=2 shiftwidth=2 smarttab softtabstop=2:
