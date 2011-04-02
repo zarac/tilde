@@ -230,7 +230,7 @@
     " [HL-20110320 08:02] from towelie, might this cause of 'that one' bug? : )
     " TODO : merge - towelie
     " command! -nargs=0 ES echo colors_name
-    command! -nargs=0 CS echo colors_name
+    command! -nargs=0 ZCurrentColorScheme echo colors_name
     function! FixColorscheme() " {{{
 
         if has("gui_running")
@@ -242,9 +242,9 @@
             elseif (g:colors_name =~ "256-jungle")
                 hi CursorLine    guibg=#000000 ctermbg=Black cterm=none
 
-            elseif (g:colors_name =~ "xoria256")
-                hi Folded        guibg=#001336 guifg=#003DAD gui=none cterm=none
-                "hi Folded         ctermbg=234  ctermfg=25    cterm=none
+            "elseif (g:colors_name =~ "xoria256")
+                "hi Folded        guibg=#001336 guifg=#003DAD gui=none cterm=none
+                ""hi Folded         ctermbg=234  ctermfg=25    cterm=none
             endif
 
         elseif &t_Co == 256
@@ -267,13 +267,13 @@
             elseif (g:colors_name =~ "256-jungle")
                 hi CursorLine    guibg=#000000 ctermbg=Black cterm=none
 
-            elseif (g:colors_name =~ "xoria256")
-                hi Folded       ctermbg=234  ctermfg=25    cterm=none
-                hi Comment      ctermfg=gray
-                "hi CursorLine   cterm=none
-                "hi VertSplit    ctermbg=lightblue  ctermfg=227   cterm=none
-                "hi Search       ctermfg=none ctermbg=13 cterm=none 
-                "hi IncSearch    ctermfg=0 ctermbg=214 cterm=none
+            "elseif (g:colors_name =~ "xoria256")
+                "hi Folded       ctermbg=234  ctermfg=25    cterm=none
+                "hi Comment      ctermfg=gray
+                ""hi CursorLine   cterm=none
+                ""hi VertSplit    ctermbg=lightblue  ctermfg=227   cterm=none
+                ""hi Search       ctermfg=none ctermbg=13 cterm=none 
+                ""hi IncSearch    ctermfg=0 ctermbg=214 cterm=none
 
             elseif (g:colors_name =~ "desert256")
                 hi Folded         ctermbg=234  ctermfg=25    cterm=none
@@ -392,12 +392,12 @@
         au BufWritePost [._]vimrc so $MYVIMRC
     augroup END
 
-    augroup mycolorschemes
-        au!
-        " TODO: check which to use (from towelie)
-        "au ColorScheme * call FixColorscheme()
-        au ColorScheme * call FixColorscheme() | call FixColors()
-    augroup END
+    "augroup mycolorschemes
+        "au!
+        "" TODO: check which to use (from towelie)
+        ""au ColorScheme * call FixColorscheme()
+        "au ColorScheme * call FixColorscheme() | call FixColors()
+    "augroup END
 
     "" Turn off compatability with Vi (this is Vim).
     set nocompatible
@@ -452,17 +452,17 @@
     syntax on
 
     "" colors {{{
-        "[HL-20100314 05:44] Fix this!
+        "[HL-20100314 05:44] TODO : Fix this!
         if firstRun == 1
-            colo xoria256
+            colorscheme zxoria
             "TODO : should we use? -towelie
             "call FixColors()
         endif
-        call FixColors()
-        call FixColorscheme()
+        "call FixColors()
+        "call FixColorscheme()
 
-        hi NonText      ctermfg=DarkGray
-        hi SpecialKey   ctermfg=Green
+        "hi NonText      ctermfg=DarkGray
+        "hi SpecialKey   ctermfg=Green
     "" }}}
  
     " Don't redraw screen when running macros etc.
@@ -532,14 +532,32 @@
     """                \ exec oldwinnr . " wincmd w"
     """endif
     "
-    "" TODO : fix statusline
-    set statusline=%{getcwd()}
-    set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
-    set statusline+=%{fugitive#statusline()}
-    "set statusline+=VB%{VimBuddy()}
-    "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
-    "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
-    set laststatus=2
+    "" statusline {{{
+        "" TODO : fix statusline
+        "set statusline=%{getcwd()}
+        "set statusline=%{expand('%:p:h')}
+        "set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
+        "set statusline+=%{fugitive#statusline()}
+        function! ZToggleStatusline()
+            set statusline=
+            if (g:statusMode == 1)
+                set statusline+=%{expand('%:p:h')}
+                let g:statusMode = 0
+            else
+                let g:statusMode = 1
+            endif
+            set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
+            set statusline+=%{fugitive#statusline()}
+        endfunction
+        if firstRun == 1
+            let g:statusMode = 0
+            call ZToggleStatusline()
+        endif
+        "set statusline+=VB%{VimBuddy()}
+        "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
+        "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
+        set laststatus=2
+    "" }}}
 
     set scrolloff=3
     "set virtualedit=all
@@ -644,6 +662,10 @@
 
 
     """ Setters ,s {{{
+        set cc=81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100
+        "nmap <silent> ,scc :set cc=+1,80,90,100,150,200,250,300,350,400,450,500,550,600,650,700,850,900,950,1000<CR>
+        nmap <silent> ,scc :set colorcolumn=81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100<CR>
+        nmap <silent> ,scC :set colorcolumn=<CR>
         nmap <silent> ,sbd :set background=dark<CR>:set background?<CR>
         nmap <silent> ,sbl :set background=light<CR>:set background?<CR>
 
@@ -741,14 +763,18 @@
 
         "" shellslash
         nmap <silent> ,t/ :set invshellslash<CR>:set shellslash?<CR>
+
+        nmap <silent> ,tS :call ZToggleStatusline()<CR>
     "" }}}
+
+    ""
 
     "" :copen / error / quickfix / Scratch list {{{
         "nmap ,en :cnext<CR>
         "nmap ,ej :cnext<CR>
         "nmap ,ep :cprev<CR>
         "nmap ,ek :cprev<CR>
-        "" Perhaps replace :copwn with :cwin (to not show window if there are no matches)
+        "" TODO : Perhaps replace :copwn with :cwin (to not show window if there are no matches)
         nmap ,sl :copen<CR>
         nmap ,sj :cnext<CR>
         nmap ,sk :cprevious<CR>
@@ -766,8 +792,8 @@
         nmap ,lh :lclose<CR>
     "" }}}
 
-    " Turn off that stupid highlight search
-    nmap <silent> ,n :noh<CR>
+    " Turn off highlight search
+    nmap <silent> ,n :nohlsearch<CR>
 
     " cd to the directory containing the file in the buffer
     " all
@@ -787,22 +813,18 @@
     nmap <silent> ,bw :bp\|bw#<CR>
     nmap <silent> ,bW :bp\|bw!#<CR>
 
-    "" sub-group ,. {{{
+    "" ctags ,. {{{
 
-        "" ctags {{{
-
-            " Generate tags recursively for current directory.
-            nmap <silent> ,.T :!ctags -R .<CR>
-            " Split down
-            nmap <silent> ,.tj <C-W>s<C-]>
-            " Split up
-            nmap <silent> ,.tk <C-W>s<C-W>k<C-]>
-            " Split left
-            nmap <silent> ,.th <C-W>v<C-W>h<C-]>
-            " Split right
-            nmap <silent> ,.tl <C-W>v<C-]>
-        "" }}}
-
+        " Generate tags recursively for current directory.
+        nmap <silent> ,.T :!ctags -R .<CR>
+        " Split down
+        nmap <silent> ,.tj <C-W>s<C-]>
+        " Split up
+        nmap <silent> ,.tk <C-W>s<C-W>k<C-]>
+        " Split left
+        nmap <silent> ,.th <C-W>v<C-W>h<C-]>
+        " Split right
+        nmap <silent> ,.tl <C-W>v<C-]>
     "" }}}
     
 
@@ -1020,6 +1042,11 @@
 
 "" filetype {{{
 
+    """ CSharp / C# / cs.vim
+        " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
+        " http://www.vim.org/scripts/script.php?script_id=1895
+    """ }}}
+
     """ Python {{{
         "autocmd BufRead,BufNewFile *.py set ai
         "autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class 
@@ -1232,6 +1259,9 @@
     "
     ""
     let g:acp_enableAtStartup = 0
+
+    au BufEnter * set cursorline
+    au BufLeave * set nocursorline
 "" }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
