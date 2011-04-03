@@ -1043,7 +1043,7 @@
 
 "" filetype {{{
 
-    """ CSharp / C# / cs.vim
+    """ CSharp / C# / cs.vim {{{
         " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
         " http://www.vim.org/scripts/script.php?script_id=1895
     """ }}}
@@ -1155,9 +1155,17 @@
             endif
         endfunction
 
-
         cd z:\me
         set columns=82
+    endfunction
+    "" }}}
+
+    "" *Chef* {{{
+    function! HostnameChef()
+        au BufRead *.java call SetTagsFileJavaChef()
+        function! SetTagsFileJavaChef()
+            setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_23/src/tags
+        endfunction
     endfunction
     "" }}}
 
@@ -1171,6 +1179,10 @@
 
     if hostname() == "TWEEK"
         call HostnameTweek()
+    endif
+
+    if hostname() == "CHEF"
+        call HostnameChef()
     endif
 
     "au BufRead *.java set tags+="C:\Program Files\Java\jdk1.6.0_21\src\.tags"
