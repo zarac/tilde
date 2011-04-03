@@ -58,3 +58,6 @@
 [submodule "vimfiles/bundle/recover"]
 	path = vimfiles/bundle/recover
 	url = https://github.com/chrisbra/Recover.vim.git
+[submodule "vimfiles/bundle/xptemplate"]
+	path = vimfiles/bundle/xptemplate
+	url = https://github.com/drmingdrmer/xptemplate-dist.git
