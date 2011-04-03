@@ -962,6 +962,9 @@
         "
         " GoogleSuggest Complete : complete function using google suggest API. perhaps, you should input japanese w 
         " http://www.vim.org/scripts/script.php?script_id=2948
+        "
+        " histwin.vim : Browse the undo tree
+        " http://www.vim.org/scripts/script.php?script_id=2932
     "" }}}
 
     "" gundo {{{
