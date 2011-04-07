@@ -1264,7 +1264,7 @@
     ""
     let g:acp_enableAtStartup = 0
 
-    au BufEnter * set cursorline
+    au BufEnter,BufNew,BufNewFile * set cursorline
     au BufLeave * set nocursorline
 "" }}}
 
