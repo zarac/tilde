@@ -61,3 +61,6 @@
 [submodule "vimfiles/bundle/xptemplate"]
 	path = vimfiles/bundle/xptemplate
 	url = https://github.com/drmingdrmer/xptemplate-dist.git
+[submodule "vimfiles/bundle/autocomplpop"]
+	path = vimfiles/bundle/autocomplpop
+	url = https://github.com/vim-scripts/AutoComplPop.git
