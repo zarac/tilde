@@ -142,6 +142,8 @@ alias jaom='screen -S jao'
 # git
 alias gs='git status -s'
 alias gl='git log'
+alias glnr='git log --branches --not --remotes=origin'
+alias glnb='git log --not --remotes=origin --branches'
 alias gls='git ls-files'
 alias ga='git add'
 alias gmv='git mv'
