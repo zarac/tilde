@@ -16,7 +16,7 @@
 "" pathogen / bundle {{{
     " This needs to load first, so all modules are loaded before i use them in .vimrc.
     source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
-    let g:pathogen_disable=['snipmate']
+    let g:pathogen_disabled=["nerdtree","snipmate"]
     call pathogen#runtime_append_all_bundles()
     call pathogen#helptags()
 "" }}}
