@@ -39,6 +39,13 @@
     "colo beauty256
     "colo phpx
     "colo morning
+    "
+    "" Removed from stan during mergin.
+    " Zenburn : Low contrast colour scheme for low light conditions
+    " http://www.vim.org/scripts/script.php?script_id=415
+    "
+    " tchaba : A dark color scheme, 256 color terminals
+    " http://www.vim.org/scripts/script.php?script_id=3272
 "" }}}
 
 "" Tips and Tricks! {{{
@@ -888,7 +895,8 @@
         " javacomplete : Omni Completion for JAVA
         " http://www.vim.org/scripts/script.php?script_id=1785
         "
-        " xmledit : A filetype plugin to help edit XML, HTML, and SGML documents
+        " xmledit : A filetype plugin to help edit XML, HTML, and SGML
+        " documents
         " http://www.vim.org/scripts/script.php?script_id=301
         "
         " xml.vim : helps editing xml (and [x]html, sgml, xslt) files
@@ -900,16 +908,19 @@
         " AutoComplPop : Automatically opens popup menu for completions
         " http://www.vim.org/scripts/script.php?script_id=1879
         "
-        " cecutil : Some utilities used by several of my scripts (window positioning, mark handling)
+        " cecutil : Some utilities used by several of my scripts (window
+        " positioning, mark handling)
         " http://www.vim.org/scripts/script.php?script_id=1066
         "
         " hexman.vim : Simpler Hex viewing and editing
         " http://www.vim.org/scripts/script.php?script_id=666
         "
-        " paster.vim : paster.vim - A configurable Vim plugin for posting text to a public pastebin
+        " paster.vim : paster.vim - A configurable Vim plugin for posting text
+        " to a public pastebin
         " http://www.vim.org/scripts/script.php?script_id=2602
         "
-        " phpfolding.vim : Automatic folding of PHP functions, classes,.. (also folds related PhpDoc)
+        " phpfolding.vim : Automatic folding of PHP functions, classes,..
+        " (also folds related PhpDoc)
         " http://www.vim.org/scripts/script.php?script_id=1623
         "
         " vimwiki : Personal Wiki for Vim
@@ -937,7 +948,8 @@
         " multvals.vim : Array library that uses patterns as separators
         " http://www.vim.org/scripts/script.php?script_id=171
         "
-        " browser.vim : a lightweight web browser opening in a split window for wikipedia etc.
+        " browser.vim : a lightweight web browser opening in a split window
+        " for wikipedia etc.
         " http://www.vim.org/scripts/script.php?script_id=2227
         "
         " Arduino syntax file : Syntax file for Arduino .PDE files
@@ -948,6 +960,10 @@
         "
         " vimsh.tar.gz : terminal/shell buffer script for python enabled [g]vim
         " http://www.vim.org/scripts/script.php?script_id=165
+        "
+        " python_ifold : Improved version of python_fold. Uses folding
+        " expression for python code.
+        " http://www.vim.org/scripts/script.php?script_id=2002
     "" }}}
 
     "" to check out... {{{
