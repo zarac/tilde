@@ -24,6 +24,7 @@
 "" colorschemes {{{
 
     "" test colors..
+    "" ':echo colors_name' to see current colorscheme
     " :syntax syntax/colortest.vim
     " Dark Background
     "colo desert256
@@ -227,11 +228,6 @@
 
 "" Functions {{{
 
-    ":command! -nargs=0 FOLD call <SID>OutlineToggle()
-    " [HL-20110320 08:02] from towelie, might this cause of 'that one' bug? : )
-    " TODO : merge - towelie
-    " command! -nargs=0 ES echo colors_name
-    command! -nargs=0 ZCurrentColorScheme echo colors_name
     function! FixColorscheme() " {{{
 
         if has("gui_running")
