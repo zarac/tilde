@@ -72,15 +72,15 @@ git_changes()
     /^[ MARC]D/{deletedInWorkTree++}
     /'\\?\\?'/{indexUntracked++}
     END{
-    if(indexAdded>0)printf"'$GREEN' "indexAdded;
-    if(indexModified>0)printf"'$YELLOW' "indexModified;
-    if(indexDeleted>0)printf"'$RED' "indexDeleted;
-    if(indexRenamed>0)printf"'$WHITE' mv"indexRenamed;
-    if(indexCopied>0)printf"'$TEAL' cp"indexCopied;
-    if(deleted>0)printf"'$RED_BOLD' "deleted;
-    if(modified>0)printf"'$YELLOW_BOLD' "modified;
-    if(deletedInWorkTree>0)printf"'$WHITE_BOLD' -cwd"deletedInWorkTree;
-    if(indexUntracked>0)printf"'$WHITE_BOLD' "indexUntracked;
+    if(indexAdded>0)printf"'$GREEN_BOLD' "indexAdded;
+    if(indexModified>0)printf"'$YELLOW_BOLD' "indexModified;
+    if(indexDeleted>0)printf"'$RED_BOLD' "indexDeleted;
+    if(indexRenamed>0)printf"'$WHITE_BOLD' mv"indexRenamed;
+    if(indexCopied>0)printf"'$TEAL_BOLD' cp"indexCopied;
+    if(deleted>0)printf"'$RED' "deleted;
+    if(modified>0)printf"'$YELLOW' "modified;
+    if(deletedInWorkTree>0)printf"'$WHITE' -cwd"deletedInWorkTree;
+    if(indexUntracked>0)printf"'$WHITE' "indexUntracked;
     printf"'$CLEAR'"}'
     # not used...
     #if(matches>0)printf"'$WHITE' ="matches;
