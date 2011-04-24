@@ -64,3 +64,6 @@
 [submodule "vimfiles/bundle/autocomplpop"]
 	path = vimfiles/bundle/autocomplpop
 	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule "vimfiles/bundle/pastie"]
+	path = vimfiles/bundle/pastie
+	url = https://github.com/tpope/vim-pastie.git
