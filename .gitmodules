@@ -67,3 +67,6 @@
 [submodule "vimfiles/bundle/pastie"]
 	path = vimfiles/bundle/pastie
 	url = https://github.com/tpope/vim-pastie.git
+[submodule "vimfiles/bundle/colors-solarized"]
+	path = vimfiles/bundle/colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
