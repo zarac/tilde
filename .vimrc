@@ -1069,6 +1069,7 @@
 
     """ Java {{{
         au FileType java set foldmethod=syntax
+        au FileType java set textwidth=80
     """ }}}
 "" }}}
 
