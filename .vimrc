@@ -659,7 +659,7 @@
     """ Windows {{{
         " resize horizontal splits
         nmap + <C-W>+
-        nmap - <C-W>-
+        nmap <A-=> <C-W>-
 
         " resize vertical splits
         " ToDo: Why doesn't this work!?
