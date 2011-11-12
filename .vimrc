@@ -214,7 +214,6 @@
         " set expandtab...
         " set showfulltag "" Test this... MS IntelliSense like?
         " :h ins-completion
-        " :NERDtreeToggle "" A file explorer plugin.
         " Use "[I" to find the word under teh cursor in included files, or [<Tab> to jump
         " there.
         " Write clean c ommands in a function:
@@ -543,19 +542,28 @@
         "set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
         "set statusline+=%{fugitive#statusline()}
         function! ZToggleStatusline()
-            set statusline=
             if (g:statusMode == 1)
-                set statusline+=%{expand('%:p:h')}
-                let g:statusMode = 0
+                call ZStatuslineShort()
             else
-                let g:statusMode = 1
+                call ZStatuslineLong()
             endif
+        endfunction
+        function! ZStatuslineShort()
+            let g:statusMode = 0
+            set statusline=\ %t\ %M\ %l(%L)\ %c\ %R
+            set statusline+=%{fugitive#statusline()}
+        endfunction
+        function! ZStatuslineLong()
+            call ZStatuslineShort()
+            let g:statusMode = 1
+            set statusline=%{expand('%:p:h')}
             set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
             set statusline+=%{fugitive#statusline()}
         endfunction
         if firstRun == 1
-            let g:statusMode = 0
-            call ZToggleStatusline()
+            "let g:statusMode = 0
+            "call ZToggleStatusline()
+            call ZStatuslineShort()
         endif
         "set statusline+=VB%{VimBuddy()}
         "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
@@ -767,7 +775,8 @@
         "" shellslash
         nmap <silent> ,t/ :set invshellslash<CR>:set shellslash?<CR>
 
-        nmap <silent> ,tS :call ZToggleStatusline()<CR>
+        nmap <silent> ,tS :call ZStatuslineShort()<CR>
+        nmap <silent> ,tL :call ZStatuslineLong()<CR>
     "" }}}
 
     ""
@@ -1055,6 +1064,10 @@
     "" Surround {{{
         " VS<div> " surround line
     "" }}}
+
+    "" NerdTree {{{
+        nmap <silent> ,N :NERDTreeToggle<CR>
+    "" }}}
 "" }}}
 
 "" filetype {{{
@@ -1072,6 +1085,7 @@
 
     """ Java {{{
         au FileType java set foldmethod=syntax
+        au FileType java set textwidth=80
     """ }}}
 "" }}}
 

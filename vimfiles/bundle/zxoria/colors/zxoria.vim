@@ -48,7 +48,9 @@ hi Cursor                                 ctermbg=214 guibg=#ffaf00
 hi CursorLine                             ctermbg=237 guibg=#1a2f1a
 hi FoldColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=bg  guibg=bg
 "hi Folded       ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
-hi Folded       ctermfg=208 guifg=#ff8700 ctermbg=232  guibg=#080808
+"hi Folded       ctermfg=208 guifg=#ff8700 ctermbg=232  guibg=#080808
+"hi Folded       ctermfg=22 guifg=#005f00 ctermbg=232  guibg=#080808
+hi Folded       ctermfg=36 guifg=#00af87 ctermbg=bg  guibg=bg
 "hi Folded        guibg=#001336 guifg=#003DAD gui=none cterm=none
 hi IncSearch    ctermfg=0   guifg=#000000 ctermbg=223 guibg=#ffdfaf cterm=none gui=none
 hi NonText      ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000  cterm=bold gui=bold
@@ -59,8 +61,10 @@ hi PmenuThumb                             ctermbg=252 guibg=#d0d0d0
 hi Search       ctermfg=0   guifg=#000000 ctermbg=149 guibg=#afdf5f
 hi SignColumn   ctermfg=248 guifg=#a8a8a8 ctermbg=16 guibg=#000000
 hi SpecialKey   ctermfg=77  guifg=#5fdf5f
-hi StatusLine   ctermfg=154 guifg=#afff00 ctermbg=22 guibg=#1a2f1a cterm=bold gui=bold
-hi StatusLineNC ctermfg=166 guifg=#df5f00 ctermbg=22 guibg=#1a2f1a cterm=none gui=none
+"hi StatusLine   ctermfg=154 guifg=#afff00 ctermbg=22 guibg=#1a2f1a cterm=bold gui=bold
+hi StatusLine   ctermfg=154 guifg=#afff00 ctermbg=232 guibg=#080808 cterm=bold gui=bold
+"hi StatusLineNC ctermfg=166 guifg=#df5f00 ctermbg=22 guibg=#1a2f1a cterm=none gui=none
+hi StatusLineNC ctermfg=166 guifg=#df5f00 ctermbg=232  guibg=#080808 cterm=none gui=none
 hi TabLine      ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
 hi TabLineFill  ctermfg=fg  guifg=fg      ctermbg=242 guibg=#666666 cterm=underline gui=underline
 hi VertSplit    ctermfg=237 guifg=#3a3a3a ctermbg=bg guibg=bg cterm=none gui=none
