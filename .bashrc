@@ -160,6 +160,7 @@ alias gr='git remote -v'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gds='git stash show --patience' # might be a better way it does the job)
+alias mahmysql='mysql -h195.178.232.7 -uDA211T10C4062119 -p -DDA211T10C4062119'
 
 
 # Other

@@ -659,7 +659,7 @@
     """ Windows {{{
         " resize horizontal splits
         nmap + <C-W>+
-        nmap - <C-W>-
+        nmap <A-=> <C-W>-
 
         " resize vertical splits
         " ToDo: Why doesn't this work!?
@@ -877,6 +877,8 @@
 
     "" easier home
     nmap <silent> \h :cd ~<CR>
+
+    "" easier opening of files at my mah-website
     nmap <silent> ,em :e ftp://m10p2661@ftphome.mah.se/public_html/
 
 "" }}}
@@ -1074,6 +1076,7 @@
     """ CSharp / C# / cs.vim {{{
         " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
         " http://www.vim.org/scripts/script.php?script_id=1895
+        " http://kevin-berridge.blogspot.com/2008/09/vim-c-compiling.html
     """ }}}
 
     """ Python {{{
@@ -1143,7 +1146,7 @@
                 set columns=100
                 set lines=40
             endif
-            set guifont=Consolas:h14:cANSI
+            set guifont=Consolas:h10:cANSI
             "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
             "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
             "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
