@@ -16,7 +16,7 @@
 "" pathogen / bundle {{{
     " This needs to load first, so all modules are loaded before i use them in .vimrc.
     source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
-    let g:pathogen_disabled=["pastie", "snipmate"]
+    let g:pathogen_disabled=["pastie", "snipmate", "pyrepl"]
     call pathogen#runtime_append_all_bundles()
     call pathogen#helptags()
 "" }}}
@@ -67,7 +67,7 @@
 
     "" Configuring Vim {{{
 
-        "" ecchomsg will echo messages visible with :messages
+        "" echomsg will echo messages visible with :messages
         "echomsg hostname()
     "" }}}
 
@@ -809,9 +809,9 @@
 
     " cd to the directory containing the file in the buffer
     " all
-    nmap <silent> ,cD :cd %:h<CR>
+    nmap <silent> ,cd :cd %:h<CR>
     " local
-    nmap <silent> ,cd :lcd %:h<CR>
+    nmap <silent> ,cl :lcd %:h<CR>
 
     " Make the directory that contains the file in the current buffer.  This is
     " useful when you edit a file in a directory that doesn't (yet) exist
@@ -877,6 +877,7 @@
 
     "" easier home
     nmap <silent> \h :cd ~<CR>
+    nmap <silent> ,em :e ftp://m10p2661@ftphome.mah.se/public_html/
 
 "" }}}
 
@@ -1094,6 +1095,10 @@
     "command! ReadMarcFile %s/\%x2e\%x1e\%x1d//g | %s/\%x20\%x20\%x1f\%x61//g
     "command! UnReadMarcFile %s/\n\n/\%x2e\%x1e\%x1d/g | %s/\n/\%x20\%x20\%x1f\%x61/g
     "command! UnReadMarcFile %s//\%x20\%x20\%x1f\%x61//g
+
+    " Create a directory (or many if needed)
+    " Example usage: ":MD some/path"
+    command! -nargs=1 -complete=dir MD call mkdir("<args>", "p")
 "" }}}
 
 "" GVim {{{
@@ -1132,8 +1137,8 @@
         function! HostnameTowelie()
             "cd z:\me
             cd ~
-            nmap <silent> ,~ :cd z:\me<CR>
-            nmap <silent> ,en :e z:\me\documents\notes\random.ztx<CR>
+            nmap <silent> ,~ :cd d:\me<CR>
+            nmap <silent> ,en :e d:\me\documents\notes\random.ztx<CR>
             if has("gui_running")
                 set columns=100
                 set lines=40
@@ -1183,7 +1188,7 @@
             endif
         endfunction
 
-        cd z:\me
+        cd d:\me
         set columns=82
     endfunction
     "" }}}
