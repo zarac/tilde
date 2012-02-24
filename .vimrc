@@ -1194,7 +1194,9 @@
             endif
         endfunction
 
-        cd d:\me
+        if has('win32')
+            cd d:\me
+        endif
         set columns=82
     endfunction
     "" }}}
