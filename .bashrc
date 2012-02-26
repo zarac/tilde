@@ -108,8 +108,9 @@ PS3='> '
 PS4='+ '
 export PS1 PS2 PS3 PS4
 
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-export PROMPT_COMMAND
+# [HL-20120225 1258] Removed.. redundant... not sure why it was here to begin with. (must have gotten it from somewhere else)
+#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+#export PROMPT_COMMAND
 # fi
 
 # Aliases
