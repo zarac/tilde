@@ -146,7 +146,7 @@ alias gl='git log'
 alias glnr='git log --branches --not --remotes=origin'
 alias glnb='git log --remotes=origin --not --branches'
 alias gls='git ls-files'
-#alias glv="git log -p -40 | vim - -R -c 'set foldmethod=syntax'"
+alias glv="git log -p -40 | vim - -R -c 'set foldmethod=syntax'"
 alias ga='git add'
 alias gmv='git mv'
 alias grm='git rm'
