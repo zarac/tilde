@@ -12,6 +12,116 @@
 " o note function
 "   o ? read pdf
 ""
+let javaScript_fold = 1
+
+"" vundle / bundle {{{
+    set nocompatible               " be iMproved
+    filetype off                   " required!
+
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    " Bundle 'AutoComplPop'
+    " Bundle 'Bogdanp/pyrepl.vim'
+    " Bundle 'ColorV'
+    " Bundle 'DirDiff.vim'
+    " Bundle 'FuzzyFinder'
+    " Bundle 'Gist.vim'
+    " Bundle 'JavaScript-syntax'
+    " Bundle 'L9'
+    " Bundle 'LargeFile'
+    " Bundle 'Syntastic'
+    " Bundle 'UltiSnips'
+    " Bundle 'altercation/vim-colors-solarized'
+    " Bundle 'chrisbra/Recover.vim'
+    " Bundle 'drmingdrmer/xptemplate-dist'
+    " Bundle 'gmarik/vundle'
+    " Bundle 'gregsexton/VimCalc'
+    " Bundle 'guns/xterm-color-table.vim'
+    " Bundle 'kablamo/VimDebug'
+    " Bundle 'mattn/zencoding-vim'
+    " Bundle 'msanders/snipmate.vim'
+    " Bundle 'scrooloose/nerdcommenter'
+    " Bundle 'scrooloose/nerdtree'
+    " Bundle 'sjl/gundo.vim'
+    " Bundle 'sukima/xmledit'
+    " Bundle 'tpope/vim-fugitive'
+    " Bundle 'tpope/vim-pastie'
+    " Bundle 'tpope/vim-repeat'
+    " Bundle 'tpope/vim-surround.vim'
+    " Bundle 'tslime.vim'
+    " Bundle 'vimbuddy.vim'
+
+    "" list of  bundle/ directory
+    " autocomplpop
+    " colorv.vim
+    " dirdiff
+    " fugitive
+    " fuzzyfinder
+    " FuzzyFinder
+    " gist
+    " gundo
+    " javascript-syntax
+    " l9
+    " L9
+    " largefile
+    " nerdcommenter
+    " nerdtree
+    " pastie
+    " pathogen
+    " pyrepl
+    " recover
+    " repeat
+    " snipmate
+    " solarized
+    " surround
+    " syntastic
+    " tslime
+    " ultisnips
+    " vimbuddy
+    " vimcalc
+    " vimdebug
+    " vundle
+    " xmledit
+    " xptemplate
+    " xterm-color-table
+    " zencoding
+    " zwsgiispython
+    " zxoria
+    " zxptemplate
+    "
+    "" list of git submodules
+    " vimfiles/bundle/autocomplpop (2.14.1)
+    " vimfiles/bundle/colors-solarized
+    " vimfiles/bundle/dirdiff (1.1.3)
+    " vimfiles/bundle/fugitive (v1.1-58-g762bfa7)
+    " vimfiles/bundle/fuzzyfinder (4.2.2)
+    " vimfiles/bundle/gist
+    " vimfiles/bundle/gundo (v2.1.1-2-ge7a1ecf)
+    " vimfiles/bundle/l9 (1.1)
+    " vimfiles/bundle/largefile (4@1)
+    " vimfiles/bundle/nerdcommenter (2.2.2-35-gc8d8318)
+    " vimfiles/bundle/nerdtree (4.1.0-28-g1dd345c)
+    " vimfiles/bundle/pastie (heads/master)
+    " vimfiles/bundle/pathogen (v1.3)
+    " vimfiles/bundle/pyrepl (v0.1.4)
+    " vimfiles/bundle/recover (heads/master)
+    " vimfiles/bundle/repeat (v1.0)
+    " vimfiles/bundle/snipmate (heads/master)
+    " vimfiles/bundle/solarized (heads/master)
+    " vimfiles/bundle/surround (v1.90-5-gd9e6bfd)
+    " vimfiles/bundle/vimbuddy (0.9.2)
+    " vimfiles/bundle/vimcalc (v1.2-1-gd4fbd46)
+    " vimfiles/bundle/vimdebug (heads/master)
+    " vimfiles/bundle/visual_studio
+    " vimfiles/bundle/xmledit (1.9.4)
+    " vimfiles/bundle/xptemplate (heads/master)
+    " vimfiles/bundle/xterm-color-table (heads/master)
+    " vimfiles/bundle/zencoding (heads/master)
+
+
+
+"" }}}
 
 "" pathogen / bundle {{{
     " This needs to load first, so all modules are loaded before i use them in .vimrc.
@@ -376,6 +486,8 @@
 
 "" Setup / autocommands {{{
     
+    filetype plugin indent on
+
     "" To let us set some settings only once. {{{
         if exists("isRunning")
             let firstRun = 0
@@ -417,12 +529,17 @@
 
     "" Directory for swap files.
     "set directory=~/.vim/tmp
+
+    "" Use blowfish as default encryption method.
+    set cryptmethod=blowfish
 "" }}}
 
 "" Normal Mode {{{
 
     "" View $ at end of change selection.
     set cpoptions+=$
+
+    set nrformats=hex
 "" }}}
 
 "" Visual {{{
@@ -449,9 +566,6 @@
     set t_Co=256
     set fillchars=fold:-
     set cursorline
-    filetype on
-    filetype plugin on
-    filetype indent on
     syntax on
 
     "" colors {{{
@@ -658,8 +772,14 @@
 
     """ Windows {{{
         " resize horizontal splits
-        nmap + <C-W>+
-        nmap <A-=> <C-W>-
+        nmap + <C-w>+
+        "nmap <M-+> <C-W>>
+        nmap - <C-w>-
+        "nmap <C-J> <C-W>+
+        "nmap <C-K> <C-W>-
+        "nmap <M--> <C-W><
+        "nmap <A-=> <C-W>-
+        "nmap <A-=> <C-W>-
 
         " resize vertical splits
         " ToDo: Why doesn't this work!?
@@ -670,6 +790,12 @@
         "nmap ,. <C-W><
         "nmap <C-0> <C-W>>
         "nmap <C-9> <C-W><
+        "
+        "" Switch window easier.
+        nmap <Esc><C-h> <C-w>h
+        nmap <Esc><C-j> <C-w>j
+        nmap <Esc><C-k> <C-w>k
+        nmap <Esc><C-l> <C-w>l
     """ }}}
 
 
@@ -780,6 +906,12 @@
 
         "" toggle splitright
         nmap <silent> ,tz :set splitright!<CR>:set splitright?<CR>
+
+        "" togle background
+        "nmap <silent> ,tb call ZToggleBackground()<CR>
+        " function! ZToggleBackground()
+            "" echo 'hi'
+        " endfunction
     "" }}}
 
     ""
@@ -1071,6 +1203,10 @@
 
     "" NerdTree {{{
         nmap <silent> ,N :NERDTreeToggle<CR>
+    "" }}}
+
+    "" JavaScriptFold {{{
+        "au FileType javascript call JavaScriptFold()
     "" }}}
 "" }}}
 
