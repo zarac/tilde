@@ -51,7 +51,9 @@ let javaScript_fold = 1
     Bundle 'tpope/vim-surround'
     Bundle 'tslime.vim'
     Bundle 'vimbuddy.vim'
+    Bundle 'zarac/z-wsgi-is-python.vim'
     Bundle 'zarac/zxoria.vim'
+    Bundle 'zarac/zxptemplate.vim'
 
 "" }}}
 
