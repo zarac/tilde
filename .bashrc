@@ -113,7 +113,18 @@ export PS1 PS2 PS3 PS4
 #export PROMPT_COMMAND
 # fi
 
-# Aliases
+## HKL : Use common history: http://www.ukuug.org/events/linux2003/papers/bash_tips/
+## HKL : Append to history file (rather than overwriting).
+shopt -s histappend
+## HKL : Write line to history on prompt display.
+export PROMPT_COMMAND='history -a'
+## HKL : Use unique entries in history (and ignore lines beginning with space).
+export HISTCONTROL=erasedups:ignorespace
+
+## HKL : Use vi mode.
+set -o vi
+
+# HKL : Aliases
 # ls
 alias l='ls --color=auto'
 alias la='ls -a --color=auto'
@@ -163,6 +174,17 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gds='git stash show --patience' # might be a better way it does the job)
 alias mahmysql='mysql -h195.178.232.7 -uDA211T10C4062119 -p -DDA211T10C4062119'
+alias stan='sshfs stan.compmode.se: ~/stan -o idmap=user'
+alias stanoff='fusermount -u ~/stan'
+
+# pacman
+alias pmq='pacman -Qs'
+alias pmqi='pacman -Qi'
+alias pmql='pacman -Ql'
+alias pmqo='pacman -Qo'
+alias pms='pacman -Ss'
+alias pma='pacman -Si'
+pmi(){ su -c "pacman -Syu ${*//[![:alnum:]-]/}"; }
 
 # Other
 # -stan
