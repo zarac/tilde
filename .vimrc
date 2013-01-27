@@ -21,114 +21,38 @@ let javaScript_fold = 1
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
 
-    " Bundle 'AutoComplPop'
-    " Bundle 'Bogdanp/pyrepl.vim'
-    " Bundle 'ColorV'
-    " Bundle 'DirDiff.vim'
-    " Bundle 'FuzzyFinder'
-    " Bundle 'Gist.vim'
-    " Bundle 'JavaScript-syntax'
-    " Bundle 'L9'
-    " Bundle 'LargeFile'
-    " Bundle 'Syntastic'
-    " Bundle 'UltiSnips'
-    " Bundle 'altercation/vim-colors-solarized'
-    " Bundle 'chrisbra/Recover.vim'
-    " Bundle 'drmingdrmer/xptemplate-dist'
-    " Bundle 'gmarik/vundle'
-    " Bundle 'gregsexton/VimCalc'
-    " Bundle 'guns/xterm-color-table.vim'
-    " Bundle 'kablamo/VimDebug'
-    " Bundle 'mattn/zencoding-vim'
-    " Bundle 'msanders/snipmate.vim'
-    " Bundle 'scrooloose/nerdcommenter'
-    " Bundle 'scrooloose/nerdtree'
-    " Bundle 'sjl/gundo.vim'
-    " Bundle 'sukima/xmledit'
-    " Bundle 'tpope/vim-fugitive'
-    " Bundle 'tpope/vim-pastie'
-    " Bundle 'tpope/vim-repeat'
-    " Bundle 'tpope/vim-surround.vim'
-    " Bundle 'tslime.vim'
-    " Bundle 'vimbuddy.vim'
+    Bundle 'AutoComplPop'
+    Bundle 'Bogdanp/pyrepl.vim'
+    Bundle 'ColorV'
+    Bundle 'DirDiff.vim'
+    Bundle 'FuzzyFinder'
+    Bundle 'Gist.vim'
+    Bundle 'JavaScript-syntax'
+    Bundle 'L9'
+    Bundle 'LargeFile'
+    Bundle 'Syntastic'
+    Bundle 'UltiSnips'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'chrisbra/Recover.vim'
+    Bundle 'drmingdrmer/xptemplate-dist'
+    Bundle 'gmarik/vundle'
+    Bundle 'gregsexton/VimCalc'
+    Bundle 'guns/xterm-color-table.vim'
+    Bundle 'kablamo/VimDebug'
+    Bundle 'mattn/zencoding-vim'
+    Bundle 'msanders/snipmate.vim'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'sjl/gundo.vim'
+    Bundle 'sukima/xmledit'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-pastie'
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tslime.vim'
+    Bundle 'vimbuddy.vim'
+    Bundle 'zarac/zxoria.vim'
 
-    "" list of  bundle/ directory
-    " autocomplpop
-    " colorv.vim
-    " dirdiff
-    " fugitive
-    " fuzzyfinder
-    " FuzzyFinder
-    " gist
-    " gundo
-    " javascript-syntax
-    " l9
-    " L9
-    " largefile
-    " nerdcommenter
-    " nerdtree
-    " pastie
-    " pathogen
-    " pyrepl
-    " recover
-    " repeat
-    " snipmate
-    " solarized
-    " surround
-    " syntastic
-    " tslime
-    " ultisnips
-    " vimbuddy
-    " vimcalc
-    " vimdebug
-    " vundle
-    " xmledit
-    " xptemplate
-    " xterm-color-table
-    " zencoding
-    " zwsgiispython
-    " zxoria
-    " zxptemplate
-    "
-    "" list of git submodules
-    " vimfiles/bundle/autocomplpop (2.14.1)
-    " vimfiles/bundle/colors-solarized
-    " vimfiles/bundle/dirdiff (1.1.3)
-    " vimfiles/bundle/fugitive (v1.1-58-g762bfa7)
-    " vimfiles/bundle/fuzzyfinder (4.2.2)
-    " vimfiles/bundle/gist
-    " vimfiles/bundle/gundo (v2.1.1-2-ge7a1ecf)
-    " vimfiles/bundle/l9 (1.1)
-    " vimfiles/bundle/largefile (4@1)
-    " vimfiles/bundle/nerdcommenter (2.2.2-35-gc8d8318)
-    " vimfiles/bundle/nerdtree (4.1.0-28-g1dd345c)
-    " vimfiles/bundle/pastie (heads/master)
-    " vimfiles/bundle/pathogen (v1.3)
-    " vimfiles/bundle/pyrepl (v0.1.4)
-    " vimfiles/bundle/recover (heads/master)
-    " vimfiles/bundle/repeat (v1.0)
-    " vimfiles/bundle/snipmate (heads/master)
-    " vimfiles/bundle/solarized (heads/master)
-    " vimfiles/bundle/surround (v1.90-5-gd9e6bfd)
-    " vimfiles/bundle/vimbuddy (0.9.2)
-    " vimfiles/bundle/vimcalc (v1.2-1-gd4fbd46)
-    " vimfiles/bundle/vimdebug (heads/master)
-    " vimfiles/bundle/visual_studio
-    " vimfiles/bundle/xmledit (1.9.4)
-    " vimfiles/bundle/xptemplate (heads/master)
-    " vimfiles/bundle/xterm-color-table (heads/master)
-    " vimfiles/bundle/zencoding (heads/master)
-
-
-
-"" }}}
-
-"" pathogen / bundle {{{
-    " This needs to load first, so all modules are loaded before i use them in .vimrc.
-    source ~/vimfiles/bundle/pathogen/autoload/pathogen.vim
-    let g:pathogen_disabled=["pastie", "snipmate", "pyrepl"]
-    call pathogen#runtime_append_all_bundles()
-    call pathogen#helptags()
 "" }}}
 
 "" colorschemes {{{
