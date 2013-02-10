@@ -22,6 +22,9 @@
 ###
 
 
+## Path
+export PATH=$PATH:~/.gem/ruby/1.9.1/bin
+
 # Prompt
 #if test "$TERM" = "xterm" -o \
         #"$TERM" = "xterm-color" -o \
@@ -133,6 +136,9 @@ alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 alias lal='ls -lAhL --color=auto'
+# http://www.commandlinefu.com/commands/view/11852/advanced-ls-using-find-to-show-much-more-detail-than-ls-ever-could
+alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
+alias LSR='find -mount -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
 
 # grep
 # windows grep doesn't have colors?
@@ -185,6 +191,9 @@ alias pmqo='pacman -Qo'
 alias pms='pacman -Ss'
 alias pma='pacman -Si'
 pmi(){ su -c "pacman -Syu ${*//[![:alnum:]-]/}"; }
+
+# paste bin
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 # Other
 # -stan
