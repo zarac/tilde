@@ -1,3 +1,7 @@
+set show-all-if-ambiguous on
+"M-s": menu-complete
+set editing-mode vi
+
 ## HKL : http://www.ukuug.org/events/linux2003/papers/bash_tips/
 "\e[A": history-search-backward
 "\e[B": history-search-forward
