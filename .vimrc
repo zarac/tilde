@@ -12,82 +12,6 @@
 " o note function
 "   o ? read pdf
 ""
-let javaScript_fold = 1
-
-"" vundle / bundle {{{
-    set nocompatible               " be iMproved
-    filetype off                   " required!
-
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-
-    Bundle 'AutoComplPop'
-    Bundle 'Bogdanp/pyrepl.vim'
-    Bundle 'ColorV'
-    Bundle 'DirDiff.vim'
-    Bundle 'FuzzyFinder'
-    Bundle 'Gist.vim'
-    Bundle 'JavaScript-syntax'
-    Bundle 'L9'
-    Bundle 'LargeFile'
-    Bundle 'Syntastic'
-    Bundle 'UltiSnips'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'ap/vim-css-color'
-    Bundle 'chrisbra/Recover.vim'
-    Bundle 'drmingdrmer/xptemplate-dist'
-    Bundle 'gmarik/vundle'
-    Bundle 'gregsexton/VimCalc'
-    Bundle 'guns/xterm-color-table.vim'
-    Bundle 'hail2u/vim-css3-syntax'
-    Bundle 'kablamo/VimDebug'
-    Bundle 'mattn/webapi-vim'
-    Bundle 'mattn/zencoding-vim'
-    Bundle 'msanders/snipmate.vim'
-    Bundle 'musicx/conque'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'sjl/gundo.vim'
-    Bundle 'sukima/xmledit'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-pastie'
-    Bundle 'tpope/vim-repeat'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tslime.vim'
-    Bundle 'vimbuddy.vim'
-    Bundle 'zarac/z-wsgi-is-python.vim'
-    Bundle 'zarac/zxoria.vim'
-    Bundle 'zarac/zxptemplate.vim'
-
-"" }}}
-
-"" colorschemes {{{
-
-    "" test colors..
-    "" ':echo colors_name' to see current colorscheme
-    " :syntax syntax/colortest.vim
-    " Dark Background
-    "colo desert256
-    "colo xoria256
-    "colo vylight
-    "colo slate
-    "colo herald
-    " tchaba (dark)
-    " liquidcarbon (dark)
-
-    " Light Background
-    "colo summerfruit256
-    "colo beauty256
-    "colo phpx
-    "colo morning
-    "
-    "" Removed from stan during mergin.
-    " Zenburn : Low contrast colour scheme for low light conditions
-    " http://www.vim.org/scripts/script.php?script_id=415
-    "
-    " tchaba : A dark color scheme, 256 color terminals
-    " http://www.vim.org/scripts/script.php?script_id=3272
-"" }}}
 
 "" Tips and Tricks! {{{
 
@@ -272,6 +196,155 @@ let javaScript_fold = 1
 
 "" }}}
 
+"" vundle / bundle {{{
+    set nocompatible               " be iMproved
+    filetype off                   " required!
+
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    Bundle 'AutoComplPop'
+    Bundle 'Bogdanp/pyrepl.vim'
+    Bundle 'ColorV'
+    Bundle 'DirDiff.vim'
+    Bundle 'FuzzyFinder'
+    Bundle 'Gist.vim'
+    Bundle 'JavaScript-syntax'
+    Bundle 'L9'
+    Bundle 'LargeFile'
+    Bundle 'Syntastic'
+    Bundle 'UltiSnips'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'ap/vim-css-color'
+    Bundle 'chrisbra/Recover.vim'
+    Bundle 'drmingdrmer/xptemplate-dist'
+    Bundle 'gmarik/vundle'
+    Bundle 'gregsexton/VimCalc'
+    Bundle 'guns/xterm-color-table.vim'
+    Bundle 'hail2u/vim-css3-syntax'
+    Bundle 'kablamo/VimDebug'
+    Bundle 'mattn/webapi-vim'
+    Bundle 'mattn/zencoding-vim'
+    Bundle 'msanders/snipmate.vim'
+    Bundle 'musicx/conque'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'sjl/gundo.vim'
+    Bundle 'sukima/xmledit'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-pastie'
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tslime.vim'
+    Bundle 'vimbuddy.vim'
+    Bundle 'zarac/z-wsgi-is-python.vim'
+    Bundle 'zarac/zxoria.vim'
+    Bundle 'zarac/zxptemplate.vim'
+
+"" }}}
+
+"" Abbriviations {{{
+
+    iab Ldate <C-R>=strftime("%Y-%m-%d")<CR>
+    iab Ltime <C-R>=strftime("%H:%M")<CR>
+    iab Ldt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+    iab Lstamp <C-R>=strftime("%Y%m%d%H%M%")<CR>
+    iab Lsign [HL-<C-R>=strftime("%Y%m%d %H%M")<CR>]
+    "iab Lsign <SPACE>[HL-<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
+"" }}}
+
+"" Buffer {{{
+
+    " Allow unsaved buffers to not be seen (not attached to any window).
+    set hidden
+"" }}}
+
+"" colorschemes {{{
+
+    "" test colors..
+    "" ':echo colors_name' to see current colorscheme
+    " :syntax syntax/colortest.vim
+    " Dark Background
+    "colo desert256
+    "colo xoria256
+    "colo vylight
+    "colo slate
+    "colo herald
+    " tchaba (dark)
+    " liquidcarbon (dark)
+
+    " Light Background
+    "colo summerfruit256
+    "colo beauty256
+    "colo phpx
+    "colo morning
+    "
+    "" Removed from stan during mergin.
+    " Zenburn : Low contrast colour scheme for low light conditions
+    " http://www.vim.org/scripts/script.php?script_id=415
+    "
+    " tchaba : A dark color scheme, 256 color terminals
+    " http://www.vim.org/scripts/script.php?script_id=3272
+"" }}}
+
+"" Commands {{{
+
+    "" Working with .mrc files.
+    "command! MarcFilter %!yaz-marcdump -o marcxml /dev/stdin
+    "command! MarcUnFilter %!yaz-marcdump -i marcxml -o marc /dev/stdin
+    "command! ReadMarcFile %s/\%x2e\%x1e\%x1d//g | %s/\%x20\%x20\%x1f\%x61//g
+    "command! UnReadMarcFile %s/\n\n/\%x2e\%x1e\%x1d/g | %s/\n/\%x20\%x20\%x1f\%x61/g
+    "command! UnReadMarcFile %s//\%x20\%x20\%x1f\%x61//g
+
+    " Create a directory (or many if needed)
+    " Example usage: ":MD some/path"
+    command! -nargs=1 -complete=dir MD call mkdir("<args>", "p")
+"" }}}
+
+"" Completion {{{
+
+    set wildmenu
+    set wildmode=list:longest,full
+    " This seems nice, thanks; http://www.cmdln.org/2008/10/18/vim-customization-for-python/
+    set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+    "" Test this... MS IntelliSense like?
+    set showfulltag
+    "" Removed 'u' option for searching unloaded buffers.
+    set complete=.,w,b,t,i
+    "" menu > menuone .. nice to get more info (return value)
+    set completeopt=menuone,preview
+"" }}}
+
+"" filetype {{{
+
+    """ CSharp / C# / cs.vim {{{
+        " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
+        " http://www.vim.org/scripts/script.php?script_id=1895
+        " http://kevin-berridge.blogspot.com/2008/09/vim-c-compiling.html
+    """ }}}
+
+    """ Python {{{
+        "autocmd BufRead,BufNewFile *.py set ai
+        "autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class 
+    """ }}}
+
+    """ Java {{{
+        au FileType java set foldmethod=syntax
+        au FileType java set textwidth=80
+    """ }}}
+"" }}}
+
+"" Formatting {{{
+
+    "" Default encoding.
+    set encoding=utf-8
+
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+    set smartindent
+"" }}}
+
 "" Functions {{{
 
     function! FixColorscheme() " {{{
@@ -414,280 +487,135 @@ let javaScript_fold = 1
     
 "" }}}
 
-"" Setup / autocommands {{{
-    
-    filetype plugin indent on
+"" GVim {{{
 
-    "" To let us set some settings only once. {{{
-        if exists("isRunning")
-            let firstRun = 0
-        else
-            let firstRun = 1
+    "" Fix font if running GVim doesn't work, wtf? (Moved outside for now).
+    if has("gui_running")
+        "set guifont=DejaVu\ Sans\ Mono\ 10
+        "set guifont=Monospace\ 11
+        set guioptions-=T
+        set guioptions-=m
+        set guioptions-=R
+        set guioptions-=r
+        set guioptions-=L
+        set guioptions-=l
+        "[HL-20100308 13:48] Might not work.. not properly tested.
+        if has("gui_gtk2")
+            set guifont=Luxi\ Mono\ 12
+        elseif has("x11")
+            " Also for GTK 1
+            set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+        elseif has("gui_win32")
+            "set guifont=Luxi_Mono:h12:cANSI
+            set guifont=Consolas:h11:cANSI
         endif
-        let isRunning = 1
-    " }}}
-
-    " Reset any old auto commands to avoid duplicates.
-    autocmd!
-    " Thanks, http://stackoverflow.com/questions/2400264/is-it-possible-to-apply-vim-configurations-without-restarting
-    augroup myvimrc 
-        au!
-	    "au BufWritePost $MYVIMMRC so $MYVIMRC
-        "au BufWritePost .vimrc,_vimrc so $MYVIMRC
-        au BufWritePost [._]vimrc so $MYVIMRC
-    augroup END
-
-    "augroup mycolorschemes
-        "au!
-        "" TODO: check which to use (from towelie)
-        ""au ColorScheme * call FixColorscheme()
-        "au ColorScheme * call FixColorscheme() | call FixColors()
-    "augroup END
-
-    "" Turn off compatability with Vi (this is Vim).
-    set nocompatible
-
-    "" timeout for keystrokes
-    set timeoutlen=1000
-
-    "" history entires (per history)
-    set history=100
-
-    " TODO : set system specific
-    "" Share Windows cliboard, not sure if it works
-    set clipboard+=unnamed
-
-    "" Directory for swap files.
-    "set directory=~/.vim/tmp
-
-    "" Use blowfish as default encryption method.
-    set cryptmethod=blowfish
+    endif
 "" }}}
 
-"" Normal Mode {{{
+"" Hostname {{{
 
-    "" View $ at end of change selection.
-    set cpoptions+=$
-
-    set nrformats=hex
-"" }}}
-
-"" Visual {{{
-
-    "" Allow the title of the window to be set. {{{
-        set title
-        "" Specify the title. ("By placing the expand expression inside a %{} pair, it is reevaluated automatically and doesn't require an autocommand around it.")
-        "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
-        set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
-
-        "let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
-        "if &term == "screen"
-        "set t_ts=^[k
-        "set t_fs=^[\
-        "endif
-        "if &term == "screen" || &term == "xterm"
-        "set title
-        "endif
+    "" *Stan* {{{
+        function! HostnameStan()
+        endfunction
     "" }}}
 
-    "" No annoying beep, use visual bell
-    set visualbell
-
-    set t_Co=256
-    set fillchars=fold:-
-    set cursorline
-    syntax on
-
-    "" colors {{{
-        "[HL-20100314 05:44] TODO : Fix this!
-        if firstRun == 1
-            colorscheme zxoria
-            "TODO : should we use? -towelie
-            "call FixColors()
-        endif
-        "call FixColors()
-        "call FixColorscheme()
-
-        "hi NonText      ctermfg=DarkGray
-        "hi SpecialKey   ctermfg=Green
+    "" *Towelie* {{{
+        function! HostnameTowelie()
+            "cd z:\me
+            cd ~
+            nmap <silent> ,~ :cd d:\me<CR>
+            nmap <silent> ,en :e d:\me\documents\notes\random.ztx<CR>
+            if has("gui_running")
+                set columns=100
+                set lines=40
+            endif
+            set guifont=Consolas:h10:cANSI
+            "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
+            "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
+            "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
+            "set shell=\"C:\\Program Files (x86)\\Git\\bin\\sh.exe -login -i\"
+            au BufRead *.java call SetTagsFileTowelie()
+            function! SetTagsFileTowelie()
+                "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
+                "setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
+                setlocal tags+=c:\Program\\\ Files\Java\jdk1.6.0_22\src\tags
+            endfunction
+        endfunction
     "" }}}
+
+    "" *Tweek* {{{
+    function! HostnameTweek()
+        set shellslash
+        " code
+        "set path+=/
+        "echomsg "HELLO TWEEK!"
+
+        " TESTING..
+        au FileType java setlocal path+="C:\Program Files (x86)\java\"
+        "au BufRead *.java setlocal path+="C:\Program Files (x86)\java\"
  
-    " Don't redraw screen when running macros etc.
-    set lazyredraw
-    "autocmd InsertLeave * set cursorline
-    "autocmd InsertEnter * set nocursorline
+        " TESTING..
+        "au FileType java setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags"
+        "au BufRead *.java setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags"
 
-    "" Diff options; ignore whitespace.
-    set diffopt+=iwhite
+        " TESTING..
+        "" Path to tags file for java on tweek
+        "au FileType java call SetTagsFileJavaTweek()
+        au BufRead *.java call SetTagsFileJavaTweek()
+        function! SetTagsFileJavaTweek()
+            "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
+            setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
 
-    "" Show current mode in status-bar.
-    set showmode
-
-    "set shellslash
-    "" Set the status line the way I like it
-    "" t=tail f=fileAsTyped F=full
-    "set stl=\ %M\ %R\ %F\ %l(%L)\ %c\ [%b\ 0x%B]
-    "set statusline=\ %l(%L)\ %c\ %M\ %R\ %t\ [%b\ 0x%B]
-    " IAMHERE
-    " http://www.csie.ntu.edu.tw/~r95005/vimrc.html
-    " %1* -> User1's highlight, %2*->User2's highlight
-    " =   -> Separation point between left and right aligned items.
-    " <   -> Where to truncate line if too long.  Default is at the start.
-    "set statusline=%4*%<\ %1*[%F]
-    "set statusline+=%4*\ %5*[%{&encoding}, " encoding
-    "set statusline+=%{&fileformat}]%m " file format
-    "set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
-    "
-    "
-    """""http://dev.gentoo.org/~bass/configs/vimrc.html
-    """" Nice statusbar
-    """set laststatus=2
-    """set statusline=
-    """set statusline+=%2*%-3.3n%0*\                " buffer number
-    """set statusline+=%f\                          " file name
-    """set statusline+=%h%1*%m%r%w%0*               " flags
-    """set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-    """set statusline+=%{&encoding},                " encoding
-    """set statusline+=%{&fileformat}]              " file format
-    """if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
-    """    set statusline+=\ %{VimBuddy()}          " vim buddy
-    """endif
-    """set statusline+=%=                           " right align
-    """set statusline+=%2*0x%-8B\                   " current char
-    """set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-    """
-    """" special statusbar for special windows
-    """if has("autocmd")
-    """    au FileType qf
-    """                \ if &buftype == "quickfix" |
-    """                \     setlocal statusline=%2*%-3.3n%0* |
-    """                \     setlocal statusline+=\ \[Compiler\ Messages\] |
-    """                \     setlocal statusline+=%=%2*\ %<%P |
-    """                \ endif
-    """
-    """    fun! <SID>FixMiniBufExplorerTitle()
-    """        if "-MiniBufExplorer-" == bufname("%")
-    """            setlocal statusline=%2*%-3.3n%0*
-    """            setlocal statusline+=\[Buffers\]
-    """            setlocal statusline+=%=%2*\ %<%P
-    """        endif
-    """    endfun
-    """
-    """    au BufWinEnter *
-    """                \ let oldwinnr=winnr() |
-    """                \ windo call <SID>FixMiniBufExplorerTitle() |
-    """                \ exec oldwinnr . " wincmd w"
-    """endif
-    "
-    "" statusline {{{
-        "" TODO : fix statusline
-        "set statusline=%{getcwd()}
-        "set statusline=%{expand('%:p:h')}
-        "set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
-        "set statusline+=%{fugitive#statusline()}
-        function! ZToggleStatusline()
-            if (g:statusMode == 1)
-                call ZStatuslineShort()
-            else
-                call ZStatuslineLong()
+            let cwd = expand('%:p:h')
+            if cwd =~# ".*me/development/java/talisman.*"
+                "if !exists("tags[z:/me/development/java/talisman/src/tags]")
+                    setlocal tags+=z:/me/development/java/talisman/src/tags
+                "endif
             endif
         endfunction
-        function! ZStatuslineShort()
-            let g:statusMode = 0
-            set statusline=\ %t\ %M\ %l(%L)\ %c\ %R
-            set statusline+=%{fugitive#statusline()}
-        endfunction
-        function! ZStatuslineLong()
-            call ZStatuslineShort()
-            let g:statusMode = 1
-            set statusline=%{expand('%:p:h')}
-            set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
-            set statusline+=%{fugitive#statusline()}
-        endfunction
-        if firstRun == 1
-            "let g:statusMode = 0
-            "call ZToggleStatusline()
-            call ZStatuslineShort()
+
+        if has('win32')
+            cd d:\me
         endif
-        "set statusline+=VB%{VimBuddy()}
-        "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
-        "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
-        set laststatus=2
+        set columns=82
+    endfunction
     "" }}}
 
-    set scrolloff=3
-    "set virtualedit=all
+    "" *Chef* {{{
+    function! HostnameChef()
+        au BufRead *.java call SetTagsFileJavaChef()
+        function! SetTagsFileJavaChef()
+            setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_23/src/tags
+        endfunction
+    endfunction
+    "" }}}
 
-    "" Turn off text wrap (toggle with ,tw). prepend g to move within line (gh gj gk gl g0 g$ ...).
-    set nowrap
-    set linebreak
-    set showbreak=… "unicode 2026 .. ctrl-vu to insert
-"" }}}
+    if hostname() == "STAN"
+        call HostnameStan()
+    endif
 
-"" Searching {{{
+    if hostname() == "TOWELIE"
+        call HostnameTowelie()
+    endif
 
-    set ignorecase
-    set smartcase
-    set wrapscan
-    set incsearch
-    set hlsearch
-    "" Temporarly turn off hlsearch (it gets turned on when sourcing .vimrc).
-    nohlsearch
+    if hostname() == "TWEEK"
+        call HostnameTweek()
+    endif
 
-"" }}}
+    if hostname() == "CHEF"
+        call HostnameChef()
+    endif
 
-"" Completion {{{
+    "au BufRead *.java set tags+="C:\Program Files\Java\jdk1.6.0_21\src\.tags"
+    "au BufRead *.java set tags+=taggar
 
-    set wildmenu
-    set wildmode=list:longest,full
-    " This seems nice, thanks; http://www.cmdln.org/2008/10/18/vim-customization-for-python/
-    set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
-    "" Test this... MS IntelliSense like?
-    set showfulltag
-    "" Removed 'u' option for searching unloaded buffers.
-    set complete=.,w,b,t,i
-    "" menu > menuone .. nice to get more info (return value)
-    set completeopt=menuone,preview
-"" }}}
+    "" Easy access to windows versions of some unix tools. http://unixtools.sourceforge.net/
+    "set path+=S:\\Programs\\UnixTools
 
-"" movement {{{
-
-    "" Allow backspace to delete previously entered characters.
-    set backspace=2
-
-    "" Allow h and l to wrap to next and previous lines.
-    set whichwrap+=h
-    set whichwrap+=l
-"" }}}
-
-"" formatting {{{
-
-    "" Default encoding.
-    set encoding=utf-8
-
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
-    set smartindent
-"" }}}
-
-"" window {{{
-
-    " Select right and below windows when splitting.
-    set splitright
-    set splitbelow
-"" }}}
-
-"" buffer {{{
-
-    " Allow unsaved buffers to not be seen (not attached to any window).
-    set hidden
-"" }}}
-
-"" mouse {{{
-
-    " Enable mouse support
-    set mouse=a
+    "Include AquaBrowser source files.
+    "if !exists("tags[~/MediaLab/Source/tags]")
+        "set tags+=~/MediaLab/Source/tags
+    "endif
 "" }}}
 
 "" Mappings (Key bindings) {{{
@@ -728,6 +656,13 @@ let javaScript_fold = 1
         nmap <Esc><C-l> <C-w>l
     """ }}}
 
+    """ Tabs <C-t> {{{
+        "" Rebind default, CTRL-T :tag
+        nmap ,T :tag<CR>
+        nmap <C-t>c :tabnew<CR>
+        nmap <C-t>n :tabnext<CR>
+        nmap <C-t>p :tabNext<CR>
+    "" }}}
 
     """ Setters ,s {{{
         "nmap <silent> ,scc :set cc=+1,80,90,100,150,200,250,300,350,400,450,500,550,600,650,700,850,900,950,1000<CR>
@@ -844,8 +779,6 @@ let javaScript_fold = 1
         " endfunction
     "" }}}
 
-    ""
-
     "" :copen / error / quickfix / Scratch list {{{
         "nmap ,en :cnext<CR>
         "nmap ,ej :cnext<CR>
@@ -903,7 +836,6 @@ let javaScript_fold = 1
         " Split right
         nmap <silent> ,.tl <C-W>v<C-]>
     "" }}}
-    
 
     "" Fuzzy Finder {{{
         nmap ,fn :set nopaste<CR>:FufBuffer<CR>
@@ -948,14 +880,28 @@ let javaScript_fold = 1
 
 "" }}}
 
-"" Abbriviations {{{
+"" Mouse {{{
 
-    iab Ldate <C-R>=strftime("%Y-%m-%d")<CR>
-    iab Ltime <C-R>=strftime("%H:%M")<CR>
-    iab Ldt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-    iab Lstamp <C-R>=strftime("%Y%m%d%H%M%")<CR>
-    iab Lsign [HL-<C-R>=strftime("%Y%m%d %H%M")<CR>]
-    "iab Lsign <SPACE>[HL-<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]
+    " Enable mouse support
+    set mouse=a
+"" }}}
+
+"" Movement {{{
+
+    "" Allow backspace to delete previously entered characters.
+    set backspace=2
+
+    "" Allow h and l to wrap to next and previous lines.
+    set whichwrap+=h
+    set whichwrap+=l
+"" }}}
+
+"" Normal Mode {{{
+
+    "" View $ at end of change selection.
+    set cpoptions+=$
+
+    set nrformats=hex
 "" }}}
 
 "" Plugins {{{
@@ -1140,171 +1086,69 @@ let javaScript_fold = 1
     "" }}}
 "" }}}
 
-"" filetype {{{
+"" Searching {{{
 
-    """ CSharp / C# / cs.vim {{{
-        " Handy info: http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio
-        " http://www.vim.org/scripts/script.php?script_id=1895
-        " http://kevin-berridge.blogspot.com/2008/09/vim-c-compiling.html
-    """ }}}
+    set ignorecase
+    set smartcase
+    set wrapscan
+    set incsearch
+    set hlsearch
+    "" Temporarly turn off hlsearch (it gets turned on when sourcing .vimrc).
+    nohlsearch
 
-    """ Python {{{
-        "autocmd BufRead,BufNewFile *.py set ai
-        "autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class 
-    """ }}}
-
-    """ Java {{{
-        au FileType java set foldmethod=syntax
-        au FileType java set textwidth=80
-    """ }}}
 "" }}}
 
-"" Commands {{{
+"" Setup / autocommands {{{
+    
+    filetype plugin indent on
 
-    "" Working with .mrc files.
-    "command! MarcFilter %!yaz-marcdump -o marcxml /dev/stdin
-    "command! MarcUnFilter %!yaz-marcdump -i marcxml -o marc /dev/stdin
-    "command! ReadMarcFile %s/\%x2e\%x1e\%x1d//g | %s/\%x20\%x20\%x1f\%x61//g
-    "command! UnReadMarcFile %s/\n\n/\%x2e\%x1e\%x1d/g | %s/\n/\%x20\%x20\%x1f\%x61/g
-    "command! UnReadMarcFile %s//\%x20\%x20\%x1f\%x61//g
-
-    " Create a directory (or many if needed)
-    " Example usage: ":MD some/path"
-    command! -nargs=1 -complete=dir MD call mkdir("<args>", "p")
-"" }}}
-
-"" GVim {{{
-
-    "" Fix font if running GVim doesn't work, wtf? (Moved outside for now).
-    if has("gui_running")
-        "set guifont=DejaVu\ Sans\ Mono\ 10
-        "set guifont=Monospace\ 11
-        set guioptions-=T
-        set guioptions-=m
-        set guioptions-=R
-        set guioptions-=r
-        set guioptions-=L
-        set guioptions-=l
-        "[HL-20100308 13:48] Might not work.. not properly tested.
-        if has("gui_gtk2")
-            set guifont=Luxi\ Mono\ 12
-        elseif has("x11")
-            " Also for GTK 1
-            set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
-        elseif has("gui_win32")
-            "set guifont=Luxi_Mono:h12:cANSI
-            set guifont=Consolas:h11:cANSI
+    "" To let us set some settings only once. {{{
+        if exists("isRunning")
+            let firstRun = 0
+        else
+            let firstRun = 1
         endif
-    endif
+        let isRunning = 1
+    " }}}
+
+    " Reset any old auto commands to avoid duplicates.
+    autocmd!
+    " Thanks, http://stackoverflow.com/questions/2400264/is-it-possible-to-apply-vim-configurations-without-restarting
+    augroup myvimrc 
+        au!
+	    "au BufWritePost $MYVIMMRC so $MYVIMRC
+        "au BufWritePost .vimrc,_vimrc so $MYVIMRC
+        au BufWritePost [._]vimrc so $MYVIMRC
+    augroup END
+
+    "augroup mycolorschemes
+        "au!
+        "" TODO: check which to use (from towelie)
+        ""au ColorScheme * call FixColorscheme()
+        "au ColorScheme * call FixColorscheme() | call FixColors()
+    "augroup END
+
+    "" Turn off compatability with Vi (this is Vim).
+    set nocompatible
+
+    "" timeout for keystrokes
+    set timeoutlen=1000
+
+    "" history entires (per history)
+    set history=100
+
+    " TODO : set system specific
+    "" Share Windows cliboard, not sure if it works
+    set clipboard+=unnamed
+
+    "" Directory for swap files.
+    "set directory=~/.vim/tmp
+
+    "" Use blowfish as default encryption method.
+    set cryptmethod=blowfish
 "" }}}
 
-"" hostname {{{
-
-    "" *Stan* {{{
-        function! HostnameStan()
-        endfunction
-    "" }}}
-
-    "" *Towelie* {{{
-        function! HostnameTowelie()
-            "cd z:\me
-            cd ~
-            nmap <silent> ,~ :cd d:\me<CR>
-            nmap <silent> ,en :e d:\me\documents\notes\random.ztx<CR>
-            if has("gui_running")
-                set columns=100
-                set lines=40
-            endif
-            set guifont=Consolas:h10:cANSI
-            "set shell=C:\\Program\\\ Files\\\ (x86)\\Git\\bin\\sh.exe
-            "set shell=C:\\Program\\\ Files\ (x86)\\Git\\bin\\sh.exe
-            "set shell=C:\\Program\ Files\ (x86)\\Git\\bin\\sh.exe\ -login\ -i
-            "set shell=\"C:\\Program Files (x86)\\Git\\bin\\sh.exe -login -i\"
-            au BufRead *.java call SetTagsFileTowelie()
-            function! SetTagsFileTowelie()
-                "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
-                "setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
-                setlocal tags+=c:\Program\\\ Files\Java\jdk1.6.0_22\src\tags
-            endfunction
-        endfunction
-    "" }}}
-
-    "" *Tweek* {{{
-    function! HostnameTweek()
-        set shellslash
-        " code
-        "set path+=/
-        "echomsg "HELLO TWEEK!"
-
-        " TESTING..
-        au FileType java setlocal path+="C:\Program Files (x86)\java\"
-        "au BufRead *.java setlocal path+="C:\Program Files (x86)\java\"
- 
-        " TESTING..
-        "au FileType java setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags"
-        "au BufRead *.java setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags"
-
-        " TESTING..
-        "" Path to tags file for java on tweek
-        "au FileType java call SetTagsFileJavaTweek()
-        au BufRead *.java call SetTagsFileJavaTweek()
-        function! SetTagsFileJavaTweek()
-            "setlocal tags+=C:\Program\\\ Files\Java\jdk1.6.0_21\src\tags
-            setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_21/src/tags
-
-            let cwd = expand('%:p:h')
-            if cwd =~# ".*me/development/java/talisman.*"
-                "if !exists("tags[z:/me/development/java/talisman/src/tags]")
-                    setlocal tags+=z:/me/development/java/talisman/src/tags
-                "endif
-            endif
-        endfunction
-
-        if has('win32')
-            cd d:\me
-        endif
-        set columns=82
-    endfunction
-    "" }}}
-
-    "" *Chef* {{{
-    function! HostnameChef()
-        au BufRead *.java call SetTagsFileJavaChef()
-        function! SetTagsFileJavaChef()
-            setlocal tags+=C:/Program\\\ Files/Java/jdk1.6.0_23/src/tags
-        endfunction
-    endfunction
-    "" }}}
-
-    if hostname() == "STAN"
-        call HostnameStan()
-    endif
-
-    if hostname() == "TOWELIE"
-        call HostnameTowelie()
-    endif
-
-    if hostname() == "TWEEK"
-        call HostnameTweek()
-    endif
-
-    if hostname() == "CHEF"
-        call HostnameChef()
-    endif
-
-    "au BufRead *.java set tags+="C:\Program Files\Java\jdk1.6.0_21\src\.tags"
-    "au BufRead *.java set tags+=taggar
-
-    "" Easy access to windows versions of some unix tools. http://unixtools.sourceforge.net/
-    "set path+=S:\\Programs\\UnixTools
-
-    "Include AquaBrowser source files.
-    "if !exists("tags[~/MediaLab/Source/tags]")
-        "set tags+=~/MediaLab/Source/tags
-    "endif
-"" }}}
-
-"" testing {{{
+"" Testing {{{
 
     "" Automatic transformation of marc files.
     " Would be nice if it could be done on BufReadPre maybe?
@@ -1371,6 +1215,167 @@ let javaScript_fold = 1
     au BufEnter,BufNew,BufNewFile * set cursorline
     au BufLeave * set nocursorline
 "" }}}
+
+"" Visual {{{
+
+    "" Allow the title of the window to be set. {{{
+        set title
+        "" Specify the title. ("By placing the expand expression inside a %{} pair, it is reevaluated automatically and doesn't require an autocommand around it.")
+        "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+        set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
+
+        "let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+        "if &term == "screen"
+        "set t_ts=^[k
+        "set t_fs=^[\
+        "endif
+        "if &term == "screen" || &term == "xterm"
+        "set title
+        "endif
+    "" }}}
+
+    "" No annoying beep, use visual bell
+    set visualbell
+
+    set t_Co=256
+    set fillchars=fold:-
+    set cursorline
+    syntax on
+
+    "" colors {{{
+        "[HL-20100314 05:44] TODO : Fix this!
+        if firstRun == 1
+            colorscheme zxoria
+            "TODO : should we use? -towelie
+            "call FixColors()
+        endif
+        "call FixColors()
+        "call FixColorscheme()
+
+        "hi NonText      ctermfg=DarkGray
+        "hi SpecialKey   ctermfg=Green
+    "" }}}
+ 
+    " Don't redraw screen when running macros etc.
+    set lazyredraw
+    "autocmd InsertLeave * set cursorline
+    "autocmd InsertEnter * set nocursorline
+
+    "" Diff options; ignore whitespace.
+    set diffopt+=iwhite
+
+    "" Show current mode in status-bar.
+    set showmode
+
+    "set shellslash
+    "" Set the status line the way I like it
+    "" t=tail f=fileAsTyped F=full
+    "set stl=\ %M\ %R\ %F\ %l(%L)\ %c\ [%b\ 0x%B]
+    "set statusline=\ %l(%L)\ %c\ %M\ %R\ %t\ [%b\ 0x%B]
+    " IAMHERE
+    " http://www.csie.ntu.edu.tw/~r95005/vimrc.html
+    " %1* -> User1's highlight, %2*->User2's highlight
+    " =   -> Separation point between left and right aligned items.
+    " <   -> Where to truncate line if too long.  Default is at the start.
+    "set statusline=%4*%<\ %1*[%F]
+    "set statusline+=%4*\ %5*[%{&encoding}, " encoding
+    "set statusline+=%{&fileformat}]%m " file format
+    "set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+    "
+    "
+    """""http://dev.gentoo.org/~bass/configs/vimrc.html
+    """" Nice statusbar
+    """set laststatus=2
+    """set statusline=
+    """set statusline+=%2*%-3.3n%0*\                " buffer number
+    """set statusline+=%f\                          " file name
+    """set statusline+=%h%1*%m%r%w%0*               " flags
+    """set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
+    """set statusline+=%{&encoding},                " encoding
+    """set statusline+=%{&fileformat}]              " file format
+    """if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
+    """    set statusline+=\ %{VimBuddy()}          " vim buddy
+    """endif
+    """set statusline+=%=                           " right align
+    """set statusline+=%2*0x%-8B\                   " current char
+    """set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+    """
+    """" special statusbar for special windows
+    """if has("autocmd")
+    """    au FileType qf
+    """                \ if &buftype == "quickfix" |
+    """                \     setlocal statusline=%2*%-3.3n%0* |
+    """                \     setlocal statusline+=\ \[Compiler\ Messages\] |
+    """                \     setlocal statusline+=%=%2*\ %<%P |
+    """                \ endif
+    """
+    """    fun! <SID>FixMiniBufExplorerTitle()
+    """        if "-MiniBufExplorer-" == bufname("%")
+    """            setlocal statusline=%2*%-3.3n%0*
+    """            setlocal statusline+=\[Buffers\]
+    """            setlocal statusline+=%=%2*\ %<%P
+    """        endif
+    """    endfun
+    """
+    """    au BufWinEnter *
+    """                \ let oldwinnr=winnr() |
+    """                \ windo call <SID>FixMiniBufExplorerTitle() |
+    """                \ exec oldwinnr . " wincmd w"
+    """endif
+    "
+    "" statusline {{{
+        "" TODO : fix statusline
+        "set statusline=%{getcwd()}
+        "set statusline=%{expand('%:p:h')}
+        "set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
+        "set statusline+=%{fugitive#statusline()}
+        function! ZToggleStatusline()
+            if (g:statusMode == 1)
+                call ZStatuslineShort()
+            else
+                call ZStatuslineLong()
+            endif
+        endfunction
+        function! ZStatuslineShort()
+            let g:statusMode = 0
+            set statusline=\ %t\ %M\ %l(%L)\ %c\ %R
+            set statusline+=%{fugitive#statusline()}
+        endfunction
+        function! ZStatuslineLong()
+            call ZStatuslineShort()
+            let g:statusMode = 1
+            set statusline=%{expand('%:p:h')}
+            set statusline+=\ %t\ %M\ %l(%L)\ %c\ %R
+            set statusline+=%{fugitive#statusline()}
+        endfunction
+        if firstRun == 1
+            "let g:statusMode = 0
+            "call ZToggleStatusline()
+            call ZStatuslineLong()
+        endif
+        "set statusline+=VB%{VimBuddy()}
+        "set titlestring=%{hostname()}\ %([%M]\ %)[\ %{getcwd()}\ ]\ %f%(\ %a%)%(\ \@\ %{v:servername}%)\ %{ShowFileFormatFlag(&fileformat)}
+        "set statusline=\ %M\ %F\ %t\ %l(%L)\ %c\ %R\ %{fugitive#statusline()}
+        set laststatus=2
+    "" }}}
+
+    set scrolloff=3
+    "set virtualedit=all
+
+    "" Turn off text wrap (toggle with ,tw). prepend g to move within line (gh gj gk gl g0 g$ ...).
+    set nowrap
+    set linebreak
+    set showbreak=… "unicode 2026 .. ctrl-vu to insert
+"" }}}
+
+"" Window {{{
+
+    " Select right and below windows when splitting.
+    set splitright
+    set splitbelow
+"" }}}
+
+let javaScript_fold = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " vim: set fdt=SimpleFoldText() : "
