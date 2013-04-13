@@ -203,13 +203,12 @@
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
 
+    "Bundle 'JavaScript-syntax'
     Bundle 'AutoComplPop'
     Bundle 'Bogdanp/pyrepl.vim'
-    Bundle 'ColorV'
     Bundle 'DirDiff.vim'
     Bundle 'FuzzyFinder'
     Bundle 'Gist.vim'
-    Bundle 'JavaScript-syntax'
     Bundle 'L9'
     Bundle 'LargeFile'
     Bundle 'Syntastic'
@@ -217,6 +216,7 @@
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'ap/vim-css-color'
     Bundle 'chrisbra/Recover.vim'
+    Bundle 'colorv.vim'
     Bundle 'drmingdrmer/xptemplate-dist'
     Bundle 'gmarik/vundle'
     Bundle 'gregsexton/VimCalc'
@@ -237,6 +237,7 @@
     Bundle 'tpope/vim-surround'
     Bundle 'tslime.vim'
     Bundle 'vimbuddy.vim'
+    Bundle 'zarac/z-dot-js.vim'
     Bundle 'zarac/z-wsgi-is-python.vim'
     Bundle 'zarac/zxoria.vim'
     Bundle 'zarac/zxptemplate.vim'
@@ -331,6 +332,10 @@
     """ Java {{{
         au FileType java set foldmethod=syntax
         au FileType java set textwidth=80
+    """ }}}
+
+    """ * renew fuf cache {{{
+        au BufNewFile * echomsg "BufNewFile !!! : )"
     """ }}}
 "" }}}
 
@@ -809,7 +814,7 @@
     " all
     nmap <silent> ,cd :cd %:h<CR>
     " local
-    nmap <silent> ,cl :lcd %:h<CR>
+    nmap <silent> ,lcd :lcd %:h<CR>
 
     " Make the directory that contains the file in the current buffer.  This is
     " useful when you edit a file in a directory that doesn't (yet) exist
@@ -1079,10 +1084,6 @@
 
     "" NerdTree {{{
         nmap <silent> ,N :NERDTreeToggle<CR>
-    "" }}}
-
-    "" JavaScriptFold {{{
-        "au FileType javascript call JavaScriptFold()
     "" }}}
 "" }}}
 
@@ -1374,8 +1375,6 @@
     set splitright
     set splitbelow
 "" }}}
-
-let javaScript_fold = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " vim: set fdt=SimpleFoldText() : "
