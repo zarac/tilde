@@ -10,5 +10,3 @@
 [github]
 	user = zarac
 	token = 9eca0c7f8347b55630c6d2f56ec7235a
-[push]
-	default = simple
