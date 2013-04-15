@@ -1,0 +1,47 @@
+"" Moar lines!
+"set maxitems=40
+set! browser.urlbar.maxRichResults=40
+
+
+""""""""""""""
+"" mappings ""
+""""""""""""""
+map <silent> ,ta a -T=article
+map <silent> ,te a -T=english,vocabulary
+map <silent> ,th a -T=howto
+map <silent> ,tf a -T=forum
+map <silent> ,ts a -T=software
+map <silent> ,ttr a -T=todo,read<CR>d
+map <silent> ,tts a -T=todo,video<CR>d
+map <silent> ,tv a -T=video
+map <silent> ,tq a -T=qna
+
+map <silent> <C-F8> :js toggle_bottombar()<CR>
+
+
+"""""""""""""""""
+"" javascripts ""
+"""""""""""""""""
+:js << EOF
+function toggle_bottombar() {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    bb.style.height = (bb.style.height == '') ? '0px' : '';
+    bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+    }
+function bottombar_off() {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    bb.style.height = '0px';
+    bb.style.overflow = 'hidden';
+    }
+function bottombar_on() {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    bb.style.height = '';
+    bb.style.overflow = '';
+    }
+EOF
