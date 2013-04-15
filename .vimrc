@@ -207,6 +207,7 @@
     Bundle 'AutoComplPop'
     Bundle 'Bogdanp/pyrepl.vim'
     Bundle 'DirDiff.vim'
+    Bundle 'EasyGrep'
     Bundle 'FuzzyFinder'
     Bundle 'Gist.vim'
     Bundle 'L9'
@@ -227,6 +228,7 @@
     Bundle 'mattn/zencoding-vim'
     Bundle 'msanders/snipmate.vim'
     Bundle 'musicx/conque'
+    Bundle 'Rename2'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
     Bundle 'sjl/gundo.vim'
@@ -749,9 +751,16 @@
         "" Toggle list
         nmap <silent> ,tl :set invlist<CR>:set list?<CR>
 
-        "" Toggle paste mode
         "" TODO: Paste on <SHIFT>+<INSERT> with set paste in insert mode (then
-        " set nopaste).
+        " set nopaste). Not sure if it's possible. (The terminal emulator does
+        " the pasting, not vim, so vim cannot handle it?)
+        nmap <silent> ,pi :set paste<CR>i
+        nmap <silent> ,pI :set paste<CR>I
+        nmap <silent> ,po :set paste<CR>o
+        nmap <silent> ,pO :set paste<CR>O
+        "nmap ,ip :set paste<CR><S-O><S-INS><ESC>:set nopaste<CR>
+
+        "" Toggle paste mode
         nmap <silent> ,tp :set invpaste<CR>:set paste?<CR>
         "imap <silent> <C-P> :set paste<CR>
         "imap <silent> <Insert> :set invpaste<CR>:set paste?<CR>
@@ -1010,32 +1019,32 @@
         nnoremap <F5> :GundoToggle<CR>
     "" }}}
 
-    "" eclim / JavaComplete plugin ,.j {{{
-        nmap <silent> ,.ji :JavaImport<CR> :echo ":JavaImport"<CR>
-        "nmap <silent> ,.jim :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
-        nmap <silent> ,.jI :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
-        nmap <silent> ,.jl :JavaImpl<CR> :echo ":JavaImpl"<CR>
-        nmap <silent> ,.jc :Javac<CR> :echo ":Javac"<CR>
-        nmap <silent> ,.js :Java %<CR> :echo ":Java %"<CR>
-        nmap <silent> ,.jS :Javac<CR> :Java<CR> :echo ":Javac \| :Java"<CR>
-        "nmap <silent> ,.jS :Javac<CR> :Java %<CR> :echo ":Javac \| :Java %"<CR>
-        nmap <silent> ,.jds :JavaDocSearch<CR> :echo ":JavaDocSearch"<CR>
-        nmap <silent> ,.jdc :JavaDocComment<CR> :echo ":JavaDocComment"<CR>
-        " Start eclimd
-        nmap <silent> ,.je :!eclimd.bat<CR>
-        " Stop eclimd
-        nmap <silent> ,.jE :ShutdownEclim<CR>
-        " Open all projects tree
-        nmap <silent> ,.jp :ProjectsTree<CR>
-    "" }}}
+    """ eclim / JavaComplete plugin ,.j {{{
+        "nmap <silent> ,.ji :JavaImport<CR> :echo ":JavaImport"<CR>
+        ""nmap <silent> ,.jim :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
+        "nmap <silent> ,.jI :JavaImportMissing<CR> :echo ":JavaImportMissing"<CR>
+        "nmap <silent> ,.jl :JavaImpl<CR> :echo ":JavaImpl"<CR>
+        "nmap <silent> ,.jc :Javac<CR> :echo ":Javac"<CR>
+        "nmap <silent> ,.js :Java %<CR> :echo ":Java %"<CR>
+        "nmap <silent> ,.jS :Javac<CR> :Java<CR> :echo ":Javac \| :Java"<CR>
+        ""nmap <silent> ,.jS :Javac<CR> :Java %<CR> :echo ":Javac \| :Java %"<CR>
+        "nmap <silent> ,.jds :JavaDocSearch<CR> :echo ":JavaDocSearch"<CR>
+        "nmap <silent> ,.jdc :JavaDocComment<CR> :echo ":JavaDocComment"<CR>
+        "" Start eclimd
+        "nmap <silent> ,.je :!eclimd.bat<CR>
+        "" Stop eclimd
+        "nmap <silent> ,.jE :ShutdownEclim<CR>
+        "" Open all projects tree
+        "nmap <silent> ,.jp :ProjectsTree<CR>
+    """ }}}
 
-    "" eclim / Project plugin ,p {{{
+    """ eclim / Project plugin ,p {{{
 
-        nmap <silent> ,pl :ProjectList<CR>
-        nmap <silent> ,po :ProjectOpen<SPACE>
-        "nmap <silent> ,po :ProjectOpen<SPACE><Tab>
-        nmap <silent> ,pt :ProjectsTree<CR>
-    "" }}}
+        "nmap <silent> ,pl :ProjectList<CR>
+        "nmap <silent> ,po :ProjectOpen<SPACE>
+        ""nmap <silent> ,po :ProjectOpen<SPACE><Tab>
+        "nmap <silent> ,pt :ProjectsTree<CR>
+    """ }}}
 
     "" RecoverPlugin {{{
         nmap <silent> ,.r :RecoverPluginFinish<CR>
