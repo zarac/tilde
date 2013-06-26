@@ -45,7 +45,8 @@ alias jaoo='screen -d -r jao'
 alias jaom='screen -S jao'
 
 # git
-alias gs='git status -s'
+#alias gs='git status -s'
+alias gs='git branch -avv; echo '.'; git status -s'
 alias gl='git log'
 alias glnr='git log --branches --not --remotes=origin'
 alias glnb='git log --remotes=origin --not --branches'
