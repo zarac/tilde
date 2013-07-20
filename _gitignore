@@ -1,16 +1,3 @@
-*.~ml
 .*.swp
-.NERDTreeBookmarks
-.bash_history
-.histfile
-.zsh_history
-Downloads/
-bin/
-build/
-mbox
-node_modules/
-slask/
 tags
 tags-ja
-tmp/
-upload/
