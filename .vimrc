@@ -382,6 +382,7 @@
     " Select right and below windows when splitting.
     set splitright
     set splitbelow
+    set foldmethod=indent
 
   "" Completion
     set wildmenu
