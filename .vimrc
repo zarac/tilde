@@ -383,6 +383,7 @@
     set splitright
     set splitbelow
     set foldmethod=indent
+    set foldtext=SimpleFoldText()
 
   "" Completion
     set wildmenu
