@@ -57,6 +57,7 @@
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-surround'
   Bundle 'tslime.vim'
+  Bundle 'vim-indent-object'
   Bundle 'vimbuddy.vim'
   Bundle 'visualstar.vim'
   Bundle 'zarac/z-dot-js.vim'
