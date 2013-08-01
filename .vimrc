@@ -1064,6 +1064,15 @@ syntax enable
   endif
 
 "" Notes / Tips / Tricks!
+  " dos / unix fileformat
+    " Display ^M (carriage returns) at end of line for.
+      " either start vim with -b flag for binary mode
+      " or reload the file with :e ++ff=unix
+      " http://stackoverflow.com/questions/3860519/see-line-breaks-and-carriage-returns-in-editor
+    " search for ^M (x0D)
+      " must be in binary or ff=unix
+      " / ctrl-v x 0 d
+
   " Debuggin!
     " echomsg will echo messages visible with :messages
     " : echomsg hostname()
