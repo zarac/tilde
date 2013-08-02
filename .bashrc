@@ -27,7 +27,7 @@ export LANGUAGE=en_US.UTF-8
 
 
 ## Path
-export PATH=$PATH:~/.gem/ruby/1.9.1/bin
+export PATH=$PATH:~/.gem/ruby/1.9.1/bin:~/scripts
 
 # Prompt
 #if test "$TERM" = "xterm" -o \
