@@ -1,21 +1,49 @@
+"if (g:isRunning) 
+    "echomsg 'RUNNING'
+"endif
+
+let g:isRunning = 1
+
+source ~/jquery.js
+
 "" Moar lines!
 "set maxitems=40
 set! browser.urlbar.maxRichResults=40
 
+"au BookmarkAdd :echomsg
+"autocmd BookmarkAdd .* -javascript 'alert("hi")'
+"autocmd DOMReady .* -javascript 'console.log("hi dom ready")'
+"autocmd! LocationChange .* -js console.log("location changed")
+"autocmd! BookmarkAdd .* -js console.log("added bookmark!")
+autocmd! BookmarkAdd .* echomsg 'Bookmark Added'
+
+"autocmd DOMLoad .*thepiratebay.* -javascript! $('[title="Order by Seeders"]').click()
+"autocmd DOMLoad .* -javascript window.console.log('hi')
+autocmd! DOMLoad .* -javascript $(content.document).ready(function() { content.console.log('mma') } )
 
 """"""""""""""
 "" mappings ""
 """"""""""""""
-map <silent> ,ta a -T=article
-map <silent> ,te a -T=english,vocabulary
-map <silent> ,th a -T=howto
-map <silent> ,tf a -T=forum
-map <silent> ,ts a -T=software
-map <silent> ,ttr a -T=todo,read<CR>d
-map <silent> ,tts a -T=todo,video<CR>d
-map <silent> ,tv a -T=video
-map <silent> ,tq a -T=qna
+"" (t)ind
+nmap <silent> ,ta a -T=article
+nmap <silent> ,tdr a -T=todo,read<CR>d
+nmap <silent> ,tds a -T=todo,video<CR>d
+nmap <silent> ,th a -T=howto
+nmap <silent> ,tf a -T=forum
+nmap <silent> ,ts a -T=software
+nmap <silent> ,tv a -T=video
+nmap <silent> ,tw a -T=word,english
+nmap <silent> ,tq a -T=qna
+"" (f)ind
+nmap <silent> ,fa :bmarks -T=article
+nmap <silent> ,fd :bmarks -T=todo
+nmap <silent> ,fh :bmarks -T=howto
+nmap <silent> ,fs :bmarks -T=software
+nmap <silent> ,fv :bmarks -T=video
+nmap <silent> ,fq :bmarks -T=query
 
+nmap <silent> ,b :js bottombar_on()<CR>
+nmap <silent> ,B :js bottombar_off()<CR>
 map <silent> <C-F8> :js toggle_bottombar()<CR>
 
 
@@ -45,3 +73,5 @@ function bottombar_on() {
     bb.style.overflow = '';
     }
 EOF
+
+ " vim: set filetype=vim: "
