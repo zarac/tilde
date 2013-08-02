@@ -14,6 +14,9 @@ ZSH_THEME="jreese"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+## Disable auto correct
+unsetopt correct_all
+
 ## Function to aid getting info. about npm packages.
 npmb() { w3m https://npmjs.org/package/$1; }
 
