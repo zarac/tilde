@@ -282,6 +282,8 @@
       "set title
       "endif
 
+    "" display hex instead of ^M for special characters
+    set display+=uhex
     "" disable audio bell
     set visualbell
 
@@ -1072,6 +1074,8 @@ syntax enable
     " search for ^M (x0D)
       " must be in binary or ff=unix
       " / ctrl-v x 0 d
+      " display ^M as hex
+        " set dy=uhex
 
   " Debuggin!
     " echomsg will echo messages visible with :messages
