@@ -1223,6 +1223,49 @@ syntax enable
     "   http://kevin-berridge.blogspot.com/2008/09/vim-c-compiling.html
 
 
+  " AutoMake
+  "   When saving a file, if it belongs to a project, run make.
+
+  "" List of projects (directories).
+  let s:projects = [ '/home/zarac/dev/template-web-node' ]
+  let g:AutoMake = 1
+  autocmd! BufReadPost * call ShouldWeAutoMake()
+
+  function! GetProjectOfFile(file)
+    for project in s:projects
+      if a:file =~ project
+        return project
+      endif
+    endfor
+  endfunction
+
+  function! ShouldWeAutoMake() " does it belong to a project?
+    let b:project = GetProjectOfFile(expand('%:p'))
+    if (!empty(b:project))
+      echomsg 'AutoMaking ' . b:project
+      if (g:AutoMake == 1)
+        let b:AutoMake = 1
+      else
+        let b:AutoMake = 0
+      endif
+      autocmd! BufWritePost * call AutoMakeProject()
+    endif
+  endfunction
+
+  function! AutoMakeProject()
+    if (b:AutoMake == 1)
+      "" TODO
+      echomsg 'making ' . b:project
+      exe '!cd ' . b:project . '; make'
+      "" wutfux - how to pass vairable to shell command
+      ""!ping \b:project
+      "" (cwd might be wrong. change it? naww, 2 rights don't make a left)
+      "" just make for now
+      "!make
+    endif
+  endfunction
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim: set foldtext=SimpleFoldText() : "
 " vim: set textwidth=78 shiftwidth=2 tabstop=2 filetype=vim foldmethod=indent: "
