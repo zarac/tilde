@@ -52,7 +52,7 @@ alias jaom='screen -S jao'
 
 # git
 #alias gs='git status -s'
-alias gs='git branch -avv; echo '.'; git status -s'
+alias gs='git remote -v; git branch -avv; echo \~; git status -s'
 alias gl='git log'
 alias glnr='git log --branches --not --remotes=origin'
 alias glnb='git log --remotes=origin --not --branches'
@@ -114,4 +114,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/zarac/.gem/ruby/1.9.1/bin:~/scripts
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/zarac/.gem/ruby/1.9.1/bin:~/scripts
+export PATH=~/.gem/ruby/2.0.0/bin:~/.gem/ruby/1.9.1/bin:~/scripts:~/local/bin:$PATH
