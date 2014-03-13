@@ -18,13 +18,15 @@ wwwcheck () {
     echo 'up'
   elif [[ $status == 502 ]]; then
     echo 'down - 502'
-    tmux new-window "~/scripts/npm-start.sh $dir"
-    tmux rename-window $url
+    tmux new-session -d -s nodes 'ping zarac.se' 2>/dev/null
+    tmux new-window -t nodes -n $url "~/scripts/npm-start.sh $dir"
+    #tmux rename-window $url
   else
     echo 'down'
   fi
 }
 
+tmux new-session -d -s nodes
 wwwcheck 'zarac.se' '/shared/zarac/www/zarac.se/www/'
 wwwcheck 'crust.zarac.se' '/shared/zarac/www/zarac.se/crust/'
 wwwcheck 'see.zarac.se' '/shared/zarac/www/zarac.se/see/'
