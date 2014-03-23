@@ -23,10 +23,9 @@ wwwcheck () {
     #tmux rename-window $url
   else
     echo 'down'
-  fi
-}
+  fi }
 
 tmux new-session -d -s nodes
 wwwcheck 'zarac.se' '/shared/zarac/www/zarac.se/www/'
 wwwcheck 'crust.zarac.se' '/shared/zarac/www/zarac.se/crust/'
-wwwcheck 'see.zarac.se' '/shared/zarac/www/zarac.se/see/'
+wwwcheck 'video.vart.nu' '/shared/zarac/www/vart.nu/video/'
