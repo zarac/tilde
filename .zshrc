@@ -12,6 +12,7 @@ ZSH_THEME="jreese"
 #ZSH_THEME="bureau"
 #ZSH_THEME="amuse"
 #ZSH_THEME="robbyrussell"
+#ZSH_THEME="frisk"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

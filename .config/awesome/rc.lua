@@ -241,6 +241,9 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+-- default to US keyboard
+os.execute('setxkbmap us')
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
