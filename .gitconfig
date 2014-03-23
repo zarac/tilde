@@ -1,12 +1,12 @@
 [user]
 	name = Hannes Landstedt
-	email = github.com@zarac.se
+	email = git@zarac.se
 [color]
 	status = auto
 	branch = auto
 	diff = auto
 [core]
-	excludesfile = ~/_gitignore
+	excludesfile = ~/.gitignore_
 [github]
 	user = zarac
 	token = 9eca0c7f8347b55630c6d2f56ec7235a

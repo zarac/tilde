@@ -29,6 +29,8 @@ export LANGUAGE=en_US.UTF-8
 ## Path
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin:~/scripts
 
+export EDITOR='vim'
+
 # Prompt
 #if test "$TERM" = "xterm" -o \
         #"$TERM" = "xterm-color" -o \

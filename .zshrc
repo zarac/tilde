@@ -8,11 +8,16 @@ ZSH=$HOME/.oh-my-zsh
 ## KHL
 #ZSH_THEME="kafeitu"
 ZSH_THEME="jreese"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="bureau"
+#ZSH_THEME="amuse"
 #ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export EDITOR='vim'
 
 ## Disable auto correct
 unsetopt correct_all
