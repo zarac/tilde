@@ -1,11 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-## KHL
+## can be set to "random"
 #ZSH_THEME="kafeitu"
 ZSH_THEME="jreese"
 #ZSH_THEME="agnoster"
@@ -13,10 +9,6 @@ ZSH_THEME="jreese"
 #ZSH_THEME="amuse"
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="frisk"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR='vim'
 
@@ -42,10 +34,10 @@ alias LSR='find -mount -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %A
 # grep
 # windows grep doesn't have colors?
 if [ -x /usr/bin/dircolors ]; then
-    alias cgrep='grep --color=auto'
-    alias grepc='grep -a5 -b5 --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias cgrep='grep --color=auto'
+  alias grepc='grep -a5 -b5 --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # find
@@ -120,5 +112,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/zarac/.gem/ruby/1.9.1/bin:~/scripts
-export PATH=~/.gem/ruby/2.0.0/bin:~/.gem/ruby/1.9.1/bin:~/scripts:~/local/bin:$PATH
+export PATH=~/.gem/ruby/2.0.0/bin:~/.gem/ruby/1.9.1/bin:$PATH
+export PATH=~/bin:$PATH
