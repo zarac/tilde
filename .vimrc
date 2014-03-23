@@ -1228,7 +1228,7 @@ syntax enable
 
   "" List of projects (directories).
   let s:projects = [ '/home/zarac/dev/template-web-node' ]
-  let g:AutoMake = 1
+  let g:AutoMake = 0
   autocmd! BufReadPost * call ShouldWeAutoMake()
 
   function! GetProjectOfFile(file)
@@ -1242,9 +1242,9 @@ syntax enable
   function! ShouldWeAutoMake() " does it belong to a project?
     let b:project = GetProjectOfFile(expand('%:p'))
     if (!empty(b:project))
-      echomsg 'AutoMaking ' . b:project
       if (g:AutoMake == 1)
         let b:AutoMake = 1
+        echomsg 'AutoMake on for ' . b:project
       else
         let b:AutoMake = 0
       endif

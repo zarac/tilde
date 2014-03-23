@@ -2,7 +2,7 @@
 
 URL=$1
 
-A=`curl -v $URL 2>&1 | grep '< HTTP' | awk '{print $3}'`
+A=`curl -v -I $URL 2>&1 | grep '< HTTP' | awk '{print $3}'`
 echo $A
 
 #if [[ $A =~ 404 ]]; then
