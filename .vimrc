@@ -290,6 +290,7 @@
     set t_Co=256
     set fillchars=fold:-
     set cursorline
+    set cursorcolumn
 
     " Don't redraw screen when running macros etc.
     set lazyredraw
