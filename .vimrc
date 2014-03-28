@@ -289,8 +289,8 @@
 
     set t_Co=256
     set fillchars=fold:-
-    set cursorline
-    set cursorcolumn
+    set nocursorline
+    set nocursorcolumn
 
     " Don't redraw screen when running macros etc.
     set lazyredraw
@@ -1054,8 +1054,8 @@
   ""
   let g:acp_enableAtStartup = 0
 
-  au BufEnter,BufNew,BufNewFile * set cursorline
-  au BufLeave * set nocursorline
+  "au BufEnter,BufNew,BufNewFile * set cursorline
+  "au BufLeave * set nocursorline
 
 syntax enable
 
