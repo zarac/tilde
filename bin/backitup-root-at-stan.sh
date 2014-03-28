@@ -20,7 +20,7 @@ LOGDIR='/root/log/backitup/'
 EXCLUDE='--exclude=backitup_exclude/'
 
 # What directories / files to backup. No trailing slash on directories!
-BUSOURCE='/etc /home /root /var/log /var/lib/couchdb'
+BUSOURCE='/etc /home /shared/zarac/git /shared/zarac/me /root /var/log /var/lib/couchdb'
 
 # Backup destination
 BUDEST='/backup/root-at-stan'
