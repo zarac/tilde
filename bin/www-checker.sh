@@ -13,13 +13,13 @@ wwwcheck () {
   local url=$1
   local dir=$2
   echo $date' - checking : '$url
-  status=`~/scripts/www-status.sh $url` 
+  status=`~/bin/www-status.sh $url` 
   if [[ $status == 200 ]]; then
     echo 'up'
   elif [[ $status == 502 ]]; then
     echo 'down - 502'
     tmux new-session -d -s nodes 'ping zarac.se' 2>/dev/null
-    tmux new-window -t nodes -n $url "~/scripts/npm-start.sh $dir"
+    tmux new-window -t nodes -n $url "~/bin/npm-start.sh $dir"
     #tmux rename-window $url
   else
     echo 'down'
