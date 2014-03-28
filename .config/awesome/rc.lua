@@ -246,6 +246,7 @@ os.execute('setxkbmap us')
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
+    awful.key({ modkey,           }, "F10",    function() os.execute('sh /home/zarac/slask/talk.sh') end ),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
