@@ -112,7 +112,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=~/.gem/ruby/1.9.1/bin:$PATH
-export PATH=~/.gem/ruby/2.0.0/bin:$PATH
-export PATH=~/.gem/ruby/2.1.0/bin:$PATH
 export PATH=~/bin:$PATH
+
+source ~/.zshrc-local
