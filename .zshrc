@@ -86,6 +86,9 @@ alias pma='pacman -Si'
 # paste bin
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
+# task warrior
+alias t=task
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
