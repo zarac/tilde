@@ -10,28 +10,37 @@ ZSH_THEME="jreese"
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="frisk"
 
+CASE_SENSITIVE="true"
+DISABLE_AUTO_UPDATE="true"
+DISABLE_LS_COLORS="true"
+COMPLETION_WAITING_DOTS="true"
+
+## plugins can be found in ~/.oh-my-zsh/plugins/*
+## Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+## Example: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+## vi ftw
 export EDITOR='vim'
+set -o vi
 
 ## Disable auto correct
 unsetopt correct_all
 
-## Function to aid getting info. about npm packages.
+## Function to aid getting info about npm packages.
 npmb() { w3m https://npmjs.org/package/$1; }
 
-# HKL : Aliases
-# ls
-alias l='ls --color=auto'
+alias l='ls -lAh --color=auto'
 alias la='ls -a --color=auto'
+alias lc='ls --color=auto'
 alias L='ls -lah --color=auto'
 alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 alias lal='ls -lAhL --color=auto'
-# http://www.commandlinefu.com/commands/view/11852/advanced-ls-using-find-to-show-much-more-detail-than-ls-ever-could
-alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
-alias LSR='find -mount -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
 
-# grep
 # windows grep doesn't have colors?
 if [ -x /usr/bin/dircolors ]; then
   alias cgrep='grep --color=auto'
@@ -40,16 +49,12 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-# find
 alias fr='find . -regex'
 
-# screen
-alias jao='screen -r jao'
-alias jaoo='screen -d -r jao'
-alias jaom='screen -S jao'
+# http://www.commandlinefu.com/commands/view/11852/advanced-ls-using-find-to-show-much-more-detail-than-ls-ever-could
+alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
+alias LSR='find -mount -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
 
-# git
-#alias gs='git status -s'
 alias gs='git remote -v; git branch -avv; echo \~; git status -s'
 alias gl='git log'
 alias glnr='git log --branches --not --remotes=origin'
@@ -66,16 +71,10 @@ alias gp='git push'
 alias gu='git pull'
 alias gpom='git push origin master'
 alias guom='git pull origin master'
-alias gb='git branch -v'
-alias gr='git remote -v'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gds='git stash show --patience' # might be a better way it does the job)
-alias mahmysql='mysql -h195.178.232.7 -uDA211T10C4062119 -p -DDA211T10C4062119'
-alias stan='sshfs stan.compmode.se: ~/stan -o idmap=user'
-alias stanoff='fusermount -u ~/stan'
+alias gds='git stash show --patience' # might be a better way it does the job
 
-# pacman
 alias pmq='pacman -Qs'
 alias pmqi='pacman -Qi'
 alias pmql='pacman -Ql'
@@ -89,30 +88,9 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # task warrior
 alias t=task
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+# remote fs mount
+alias stan='sshfs stan.compmode.se: ~/stan -o idmap=user'
+alias stanoff='fusermount -u ~/stan'
 
 # Customize to your needs...
 export PATH=~/bin:$PATH

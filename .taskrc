@@ -33,9 +33,13 @@ calendar.holidays=full
 journal.time=on
 
 report.z.description=Una reporta excellente
-report.z.columns=id,priority,depends,description,tags,due,urgency
-report.z.labels=ID,,dep,Description,Tags,Due,
-report.z.sort=due+,urgency-,description+
+report.z.columns=project,id,priority,depends,description,tags,due,urgency
+report.z.labels=Project,ID,,dep,Description,Tags,Due,
+report.z.sort=project+,due+,urgency-,description+
 report.z.filter=status:pending
 
 default.command=z
+
+alias.zp=rc.report.z.sort:priority z
+alias.zd=rc.report.z.sort:due z
+alias.zt=rc.report.z.sort:tags z

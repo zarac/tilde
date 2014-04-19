@@ -554,7 +554,7 @@
       "set tags+=~/MediaLab/Source/tags
   "endif
 
-"" Mappings (Key bindings)
+"" Mappings / Key bindings / Aliases
   " Change <Leader> (default is \).
   " let mapleader = ","
   "" Using , here since i don't use the default binding anyway (:h ,).
@@ -801,10 +801,11 @@
     " nmap <silent> ,io 
 
   "" easier home
-  nmap <silent> \h :cd ~<CR>
+  nmap <silent> <Leader>h :cd ~<CR>
 
-  "" easier opening of files at my mah-website
-  nmap <silent> ,em :e ftp://m10p2661@ftphome.mah.se/public_html/
+  "" notes stuff
+  nmap <silent> ,ns :sav ~/notes/
+  "nmap <silent> ,na ... move to notes/.archive/path/to/file
 
 "" Plugins
   "" removed while merging / started using git
