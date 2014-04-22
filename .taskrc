@@ -33,8 +33,8 @@ calendar.holidays=full
 journal.time=on
 
 report.z.description=Una reporta excellente
-report.z.columns=project,id,priority,depends,description,tags,due,urgency
-report.z.labels=Project,ID,,dep,Description,Tags,Due,
+report.z.columns=project,id,depends,description,tags,due,urgency,priority
+report.z.labels=Project,ID,dep,Description,Tags,Due,,
 report.z.sort=project+,due+,urgency-,description+
 report.z.filter=status:pending
 
