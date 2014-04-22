@@ -255,7 +255,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "e",   revelation       ),
 
     -- KHL switch keyboard layout
-    awful.key({ modkey, }, "Shift_L", (function()
+    awful.key({ modkey,           }, "Shift_R", (function()
       local export = { }
       local maps = { 'us', 'se' }
       local current = 1
