@@ -95,4 +95,5 @@ alias stanoff='fusermount -u ~/stan'
 # Customize to your needs...
 export PATH=~/bin:$PATH
 
-source ~/.zshrc-local
+# source local .zshrc file if there is one
+if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi
