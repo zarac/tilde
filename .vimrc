@@ -45,7 +45,7 @@
   Bundle 'hail2u/vim-css3-syntax'
   Bundle 'kablamo/VimDebug'
   Bundle 'mattn/webapi-vim'
-  Bundle 'mattn/zencoding-vim'
+  Bundle 'mattn/emmet-vim'
   Bundle 'msanders/snipmate.vim'
   Bundle 'musicx/conque'
   Bundle 'scrooloose/nerdcommenter'
