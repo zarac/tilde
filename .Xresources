@@ -169,7 +169,6 @@ xterm*jumpScroll:         true
 xterm*multiScroll:        true
 xterm*toolBar:            false
 
-
 !! HKL : Some urxvt settings
 !URxvt.font:             terminus:bold:pixelsize=16
 !urxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=11
@@ -186,7 +185,8 @@ xterm*toolBar:            false
 !URxvt*font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
 !URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11:antialias=true:hinting=true
 !urxvt*font: xft:DejaVu Sans Mono:size=8:antialas=true,xft:Kochi Gothic:size=8 :antialias=true:
-urxvt*font: xft:DejaVu Sans Mono:size=10:antialas=true,xft:Kochi Gothic:size=8 :antialias=true:
+!urxvt*font: xft:DejaVu Sans Mono:size=10:antialas=true,xft:Kochi Gothic:size=8 :antialias=true:
+urxvt*font: -*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*
 URxvt.scrollBar:        false
 URxvt.perl-ext-common:  default,matcher
 URxvt.urlLauncher:      chromium
@@ -201,3 +201,6 @@ URxvt.keysym.M-Delete:  perl:matcher:list
 
 ! dynamic-colors
 urxvt*dynamicColors: on
+
+! from .Xdefaults
+!urxvt*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12

@@ -8,7 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- KHL
-local revelation = require("revelation")
+--local revelation = require("revelation")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -252,7 +252,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     -- KHL bind revelation (kinda buggy, hmm TODO)
-    awful.key({ modkey,           }, "e",   revelation       ),
+    --awful.key({ modkey,           }, "e",   revelation       ),
 
     -- KHL switch keyboard layout
     awful.key({ modkey,           }, "Shift_R", (function()
@@ -480,6 +480,6 @@ end)
 
 print('ok yeah')
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+--client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+--client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
