@@ -1,0 +1,57 @@
+#!/bin/env sh
+
+# e.g. mediawiki en.wikipedia.org albert einstein
+
+HOST=${1}
+QUERY=${@:2}
+# TODO betterize parsing
+QUERY_PARSED=${QUERY// /%20}
+
+#echo "searching $HOST for $QUERY"
+
+# to get help on mediawiki API..
+
+## not using API
+## ${1} should be set to domain and path (including slash).. e.g. en.wikipedia.org/wiki/ or /index.php whatever
+URL="http://${1}${QUERY_PARSED}?action=raw"
+
+## using API
+## doc
+##   http://${1}/w/api.php?format=txt
+#URL="http://${1}/w/api.php?format=txt&query=${QUERY}&prop=info"
+#URL="http://${1}/w/api.php?format=txt&action=query&titles=${QUERY}&prop=info"
+#URL="http://${1}/w/api.php?format=txt&action=query&titles=${QUERY}&prop=revisions&rvprop=timestamp|user|comment|content"
+
+curl -v ${URL}
+
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=info\&format\=jsonfm
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=info\&format\=yaml
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=info\&format\=wddx
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=info\&format\=txt
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=info\&format\=json
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&prop\=content\&format\=json
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\\&format\=json
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\\&format\=txt
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=txt
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=all
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&rvprop\=content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&rvprop\=content\
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&rvprop\=content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&inprop\=url
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&inprop\=url
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&inprop\=url
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&inprop\=protection\|talkid
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&inprop\=content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=info\&rvprop\=content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=revisions\&rvprop\=content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=revisions\&rvprop\=content | less
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=revisions\&rvprop\=content > tmp/wp-albert.json
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=txt\&prop\=revisions\&rvprop\=content > tmp/wp-albert.txt
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=txt\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=txt\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content | less
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=txt\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content | more
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=dump\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content | less
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=json\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content | less
+#curl https://en.wikipedia.org/w/api.php\?action\=query\&titles\=Albert%20Einstein\&format\=php\&prop\=revisions\&rvprop\=timestamp\|user\|comment\|content | less

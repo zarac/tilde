@@ -1,0 +1,54 @@
+#!/bin/env sh
+
+# TODO figure out what's going on with new lines getting stripped..
+# -n and -e flags for echo do not seem to help
+
+COMMANDS=(
+  "date +%Y%m%d%H%M%S"
+  "uname -a"
+  "lsmod"
+  "pacman -Qm"
+  "pacman -Qe"
+  "lsblk -o NAME,LABEL,MOUNTPOINT,FSTYPE,SIZE"
+  "df -h"
+  "cat /etc/fstab"
+  "mount"
+  "cat /etc/passwd"
+  "cat /etc/group"
+  "grep -e '^[^#].*' /etc/locale.conf"
+  "awk '/^[^#].*/ { print $0 }' /etc/locale.conf"
+  "awk '/^[^#].*/ { print \$0 }' /etc/locale.conf"
+  "awk \'/^[^#].*/ { print \$0 }\' /etc/locale.conf"
+  "awk \\'/^[^#].*/ { print \\$0 }\\' /etc/locale.conf"
+  )
+
+for cmd in ${!COMMANDS[*]}
+do
+  cmd=${COMMANDS[$cmd]}
+
+  echo -e "\n\n # # $cmd"
+
+  out=$($cmd)
+  #out=`${cmd}`
+  echo -ne "${out}"
+
+  # echo -ne "\n\n ## catting"
+  # echo `$cmd`
+
+  # echo -ne "\n\n ## with \`"
+  # echo -ne `$cmd`
+
+  # echo -ne "\n\n # # \$(cmd)"
+  # echo -ne $($cmd)
+done
+
+echo -e "\n \n # # mkinitcpio.conf"
+awk '/^[^#].*/ { print $0 }' /etc/mkinitcpio.conf
+
+echo -e "\n \n # # locale (grep)"
+grep -e '^[^#].*' /etc/locale.conf
+
+echo -e "\n \n # # locale (awk)"
+awk '/^[^#].*/ { print $0 }' /etc/locale.conf
+
+find /etc/cron.* -type f | xargs -I '{}' sh -c 'echo -en "\n\n # #" {} "\n"; cat {}'
