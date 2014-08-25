@@ -71,7 +71,7 @@ local layouts = {
     awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier
 }
 -- }}}
@@ -93,6 +93,7 @@ for s = 1, screen.count() do
 end
 -- }}}
 
+-- shortcut to naughty
 local alert = function(title, text)
   naughty.notify({ preset = naughty.config.presets.critical,
                    title = title,
@@ -109,6 +110,7 @@ table.insert(awful.menu.menu_keys.enter, 'l')
 
 mymainmenu = awful.menu( { items = {
   { "alsamixer", terminal .. " -e alsamixer" },
+  { "pavucontrol", terminal .. " -e pavucontrol" },
   { "wifi-menu", terminal .. " -e su -c 'wifi-menu; ping zarac.se'" },
   { "themes", ( function() -- [KHL] inspired by http://awesome.naquadah.org/wiki/Beautiful
     local load = function(theme)
@@ -250,6 +252,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey, "Control" }, "t", function(c) awful.titlebar.toggle(c) end),
 
     -- KHL bind revelation (kinda buggy, hmm TODO)
     --awful.key({ modkey,           }, "e",   revelation       ),
@@ -268,17 +271,18 @@ globalkeys = awful.util.table.join(
         return nextMap
       end)() ),
 
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
+
     awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
+
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
@@ -299,7 +303,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
+    --awful.key({ modkey,           }, "a",     function () awful.layout.suit.max    end),
+    --awful.key({ modkey,           }, "s",     function () awful.layout.suit.max    end),
+    --awful.key({ modkey,           }, "d",     function () awful.layout.suit.max    end),
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
@@ -324,6 +330,8 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end)
 )
+
+-- awful.layout
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
@@ -404,8 +412,8 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
-    { rule = { class = "URxvt" },
-      properties = { opacity = 0.83 } },
+    --{ rule = { class = "URxvt" },
+      --properties = { opacity = 0.83 } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
@@ -480,6 +488,12 @@ end)
 
 print('ok yeah')
 
---client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
---client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c)
+  c.border_color = beautiful.border_focus
+  c.opacity = 0.9
+end)
+client.connect_signal("unfocus", function(c)
+  c.border_color = beautiful.border_normal
+  c.opacity = 0.3
+end)
 -- }}}

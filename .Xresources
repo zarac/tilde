@@ -197,10 +197,11 @@ URxvt.keysym.M-Delete:  perl:matcher:list
 !URxvt.keysym.M-u:    perl:url-select:select_next
 !URxvt.urlLauncher:   firefox
 !URxvt.underlineURLs: true
+URxvt.opacity:    0.4
 
 
 ! dynamic-colors
-urxvt*dynamicColors: on
+!urxvt*dynamicColors: on
 
 ! from .Xdefaults
 !urxvt*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12

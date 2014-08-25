@@ -412,7 +412,7 @@
   "" Searching
     set ignorecase
     set smartcase
-    set wrapscan
+    set nowrapscan
     set incsearch
     set hlsearch
     "" Temporarly turn off hlsearch (it gets turned on when sourcing .vimrc).
@@ -585,10 +585,10 @@
     "nmap <C-9> <C-W><
     "
     "" Switch window easier.
-    nmap <Esc><C-h> <C-w>h
-    nmap <Esc><C-j> <C-w>j
-    nmap <Esc><C-k> <C-w>k
-    nmap <Esc><C-l> <C-w>l
+    nmap <Esc>h <C-w>h
+    nmap <Esc>j <C-w>j
+    nmap <Esc>k <C-w>k
+    nmap <Esc>l <C-w>l
 
   """ Tabs <C-t>
     "" Rebind default, CTRL-T :tag
@@ -965,7 +965,7 @@
     " VS<div> " surround line
 
   "" NerdTree
-    nmap <silent> ,N :NERDTreeToggle<CR>
+    nmap <silent> <Esc>n :NERDTreeToggle<CR>
 
 "" Setup / autocommands
   filetype plugin indent on

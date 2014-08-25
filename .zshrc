@@ -33,13 +33,14 @@ unsetopt correct_all
 npmb() { w3m https://npmjs.org/package/$1; }
 
 alias l='ls -lAh --color=auto'
-alias la='ls -a --color=auto'
+alias la='ls -A --color=auto'
 alias lc='ls --color=auto'
 alias L='ls -lah --color=auto'
 alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 alias lal='ls -lAhL --color=auto'
+alias T='transmission-remote-cli'
 
 # windows grep doesn't have colors?
 if [ -x /usr/bin/dircolors ]; then
@@ -91,6 +92,9 @@ alias t=task
 # remote fs mount
 alias stan='sshfs stan.compmode.se: ~/stan -o idmap=user'
 alias stanoff='fusermount -u ~/stan'
+
+alias sc='systemctl'
+alias jc='journalctl'
 
 # Customize to your needs...
 export PATH=~/bin:$PATH
