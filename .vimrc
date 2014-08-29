@@ -768,6 +768,7 @@
     nmap <silent> ,.tl <C-W>v<C-]>
 
   "" Fuzzy Finder
+    nmap ,e :set nopaste<CR>:FufFileWithCurrentBufferDir<CR>
     nmap ,fn :set nopaste<CR>:FufBuffer<CR>
     nmap ,f' :set nopaste<CR>:FufBookmarkFile<CR>
     nmap ,f" :set nopaste<CR>:FufBookmarkDir<CR>
