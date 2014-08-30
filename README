@@ -6,9 +6,7 @@ I do 'git config --global core.excludesfile=~/_gitignore' to not get conflicting
 # Install example
 git clone http://github.com/zarac/tilde.git ~/tilde
 cd ~
-ln -s tilde/* ./
-ln -s tilde/.* ./
+ln -s tilde/* .
+ln -s tilde/.* .
 rm .git
-
-# If you want Oh My Zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+rm .gitmodules
