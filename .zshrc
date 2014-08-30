@@ -32,14 +32,14 @@ unsetopt correct_all
 ## Function to aid getting info about npm packages.
 npmb() { w3m https://npmjs.org/package/$1; }
 
-alias l='ls -lAh --color=auto'
+alias l='ls --color=auto'
 alias la='ls -A --color=auto'
 alias lc='ls --color=auto'
 alias L='ls -lah --color=auto'
 alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
-alias lal='ls -lAhL --color=auto'
+alias lal='ls -lAh --color=auto'
 alias T='transmission-remote-cli'
 
 # windows grep doesn't have colors?
