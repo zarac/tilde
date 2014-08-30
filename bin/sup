@@ -2,4 +2,4 @@
 # when starting a session
 
 pushd ~/.task; git pull origin master; popd
-pushd ~/notes; git pull origin master; popd
+#pushd ~/notes; git pull origin master; popd
