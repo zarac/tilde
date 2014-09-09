@@ -73,8 +73,8 @@
 !!! xterm ----------------------------------------------------------------------
 !!! https://wiki.archlinux.org/index.php/Xresources
 
-*background: #000000
-*foreground: #d0d0d0
+urxvt*background: #000000
+urxvt*foreground: #d0d0d0
 
 
 !!!Source http://github.com/altercation/solarized

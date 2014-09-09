@@ -93,8 +93,13 @@ alias t=task
 alias stan='sshfs stan.compmode.se: ~/stan -o idmap=user'
 alias stanoff='fusermount -u ~/stan'
 
+# systemd
 alias sc='systemctl'
 alias jc='journalctl'
+
+# ffmpeg
+alias ffrecord='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0 -q:v'
+alias ffrecorda='ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s 1366x768 -i :0.0 -q:v'
 
 # Customize to your needs...
 export PATH=~/bin:$PATH

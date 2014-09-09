@@ -28,18 +28,22 @@ data.location=~/.task
 include /usr/share/doc/task/rc/holidays.sv-SE.rc
 
 calendar.details=full
-calendar.holidays=full
+calendar.holidays=sparse
 
 journal.time=on
 
+## Reports
 report.z.description=Una reporta excellente
 report.z.columns=project,id,depends,description,tags,due,urgency,priority
 report.z.labels=Project,ID,dep,Description,Tags,Due,,
-report.z.sort=project+,due+,urgency-,description+
+report.z.sort=project-,urgency+,description-
+#report.z.sort=project+,due+,urgency-,description+
 report.z.filter=status:pending
 
 default.command=z
 
+## Aliases
+alias.calhol=rc.calendar.holidays:full calendar
 alias.zp=rc.report.z.sort:priority z
 alias.zd=rc.report.z.sort:due z
 alias.zt=rc.report.z.sort:tags z

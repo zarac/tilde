@@ -52,6 +52,7 @@
   Bundle 'scrooloose/nerdtree'
   Bundle 'sjl/gundo.vim'
   Bundle 'sukima/xmledit'
+  Bundle 'taglist-plus'
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-pastie'
   Bundle 'tpope/vim-repeat'
@@ -766,6 +767,7 @@
     nmap <silent> ,.th <C-W>v<C-W>h<C-]>
     " Split right
     nmap <silent> ,.tl <C-W>v<C-]>
+    nmap <silent> <Esc>t :Tlist<CR>
 
   "" Fuzzy Finder
     nmap ,e :set nopaste<CR>:FufFileWithCurrentBufferDir<CR>
