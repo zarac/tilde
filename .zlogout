@@ -1,1 +1,1 @@
-source ~/.zlogout-local
+if [ -f ~/.zlogout-local ]; then source ~/.zlogout-local; fi
