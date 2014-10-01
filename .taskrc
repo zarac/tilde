@@ -10,6 +10,9 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
+# Date format with hours, minutes, seconds
+dateformat=Y-M-D H:N
+
 # Files
 data.location=~/.task
 
