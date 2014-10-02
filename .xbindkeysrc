@@ -74,6 +74,9 @@
 "urxvt -e ncmpcpp"
   Mod4 + F1
 
+"urxvt -e ncmpcpp -h zarac.se"
+  Mod4 + Shift+ F1
+
 "urxvt -e transmission-remote-cli -c localhost"
   Mod4 + F2
 
