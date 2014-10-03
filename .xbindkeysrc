@@ -83,6 +83,12 @@
 "urxvt -e transmission-remote-cli -c zarac.se"
   Mod4 + Shift + F2
 
+"virtualbox --startvm reykjavik"
+  Mod4 + F5
+
+"virtualbox --startvm winbl0wz"
+  Mod4 + F6
+
 "dmenu_run"
   Mod4 + r
 

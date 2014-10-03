@@ -199,6 +199,10 @@ URxvt.keysym.M-Delete:  perl:matcher:list
 !URxvt.underlineURLs: true
 URxvt.opacity:    0.4
 
+! http://www.cyberciti.biz/faq/linux-unix-colored-man-pages-with-less-command/
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
 
 ! dynamic-colors
 !urxvt*dynamicColors: on
