@@ -40,7 +40,8 @@ alias lar='ls -lahR --color=auto' # all recursively
 alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 alias lal='ls -lAh --color=auto'
-alias T='transmission-remote-cli'
+alias T='transmission-remote'
+alias Tc='transmission-remote-cli'
 
 # windows grep doesn't have colors?
 if [ -x /usr/bin/dircolors ]; then
