@@ -244,7 +244,7 @@
   autocmd!
 
   "" TODO : fuzzy-finder cache needs updating on BufNew
-  au BufNewFile * echomsg "BufNewFile !!! : )"
+  au BufNewFile * FufRenewCache
 
   au FileType java set foldmethod=syntax
 
