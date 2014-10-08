@@ -46,6 +46,7 @@ report.z.filter=status:pending
 default.command=z
 
 ## Aliases
+alias.burndown = burndown.daily
 alias.calhol=rc.calendar.holidays:full calendar
 alias.zp=rc.report.z.sort:priority z
 alias.zd=rc.report.z.sort:due z
