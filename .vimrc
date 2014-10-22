@@ -38,6 +38,7 @@
   Bundle 'ap/vim-css-color'
   Bundle 'chrisbra/Recover.vim'
   Bundle 'colorv.vim'
+  Bundle 'dbext.vim'
   Bundle 'drmingdrmer/xptemplate-dist'
   Bundle 'gmarik/vundle'
   Bundle 'gregsexton/VimCalc'
@@ -567,23 +568,11 @@
   """ Windows
     " resize horizontal splits
     nmap + <C-w>+
-    "nmap <M-+> <C-W>>
     nmap - <C-w>-
-    "nmap <C-J> <C-W>+
-    "nmap <C-K> <C-W>-
-    "nmap <M--> <C-W><
-    "nmap <A-=> <C-W>-
-    "nmap <A-=> <C-W>-
 
     " resize vertical splits
-    " ToDo: Why doesn't this work!?
-    " 260-261 http://github.com/mitechie/pyvim/blob/master/.vimrc
-    nmap <M-,> <C-W>>
-    nmap <M-.> <C-W><
-    "nmap ,, <C-W>>
-    "nmap ,. <C-W><
-    "nmap <C-0> <C-W>>
-    "nmap <C-9> <C-W><
+    nmap <Esc>, <C-W><
+    nmap <Esc>. <C-W>>
     "
     "" Switch window easier.
     nmap <Esc>h <C-w>h
@@ -968,6 +957,7 @@
     " VS<div> " surround line
 
   "" NerdTree
+    let NERDTreeShowHidden=1
     nmap <silent> <Esc>n :NERDTreeToggle<CR>
 
 "" Setup / autocommands
