@@ -41,7 +41,9 @@ alias lat='ls -lAhtr --color=auto' # all list by time
 alias ll='ls -lh --color=auto'
 alias lal='ls -lAh --color=auto'
 alias T='transmission-remote'
-alias Tc='transmission-remote-cli'
+alias Tc='transmission-remote-cli -c localhost'
+alias zT='transmission-remote zarac.se'
+alias zTc='transmission-remote-cli -c zarac.se'
 
 # windows grep doesn't have colors?
 if [ -x /usr/bin/dircolors ]; then
