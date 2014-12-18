@@ -86,6 +86,9 @@ alias pmqo='pacman -Qo'
 alias pms='pacman -Ss'
 alias pma='pacman -Si'
 
+# process info
+alias pl='ps auxf | less'
+
 # paste bin
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
