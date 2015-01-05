@@ -107,6 +107,10 @@ alias jc='journalctl'
 alias ffrecord='ffmpeg -f x11grab -r 30 -s 1366x768 -i :0.0 -q:v'
 alias ffrecorda='ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s 1366x768 -i :0.0 -q:v'
 
+# pip mytube download (and status)
+alias pmd='curl mytube.zarac.se -XPOST --data'
+alias pmds='curl mytube.zarac.se/status'
+
 # Customize to your needs...
 export PATH=~/bin:$PATH
 
