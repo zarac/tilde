@@ -1,5 +1,5 @@
 #!/bin/env sh
 # when done with a session
 
-pushd ~/.task; git add -u; git commit -m "cya / $HOST"; git push origin master; popd
-pushd ~/notes; git add .; git commit -m "cya / $HOST"; git push origin master; popd
+pushd ~/.task; git add -u; git commit -m "cya / `hostname`"; git push origin master; popd
+pushd ~/notes; git add .; git commit -m "cya / `hostname`"; git push origin master; popd
