@@ -29,6 +29,9 @@ set -o vi
 ## Disable auto correct
 unsetopt correct_all
 
+## Simple alarm
+alarm() { sleep $1; mpv /srv/sound/bird-sounds/birds002.wav }
+
 ## Function to aid getting info about npm packages.
 npmb() { w3m https://npmjs.org/package/$1; }
 
