@@ -86,11 +86,14 @@
 "virtualbox --startvm reykjavik"
   Mod4 + F5
 
+"virtualbox --startvm win7"
+  Mod4 + F6
+
+"urxvt -e bwm-ng"
+  Mod4 + F11
+
 "urxvt -e htop"
   Mod4 + F12
-
-"virtualbox --startvm winbl0wz"
-  Mod4 + F6
 
 "dmenu_run"
   Mod4 + r
