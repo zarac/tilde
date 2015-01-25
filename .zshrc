@@ -111,6 +111,9 @@ alias ffrecorda='ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s 1366x768 -i 
 alias pmd='curl mytube.zarac.se -XPOST --data'
 alias pmds='curl mytube.zarac.se/status'
 
+# screen
+alias Sa='screen -rd'
+
 # Customize to your needs...
 export PATH=~/bin:$PATH
 
