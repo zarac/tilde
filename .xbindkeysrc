@@ -71,11 +71,11 @@
 "urxvt -sl 10000"
   Mod4 + Return
 
-"urxvt -e ncmpcpp"
+"urxvt -e ncmpcpp -h localhost"
   Mod4 + F1
 
 "urxvt -e ncmpcpp -h zarac.se"
-  Mod4 + Shift+ F1
+  Mod4 + Shift + F1
 
 "urxvt -e transmission-remote-cli -c localhost"
   Mod4 + F2
@@ -85,6 +85,9 @@
 
 "virtualbox --startvm reykjavik"
   Mod4 + F5
+
+"urxvt -e htop"
+  Mod4 + F12
 
 "virtualbox --startvm winbl0wz"
   Mod4 + F6
