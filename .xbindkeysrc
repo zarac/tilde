@@ -77,6 +77,21 @@
 "urxvt -e ncmpcpp -h zarac.se"
   Mod4 + Shift + F1
 
+# thanks https://bbs.archlinux.org/viewtopic.php?id=63516
+#"urxvt -hold -e mpc status"
+#"urxvt -e bash -c 'mpc status && zsh'"
+"urxvt -sl 10000 -e bash -c 'mpc playlist;echo '';mpc status && zsh'"
+  XF86AudioStop
+
+"mpc toggle"
+  XF86AudioPlay
+
+"mpc next"
+  XF86AudioNext
+
+"mpc prev"
+  XF86AudioPrev
+
 "urxvt -e transmission-remote-cli -c localhost"
   Mod4 + F2
 
@@ -110,10 +125,10 @@
 "setxkbmap se"
   Mod4 + s
 
-"pamixer --allow-boost --increase 5; aplay /srv/sound/drum/histicks.wav"
+"pamixer --increase 5; aplay /srv/sound/drum/histicks.wav"
   XF86AudioRaiseVolume
 
-"pamixer --allow-boost --decrease 5; aplay /srv/sound/drum/histicks.wav"
+"pamixer --decrease 5; aplay /srv/sound/drum/histicks.wav"
   XF86AudioLowerVolume
 
 "pamixer --toggle-mute; aplay /srv/sound/drum/histicks.wav"
